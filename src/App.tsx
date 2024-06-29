@@ -1,11 +1,14 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+// src/App.tsx
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import KakaoLogin from './components/KakaoLogin';
+import KakaoRedirectHandler from './pages/KakaoRedirectHandler';
+import React from 'react';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<KakaoLogin />} />
+      <Route path="/oauth" element={<KakaoRedirectHandler />} />
     </Routes>
   );
 };
