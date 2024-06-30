@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import KakaoLogin from './components/KakaoLogin';
+import Onboarding from './pages/Onboarding/OnBoarding';
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<KakaoLogin />} />
+      <Route path="/" element={<Onboarding />} />
     </Routes>
   );
 };
