@@ -1,9 +1,8 @@
-// GlobalStyle.ts
 import { createGlobalStyle } from 'styled-components';
 
 // 글로벌 스타일 정의
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Huballi&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Huballi&display=swap'); // 폰트 스타일(피그마 설정)
 
   body {
     margin: 0;
