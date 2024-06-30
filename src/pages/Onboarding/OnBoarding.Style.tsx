@@ -17,14 +17,14 @@ export const OnboardingContainer = styled.div`
 
 // 로고 이미지
 export const Logo = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 72px;
   margin-bottom: 20px;
 `;
 
 // 타이틀
 export const Title = styled.h1`
-  font-family: 'Huballi', sans-serif;
-  font-size: 2rem;
+  font-size: 2rem; // 크기를 줄임
+  font-weight: 300; // 폰트 굵기를 줄임
   margin: 0;
+  letter-spacing: 1px; // 글자 간격을 약간 늘림
 `;
