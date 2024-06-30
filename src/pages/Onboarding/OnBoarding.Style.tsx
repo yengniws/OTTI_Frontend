@@ -6,9 +6,13 @@ export const OnboardingContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 375px; // 최대 너비 설정
   height: 100vh;
+  margin: 0 auto;
   background-color: #333;
   color: #fff;
+  box-sizing: border-box;
 `;
 
 // 로고 이미지
