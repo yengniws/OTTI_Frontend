@@ -3,23 +3,27 @@ import styled from 'styled-components';
 export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 375px;
   height: 100vh;
-  background-color: #1c1c1e;
+  background-color: #222;
   color: #fff;
   box-sizing: border-box;
 `;
 
 export const WelcomeText = styled.h1`
   font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 40px;
+  font-weight: 300;
+  margin-bottom: 8rem; // Add some margin to separate the text from the button
+  margin-top: 8rem;
 `;
 
 export const LoginButtonContainer = styled.div`
   width: 80%;
   max-width: 300px;
+  display: flex;
+  justify-content: center; // Center the button horizontally
+  align-items: center; // Center the button vertically
 `;
