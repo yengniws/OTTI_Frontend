@@ -13,7 +13,7 @@ const RedirectHandler: React.FC = () => {
 
     if (code) {
       axios
-        .post('/api/auth/kakao', { code }) // 인가 코드를 본문에 담아 전송, 엔드 포인트 수정 필요
+        .post('/login/kakaologin', { code }) // 인가 코드를 본문에 담아 전송, 엔드 포인트 수정 필요
         .then((response) => {
           const data = response.data;
           console.log(data);
