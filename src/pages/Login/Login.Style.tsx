@@ -16,7 +16,7 @@ export const LoginContainer = styled.div`
 export const WelcomeText = styled.h1`
   font-size: 2rem;
   font-weight: 300;
-  margin-bottom: 8rem; 
+  margin-bottom: 9rem;
   margin-top: 8rem;
 `;
 
@@ -24,6 +24,6 @@ export const LoginButtonContainer = styled.div`
   width: 80%;
   max-width: 300px;
   display: flex;
-  justify-content: center; // Center the button horizontally
-  align-items: center; // Center the button vertically
+  justify-content: center; // Center horizontally
+  align-items: center; // Center vertically
 `;
