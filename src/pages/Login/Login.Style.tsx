@@ -16,7 +16,7 @@ export const LoginContainer = styled.div`
 export const WelcomeText = styled.h1`
   font-size: 2rem;
   font-weight: 300;
-  margin-bottom: 8rem; // Add some margin to separate the text from the button
+  margin-bottom: 8rem; 
   margin-top: 8rem;
 `;
 
