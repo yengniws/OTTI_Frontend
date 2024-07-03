@@ -21,3 +21,7 @@ export const Header = styled.header`
   font-weight: 600;
   font-size: 24px;
 `;
+
+export const PageContainer = styled.div`
+  padding: 16px;
+`;
