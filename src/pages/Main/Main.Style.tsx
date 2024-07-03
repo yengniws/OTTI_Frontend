@@ -8,6 +8,7 @@ export const MainContainer = styled.div`
   height: 100vh;
   box-sizing: border-box;
   margin-top: 10px;
+  position: relative; //하단네브바 고정용 스타일
 `;
 
 export const Header = styled.header`
@@ -20,4 +21,11 @@ export const Header = styled.header`
   margin-bottom: 16px;
   font-weight: 600;
   font-size: 24px;
+`;
+
+export const BottomNavBarWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 375px;
 `;
