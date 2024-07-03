@@ -12,7 +12,7 @@ const BottomNavBar: React.FC = () => {
         <S.BottomItem>
           <S.NavLink to="/home">
             <S.BottomIcon>
-              <IoHomeOutline size={35} />
+              <IoHomeOutline size={33} />
             </S.BottomIcon>
             <S.BottomTxt>홈</S.BottomTxt>
           </S.NavLink>
@@ -20,7 +20,7 @@ const BottomNavBar: React.FC = () => {
         <S.BottomItem>
           <S.NavLink to="/community">
             <S.BottomIcon>
-              <AiOutlineMessage size={35} />
+              <AiOutlineMessage size={33} />
             </S.BottomIcon>
             <S.BottomTxt>커뮤니티</S.BottomTxt>
           </S.NavLink>
@@ -28,7 +28,7 @@ const BottomNavBar: React.FC = () => {
         <S.BottomItem>
           <S.NavLink to="/pot">
             <S.BottomIcon>
-              <PiPottedPlant size={35} />
+              <PiPottedPlant size={33} />
             </S.BottomIcon>
             <S.BottomTxt>내 팟</S.BottomTxt>
           </S.NavLink>
@@ -36,7 +36,7 @@ const BottomNavBar: React.FC = () => {
         <S.BottomItem>
           <S.NavLink to="/profile">
             <S.BottomIcon>
-              <GoPerson size={35} />
+              <GoPerson size={33} />
             </S.BottomIcon>
             <S.BottomTxt>프로필</S.BottomTxt>
           </S.NavLink>

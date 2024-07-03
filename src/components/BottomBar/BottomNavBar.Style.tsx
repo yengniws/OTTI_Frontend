@@ -34,4 +34,5 @@ export const BottomIcon = styled.div`
 export const BottomTxt = styled.div`
   display: flex;
   justify-content: center;
+  font-size: 12px;
 `;
