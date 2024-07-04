@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
   width: 100%;
   max-width: 375px;
   height: 100vh;
+  padding: 0 20px;
   box-sizing: border-box;
   margin-top: 10px;
 `;
@@ -14,14 +15,13 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 16px 16px 10px 16px;
   background-color: #fff;
-  border-radius: 8px;
   margin-bottom: 16px;
   font-weight: 600;
   font-size: 24px;
 `;
 
 export const PageContainer = styled.div`
-  padding: 16px;
+  padding: 0 16px;
 `;

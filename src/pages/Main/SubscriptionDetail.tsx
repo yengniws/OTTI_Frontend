@@ -12,9 +12,9 @@ const SubscriptionDetail: React.FC = () => {
 
   return (
     <T.MainContainer>
-      <T.Header>
+      <S.TitleWrapper>
         <TopBar title="이번 달 총 구독료" />
-      </T.Header>
+      </S.TitleWrapper>
       <T.PageContainer>
         <TotalSubscriptionFee totalAmount={totalAmount} />
         <S.DetailContainer>

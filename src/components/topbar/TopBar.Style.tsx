@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TopBarContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 0px 0px 0px;
 `;
 
 export const BackButton = styled.button`
@@ -11,7 +11,7 @@ export const BackButton = styled.button`
   border: none;
   font-size: 24px;
   cursor: pointer;
-  margin-right: 10px;
+  padding-right: 8px;
 `;
 
 export const Title = styled.h1`
