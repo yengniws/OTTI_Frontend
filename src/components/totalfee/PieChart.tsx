@@ -19,6 +19,24 @@ const PieChart: React.FC = () => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 12,
+          padding: 12,
+          font: {
+            size: 12,
+          },
+        },
+      },
+    },
+    layout: {
+      padding: {
+        top: 10,
+        bottom: 10,
+      },
+    },
   };
 
   return (
