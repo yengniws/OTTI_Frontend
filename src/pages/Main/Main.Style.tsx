@@ -1,6 +1,8 @@
+// Main.Style.tsx
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,6 +10,7 @@ export const MainContainer = styled.div`
   height: 100vh;
   box-sizing: border-box;
   margin-top: 10px;
+  overflow: hidden;
 `;
 
 export const Header = styled.header`
@@ -20,4 +23,21 @@ export const Header = styled.header`
   margin-bottom: 16px;
   font-weight: 600;
   font-size: 24px;
+`;
+
+export const Logo = styled.h1`
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+export const Balance = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+`;
+
+export const ContentWrapper = styled.div`
+  flex: 1;
+  overflow-y: auto;
 `;
