@@ -1,24 +1,23 @@
 {
-  "subscriptions": [
-    {
-      "id": "1",
-      "imgURL": "https://play-lh.googleusercontent.com/5wVn4qP4EIQV4BU2nzx2oDGeyDFU3Id2zlchCDNpqEGzyZssojerAql5ybq5RS59Ve0y",
-      "ottName": "디즈니+",
-      "customName": "디플",
-      "plan": "스탠다드",
-      "paymentAmount": "30000",
-      "paymentDate": "매월 27일",
-      "memo": "공짜지롱이"
-    },
-    {
-      "id": "2",
-      "imgURL": "https://play-lh.googleusercontent.com/b0eSS0LrM52IqHtp1xOkaW--Js1xDLmE3cejCOY3iQNTMIMSUZ6wGhW0izQfpM9m3bNu=w240-h480-rw",
-      "ottName": "쿠팡플레이",
-      "customName": "누누눙",
-      "plan": "스탠다드",
-      "paymentAmount": 9900,
-      "paymentDate": 10,
-      "memo": "가족들과 함께 보는 서비스"
-    }
-  ]
+    "subscriptions": [{
+            "id": "1",
+            "imgURL": "https://play-lh.googleusercontent.com/7cuI7bdCeZbmc9anRXqpmxZPH92t5NEEbhTnj5by6skhZK_dlUg9kx--gqtLf-8c2K12",
+            "ottName": "웨이브",
+            "customName": "웨이브으으으으",
+            "plan": "베이직",
+            "paymentAmount": "25000",
+            "paymentDate": "매월 23일",
+            "memo": "부에에"
+        },
+        {
+            "id": "2",
+            "imgURL": "https://play-lh.googleusercontent.com/b0eSS0LrM52IqHtp1xOkaW--Js1xDLmE3cejCOY3iQNTMIMSUZ6wGhW0izQfpM9m3bNu=w240-h480-rw",
+            "ottName": "쿠팡플레이",
+            "customName": "누누눙",
+            "plan": "스탠다드",
+            "paymentAmount": 9900,
+            "paymentDate": 10,
+            "memo": "가족들과 함께 보는 서비스"
+        }
+    ]
 }
