@@ -1,3 +1,5 @@
+//추후 프로필 수정 버튼 외의 다른 이동 경로 모두 수정 필요
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './MyPage.Style';
