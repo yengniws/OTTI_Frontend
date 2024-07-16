@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import * as S from './EditMyPage.Style';
+import * as S from './EditProfile.Style';
 
 const Main = () => {
   return (
