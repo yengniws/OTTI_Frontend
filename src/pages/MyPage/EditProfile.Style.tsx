@@ -1,23 +1,97 @@
 import styled from 'styled-components';
 
-export const MainContainer = styled.div`
+export const EditProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 375px;
-  height: 100vh;
+  margin: 0 auto;
   box-sizing: border-box;
-  margin-top: 10px;
+  padding: 20px;
 `;
 
-export const Header = styled.header`
+export const ProfilePictureSection = styled.div`
+  position: relative;
+  margin-bottom: 50px;
+`;
+
+export const ProfilePicture = styled.img`
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+`;
+
+export const EditIcon = styled.label`
+  position: absolute;
+  bottom: -3px;
+  right: -2px;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+`;
+
+export const FileInput = styled.input`
+  display: none;
+`;
+
+export const ProfileInput = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  background-color: #fff;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  font-weight: 600;
-  font-size: 24px;
+  width: 85%;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+`;
+
+export const InputLabel = styled.label`
+  font-size: 15px;
+  flex: 1;
+`;
+
+export const Input = styled.input`
+  flex: 2;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  text-align: right;
+  background-color: transparent;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const Menu = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin-top: 20px;
+`;
+
+export const MenuItem = styled.div`
+  font-size: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '>';
+    position: absolute;
+    right: 10px;
+  }
+`;
+
+export const SaveButton = styled.button`
+  width: 85%;
+  padding: 15px;
+  margin-top: 50%;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
 `;
