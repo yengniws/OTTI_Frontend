@@ -12,9 +12,11 @@ interface UserProfile {
   nickname: string;
 }
 
+const defaultProfilePicture = 'https://i.ibb.co/xLv21hj/app-logo.png';
+
 const EditProfile: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
-    profilePicture: '',
+    profilePicture: defaultProfilePicture,
     userId: '',
     nickname: '',
   });
@@ -25,7 +27,12 @@ const EditProfile: React.FC = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get('http://localhost:3001/profile');
-        setProfile(response.data);
+        const fetchedProfile = response.data;
+        // Check if profilePicture is empty, set to defaultProfilePicture if necessary
+        if (!fetchedProfile.profilePicture) {
+          fetchedProfile.profilePicture = defaultProfilePicture;
+        }
+        setProfile(fetchedProfile);
       } catch (error) {
         console.error('프로필 불러오는 중 오류 발생:', error);
       }
@@ -43,10 +50,12 @@ const EditProfile: React.FC = () => {
     if (e.target.files && e.target.files[0]) {
       const reader = new FileReader();
       reader.onload = () => {
-        setProfile((prevProfile) => ({
-          ...prevProfile,
-          profilePicture: reader.result as string,
-        }));
+        if (reader.result) {
+          setProfile((prevProfile) => ({
+            ...prevProfile,
+            profilePicture: reader.result as string,
+          }));
+        }
       };
       reader.readAsDataURL(e.target.files[0]);
     }
@@ -98,14 +107,6 @@ const EditProfile: React.FC = () => {
         />
       </S.ProfileInput>
 
-      <S.Menu>
-        <S.MenuItem onClick={() => console.log('로그아웃')}>
-          로그아웃
-        </S.MenuItem>
-        <S.MenuItem onClick={() => console.log('계정 탈퇴')}>
-          계정 탈퇴
-        </S.MenuItem>
-      </S.Menu>
       <S.SaveButton onClick={handleSave}>저장하기</S.SaveButton>
     </S.EditProfileContainer>
   );

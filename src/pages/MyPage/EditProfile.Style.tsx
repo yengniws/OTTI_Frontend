@@ -87,7 +87,7 @@ export const MenuItem = styled.div`
 export const SaveButton = styled.button`
   width: 85%;
   padding: 15px;
-  margin-top: 50%;
+  margin-top: 30%;
   background-color: #000;
   color: #fff;
   border: none;

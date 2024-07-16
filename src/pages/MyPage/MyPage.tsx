@@ -1,5 +1,3 @@
-//추후 프로필 수정 버튼 외의 다른 이동 경로 모두 수정 필요
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './MyPage.Style';
@@ -21,7 +19,11 @@ const Mypage: React.FC = () => {
       try {
         const response = await fetch('http://localhost:3001/profile');
         const data = await response.json();
-        setProfile(data);
+        setProfile({
+          profilePicture:
+            data.profilePicture || 'https://i.ibb.co/xLv21hj/app-logo.png',
+          nickname: data.nickname,
+        });
       } catch (error) {
         console.error('프로필 불러오는 중 오류 발생:', error);
       }
@@ -56,6 +58,16 @@ const Mypage: React.FC = () => {
         <S.MenuItem onClick={() => navigateTo('/main')}>고객 센터</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
       </S.Menu>
+      <S.MenuUserLog>
+        <S.MenuItemUserLog>
+          {/* <Logout /> */}
+          로그아웃
+        </S.MenuItemUserLog>
+        <S.MenuItemUserLog>
+          {/* <DeleteAccount /> */}
+          탈퇴하기
+        </S.MenuItemUserLog>
+      </S.MenuUserLog>
     </S.MypageContainer>
   );
 };
