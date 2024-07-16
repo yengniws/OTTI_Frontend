@@ -64,7 +64,10 @@ const SubscriptionDetail: React.FC = () => {
 
   const handleSave = () => {
     axios
-      .put(`http://localhost:3000/subscriptions/${id}`, formData)
+      .put(`http://localhost:3000/subscriptions/${id}`, {
+        ...formData,
+        paymentDate: formData.paymentDate,
+      })
       .then((response) => {
         setSubscription(response.data);
         setEditing(false);
@@ -81,7 +84,7 @@ const SubscriptionDetail: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
+      [name]: name === 'paymentDate' ? parseInt(value) : value,
     }));
 
     if (name === 'ottName') {
@@ -173,21 +176,21 @@ const SubscriptionDetail: React.FC = () => {
           <S.Divider />
 
           <S.Section>
-            <S.Label>결제일</S.Label>
+            <S.Label>정기결제일</S.Label>
             {editing ? (
               <S.Select
                 name="paymentDate"
-                value={formData.paymentDate}
+                value={formData.paymentDate.toString()}
                 onChange={handleChange}
               >
                 {dateOptions.map((date) => (
                   <option key={date} value={date}>
-                    {date}
+                    {`${date}일`}
                   </option>
                 ))}
               </S.Select>
             ) : (
-              <S.Text>{subscription.paymentDate}</S.Text>
+              <S.Text>{`매월 ${subscription.paymentDate}일`}</S.Text>
             )}
           </S.Section>
           <S.Divider />

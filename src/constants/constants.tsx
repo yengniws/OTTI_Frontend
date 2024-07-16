@@ -40,7 +40,4 @@ export const ottOptions = [
   },
 ];
 
-export const dateOptions = Array.from(
-  { length: 31 },
-  (_, i) => `매월 ${i + 1}일`,
-);
+export const dateOptions = Array.from({ length: 31 }, (_, i) => `${i + 1}`);
