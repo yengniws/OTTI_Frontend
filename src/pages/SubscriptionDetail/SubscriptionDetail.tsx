@@ -37,7 +37,7 @@ const SubscriptionDetail: React.FC = () => {
     const fetchSubscription = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/subscriptions/${id}`, //백엔드 경로 수정 필요
+          `http://localhost:3000/subscriptions/${id}`,
         );
         setSubscription(response.data);
         setFormData(response.data);
@@ -50,12 +50,12 @@ const SubscriptionDetail: React.FC = () => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:3000/subscriptions/${id}`) //백엔드 경로 수정 필요
+      .delete(`http://localhost:3000/subscriptions/${id}`)
       .then(() => {
         toast.success('삭제되었어요!');
         setTimeout(() => {
           navigate('/main');
-        }, 2000); // 2초 후에 메인 화면으로 이동
+        }, 2000);
       })
       .catch((error) =>
         console.error('구독 정보를 삭제하는 중 오류 발생:', error),
@@ -64,7 +64,7 @@ const SubscriptionDetail: React.FC = () => {
 
   const handleSave = () => {
     axios
-      .put(`http://localhost:3000/subscriptions/${id}`, formData) //백엔드 경로 수정 필요
+      .put(`http://localhost:3000/subscriptions/${id}`, formData)
       .then((response) => {
         setSubscription(response.data);
         setEditing(false);
@@ -78,109 +78,138 @@ const SubscriptionDetail: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+
+    if (name === 'ottName') {
+      handleOttNameChange(value);
+    }
   };
 
   const handleOttNameChange = (ottName: string) => {
     const ott = ottOptions.find((option) => option.name === ottName);
     if (ott) {
-      const imgURL = ott.imgURL;
-      setFormData({
-        ...formData,
-        ottName: ottName,
-        imgURL: imgURL,
-      });
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        imgURL: ott.imgURL,
+      }));
     }
   };
-
-  useEffect(() => {
-    if (formData.ottName) {
-      handleOttNameChange(formData.ottName);
-    }
-  }, [formData.ottName]);
 
   return (
     <S.Container>
       {subscription && (
         <>
-          <S.Image src={subscription.imgURL} alt={subscription.ottName} />
+          <S.Header>
+            <S.Image src={formData.imgURL} alt={formData.ottName} />
+            {editing ? (
+              <S.SelectOttName
+                name="ottName"
+                value={formData.ottName}
+                onChange={handleChange}
+              >
+                {ottOptions.map((option) => (
+                  <option key={option.name} value={option.name}>
+                    {option.name}
+                  </option>
+                ))}
+              </S.SelectOttName>
+            ) : (
+              <S.OttName>{subscription.ottName}</S.OttName>
+            )}
+          </S.Header>
 
-          <S.Text>{subscription.ottName}</S.Text>
+          <S.Section>
+            <S.Label>이름</S.Label>
+            {editing ? (
+              <S.Input
+                name="customName"
+                value={formData.customName}
+                onChange={handleChange}
+              />
+            ) : (
+              <S.Text>{subscription.customName}</S.Text>
+            )}
+          </S.Section>
+          <S.Divider />
 
-          <S.Label>이름</S.Label>
+          <S.Section>
+            <S.Label>요금제</S.Label>
+            {editing ? (
+              <S.Select
+                name="plan"
+                value={formData.plan}
+                onChange={handleChange}
+              >
+                {ottOptions
+                  .find((option) => option.name === formData.ottName)
+                  ?.plans.map((plan) => (
+                    <option key={plan} value={plan}>
+                      {plan}
+                    </option>
+                  ))}
+              </S.Select>
+            ) : (
+              <S.Text>{subscription.plan}</S.Text>
+            )}
+          </S.Section>
+          <S.Divider />
+
+          <S.Section>
+            <S.Label>결제 금액</S.Label>
+            {editing ? (
+              <S.Input
+                name="paymentAmount"
+                value={formData.paymentAmount}
+                onChange={handleChange}
+              />
+            ) : (
+              <S.Text>{subscription.paymentAmount}원</S.Text>
+            )}
+          </S.Section>
+          <S.Divider />
+
+          <S.Section>
+            <S.Label>결제일</S.Label>
+            {editing ? (
+              <S.Select
+                name="paymentDate"
+                value={formData.paymentDate}
+                onChange={handleChange}
+              >
+                {dateOptions.map((date) => (
+                  <option key={date} value={date}>
+                    {date}
+                  </option>
+                ))}
+              </S.Select>
+            ) : (
+              <S.Text>{subscription.paymentDate}</S.Text>
+            )}
+          </S.Section>
+          <S.Divider />
+
+          <S.LabelMemo>메모</S.LabelMemo>
           {editing ? (
-            <S.Input
-              name="customName"
-              value={formData.customName}
-              onChange={handleChange}
-            />
+            <S.MemoBox>
+              <S.InputMemo
+                name="memo"
+                value={formData.memo}
+                onChange={handleChange}
+              />
+            </S.MemoBox>
           ) : (
-            <S.Text>{subscription.customName}</S.Text>
-          )}
-
-          <S.Label>요금제</S.Label>
-          {editing ? (
-            <S.Select
-              name="ottName"
-              value={formData.ottName}
-              onChange={handleChange}
-            >
-              {ottOptions.map((option) => (
-                <option key={option.name} value={option.name}>
-                  {option.name}
-                </option>
-              ))}
-            </S.Select>
-          ) : (
-            <S.Text>{subscription.plan}</S.Text>
-          )}
-
-          <S.Label>결제 금액</S.Label>
-          {editing ? (
-            <S.Input
-              type="number"
-              name="paymentAmount"
-              value={formData.paymentAmount}
-              onChange={handleChange}
-            />
-          ) : (
-            <S.Text>{subscription.paymentAmount}원</S.Text>
-          )}
-
-          <S.Label>결제일</S.Label>
-          {editing ? (
-            <S.Select
-              name="paymentDate"
-              value={formData.paymentDate}
-              onChange={handleChange}
-            >
-              {dateOptions.map((date) => (
-                <option key={date} value={date}>
-                  {date}
-                </option>
-              ))}
-            </S.Select>
-          ) : (
-            <S.Text>{subscription.paymentDate}</S.Text>
-          )}
-
-          <S.Label>메모</S.Label>
-          {editing ? (
-            <S.Input
-              name="memo"
-              value={formData.memo}
-              onChange={handleChange}
-            />
-          ) : (
-            <S.Text>{subscription.memo}</S.Text>
+            <S.MemoBox>
+              <S.TextMemo>{subscription.memo}</S.TextMemo>
+            </S.MemoBox>
           )}
 
           <S.ButtonContainer>
             {editing ? (
-              <S.Button onClick={handleSave}>저장하기</S.Button>
+              <S.ButtonSave onClick={handleSave}>저장하기</S.ButtonSave>
             ) : (
               <S.Button onClick={() => setEditing(true)}>수정하기</S.Button>
             )}
