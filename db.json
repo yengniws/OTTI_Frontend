@@ -1,99 +1,103 @@
 {
-  "subscriptions": [
-    {
-      "id": 1,
-      "name": "넷플릭스",
-      "payment": 15000,
-      "memo": "월간 구독료",
-      "paymentDate": "1",
-      "userId": 1,
-      "ott": {
-        "id": 2,
-        "name": "Netflix",
-        "ratePlan": "Standard",
-        "price": 13500,
-        "image": "https://www.wavve.com/favicon.ico",
-        "createdDate": "2024-07-08T02:06:37.000+00:00",
-        "modifiedDate": "2024-07-08T02:06:37.000+00:00"
-      },
-      "createdDate": "2024-07-08T02:07:12.409+00:00",
-      "modifiedDate": "2024-07-08T02:07:12.409+00:00"
-    },
-    {
-      "id": 2,
-      "name": "디즈니 플러스",
-      "payment": 9900,
-      "memo": "월간 구독료",
-      "paymentDate": "10",
-      "userId": 1,
-      "ott": {
-        "id": 3,
-        "name": "Disney+",
-        "ratePlan": "Basic",
-        "price": 9000,
-        "image": "https://www.wavve.com/favicon.ico",
-        "createdDate": "2024-07-08T02:06:37.000+00:00",
-        "modifiedDate": "2024-07-08T02:06:37.000+00:00"
-      },
-      "createdDate": "2024-07-08T02:07:12.409+00:00",
-      "modifiedDate": "2024-07-08T02:07:12.409+00:00"
-    },
-    {
-      "id": 3,
-      "name": "아마존 프라임",
-      "payment": 12500,
-      "memo": "월간 구독료",
-      "paymentDate": "20",
-      "userId": 1,
-      "ott": {
-        "id": 4,
-        "name": "Amazon Prime",
-        "ratePlan": "Prime",
-        "price": 11900,
-        "image": "https://www.wavve.com/favicon.ico",
-        "createdDate": "2024-07-08T02:06:37.000+00:00",
-        "modifiedDate": "2024-07-08T02:06:37.000+00:00"
-      },
-      "createdDate": "2024-07-08T02:07:12.409+00:00",
-      "modifiedDate": "2024-07-08T02:07:12.409+00:00"
-    },
-    {
-      "id": 4,
-      "name": "왓챠",
-      "payment": 7900,
-      "memo": "월간 구독료",
-      "paymentDate": "25",
-      "userId": 1,
-      "ott": {
-        "id": 5,
-        "name": "Watcha",
-        "ratePlan": "Standard",
-        "price": 7900,
-        "image": "https://www.wavve.com/favicon.ico",
-        "createdDate": "2024-07-08T02:06:37.000+00:00",
-        "modifiedDate": "2024-07-08T02:06:37.000+00:00"
-      },
-      "createdDate": "2024-07-08T02:07:12.409+00:00",
-      "modifiedDate": "2024-07-08T02:07:12.409+00:00"
-    },
-    {
-      "id": 5,
-      "name": "웨이브",
-      "payment": 8900,
-      "memo": "월간 구독료",
-      "paymentDate": "30",
-      "userId": 1,
-      "ott": {
-        "id": 6,
-        "name": "Wavve",
-        "ratePlan": "Standard",
-        "price": 8900,
-        "image": "https://www.wavve.com/favicon.ico",
-        "createdDate": "2024-07-08T02:06:37.000+00:00",
-        "modifiedDate": "2024-07-08T02:06:37.000+00:00"
-      },
-      "createdDate": "2024-07-08T02:07:12.409+00:00",
-      "modifiedDate": "2024-07-08T02:07:12.409+00:00"
-    }
-  ]
+    "subscriptions": [{
+            "id": 1,
+            "name": "넷플릭스",
+            "payment": 15000,
+            "memo": "월간 구독료",
+            "paymentDate": "1",
+            "userId": 1,
+            "dDay": "30",
+            "ott": {
+                "id": 2,
+                "name": "Netflix",
+                "ratePlan": "Standard",
+                "price": 13500,
+                "image": "https://www.wavve.com/favicon.ico",
+                "createdDate": "2024-07-08T02:06:37.000+00:00",
+                "modifiedDate": "2024-07-08T02:06:37.000+00:00"
+            },
+            "createdDate": "2024-07-08T02:07:12.409+00:00",
+            "modifiedDate": "2024-07-08T02:07:12.409+00:00"
+        },
+        {
+            "id": 2,
+            "name": "디즈니 플러스",
+            "payment": 9900,
+            "memo": "월간 구독료",
+            "paymentDate": "10",
+            "userId": 1,
+            "dDay": "17",
+            "ott": {
+                "id": 3,
+                "name": "Disney+",
+                "ratePlan": "Basic",
+                "price": 9000,
+                "image": "https://www.wavve.com/favicon.ico",
+                "createdDate": "2024-07-08T02:06:37.000+00:00",
+                "modifiedDate": "2024-07-08T02:06:37.000+00:00"
+            },
+            "createdDate": "2024-07-08T02:07:12.409+00:00",
+            "modifiedDate": "2024-07-08T02:07:12.409+00:00"
+        },
+        {
+            "id": 3,
+            "name": "아마존 프라임",
+            "payment": 12500,
+            "memo": "월간 구독료",
+            "paymentDate": "20",
+            "userId": 1,
+            "dDay": "3",
+            "ott": {
+                "id": 4,
+                "name": "Amazon Prime",
+                "ratePlan": "Prime",
+                "price": 11900,
+                "image": "https://www.wavve.com/favicon.ico",
+                "createdDate": "2024-07-08T02:06:37.000+00:00",
+                "modifiedDate": "2024-07-08T02:06:37.000+00:00"
+            },
+            "createdDate": "2024-07-08T02:07:12.409+00:00",
+            "modifiedDate": "2024-07-08T02:07:12.409+00:00"
+        },
+        {
+            "id": 4,
+            "name": "왓챠",
+            "payment": 7900,
+            "memo": "월간 구독료",
+            "paymentDate": "25",
+            "userId": 1,
+            "dDay": "2",
+            "ott": {
+                "id": 5,
+                "name": "Watcha",
+                "ratePlan": "Standard",
+                "price": 7900,
+                "image": "https://www.wavve.com/favicon.ico",
+                "createdDate": "2024-07-08T02:06:37.000+00:00",
+                "modifiedDate": "2024-07-08T02:06:37.000+00:00"
+            },
+            "createdDate": "2024-07-08T02:07:12.409+00:00",
+            "modifiedDate": "2024-07-08T02:07:12.409+00:00"
+        },
+        {
+            "id": 5,
+            "name": "웨이브",
+            "payment": 8900,
+            "memo": "월간 구독료",
+            "paymentDate": "30",
+            "userId": 1,
+            "dDay": "11",
+            "ott": {
+                "id": 6,
+                "name": "Wavve",
+                "ratePlan": "Standard",
+                "price": 8900,
+                "image": "https://www.wavve.com/favicon.ico",
+                "createdDate": "2024-07-08T02:06:37.000+00:00",
+                "modifiedDate": "2024-07-08T02:06:37.000+00:00"
+            },
+            "createdDate": "2024-07-08T02:07:12.409+00:00",
+            "modifiedDate": "2024-07-08T02:07:12.409+00:00"
+        }
+    ]
 }

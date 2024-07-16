@@ -25,6 +25,7 @@ interface Subscription {
   ott: Ott;
   createdDate: string;
   modifiedDate: string;
+  dDay: string;
 }
 
 const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
@@ -44,9 +45,8 @@ const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
         <S.ListTxts>{subscription.payment}원</S.ListTxts>
       </S.ListTxtBox>
       <S.ListDDayContainer>
-        <S.ListDDayTxt>D - 1</S.ListDDayTxt>
+        <S.ListDDayTxt>D - {subscription.dDay}</S.ListDDayTxt>
       </S.ListDDayContainer>
-      {/*디데이 계산 어케함 아놔 */}
     </S.ListContentBox>
   );
 };
