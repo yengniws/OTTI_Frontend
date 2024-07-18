@@ -4,11 +4,7 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { getSubscriptionList } from '../../api/subscriptionApi';
-import {
-  SCalendarWrap,
-  SCalendarContainer,
-  SMonthHeader,
-} from './Calender.Style';
+import * as S from './Calender.Style';
 
 moment.locale('ko');
 const localizer = momentLocalizer(moment);
@@ -67,9 +63,9 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <SCalendarContainer>
-      <SMonthHeader>{currentMonth}</SMonthHeader>
-      <SCalendarWrap>
+    <S.CalendarContainer>
+      <S.MonthHeader>{currentMonth}</S.MonthHeader>
+      <S.CalendarWrap>
         <BigCalendar
           localizer={localizer}
           events={events}
@@ -88,8 +84,8 @@ const Calendar: React.FC = () => {
             dayFormat: (date: Date) => moment(date).format('D'),
           }}
         />
-      </SCalendarWrap>
-    </SCalendarContainer>
+      </S.CalendarWrap>
+    </S.CalendarContainer>
   );
 };
 
