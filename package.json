@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/react-big-calendar": "^1.8.9",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
+    "react-big-calendar": "^1.13.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.0"
   },
@@ -29,7 +32,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "prettier": "3.3.2",
     "react-icons": "^5.2.1",
-    "styled-components": "^6.1.11",
+    "styled-components": "^6.1.12",
     "typescript": "^5.2.2",
     "vite": "^5.3.1"
   }
