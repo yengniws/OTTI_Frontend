@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import 'moment/locale/ko';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { getSubscriptionList } from '../../api/subscriptionApi';
 import * as S from './Calender.Style';
 
+moment.tz.setDefault('Asia/Seoul');
 moment.locale('ko');
 const localizer = momentLocalizer(moment);
 
@@ -15,7 +16,7 @@ interface Event {
   title: string;
 }
 
-const Calendar: React.FC = () => {
+const Calendar = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [currentMonth, setCurrentMonth] = useState(moment().format('M월'));
 
@@ -71,7 +72,7 @@ const Calendar: React.FC = () => {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 300 }}
+          style={{ height: 210 }}
           views={['month']}
           toolbar={false}
           onNavigate={onNavigate}

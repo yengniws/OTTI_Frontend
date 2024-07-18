@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 
-export const SCalendarContainer = styled.div`
+export const CalendarContainer = styled.div`
   padding: 10px;
   background-color: #f0f0f0; // 회색 배경 추가
   border-radius: 8px;
 `;
 
-export const SMonthHeader = styled.h2`
+export const MonthHeader = styled.h2`
   text-align: center;
   margin-bottom: 10px;
   font-size: 1.2em;
   color: #333;
 `;
 
-export const SCalendarWrap = styled.div`
+export const CalendarWrap = styled.div`
   .rbc-calendar {
     font-family: 'Arial', sans-serif;
     background-color: transparent;
+    /* 글씨 굵기와 크기 조절 */
+    /* font-weight: bold; */
+    /* font-size: 1em; */
+    opacity: 0.8; /* 글씨 투명도 조절 */
   }
   .rbc-header {
     background-color: transparent;
