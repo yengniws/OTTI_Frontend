@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Pie } from 'react-chartjs-2';
 import * as S from './PieChart.Style';
+import axios from 'axios';
 import {
   Chart as ChartJS,
   ArcElement,
@@ -13,12 +14,34 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart: React.FC = () => {
+interface SubscriptionData {
+  label: string;
+  value: number;
+}
+
+const PieChart = () => {
+  const [subscriptionData, setSubscriptionData] = useState<SubscriptionData[]>(
+    [],
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('/api/subscription'); //api값 사용
+        setSubscriptionData(response.data);
+      } catch (error) {
+        console.error('Error fetching subscription data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const data: ChartData<'pie', number[], string> = {
-    labels: ['Netflix', 'Disney+', 'Wavve'],
+    labels: subscriptionData.map((item) => item.label),
     datasets: [
       {
-        data: [9500, 7900, 10900],
+        data: subscriptionData.map((item) => item.value),
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
       },
     ],
@@ -60,7 +83,7 @@ const PieChart: React.FC = () => {
                   };
                 }
                 return {
-                  text: `${label}: $0 (0%)`,
+                  text: `${label}: 0원 (0%)`,
                   fillStyle: '',
                   hidden: true,
                   index: i,
@@ -75,7 +98,7 @@ const PieChart: React.FC = () => {
           label: function (context: TooltipItem<'pie'>) {
             const label = context.label || '';
             const value = context.raw as number;
-            return `${label}: $${value}`;
+            return `${label}: ${value}원`;
           },
         },
       },
