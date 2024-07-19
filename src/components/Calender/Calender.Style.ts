@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const CalendarContainer = styled.div`
+export const CalendarCont = styled.div`
   padding: 18px;
   background-color: #f0f0f0;
   border-radius: 40px;
 `;
 
-export const MonthHeader = styled.h2`
+export const MonthTit = styled.h2`
   text-align: center;
   margin-bottom: 12px;
   font-size: 1em;
