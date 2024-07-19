@@ -2,25 +2,25 @@ import styled from 'styled-components';
 
 export const CalendarContainer = styled.div`
   padding: 10px;
-  background-color: #f0f0f0; // 회색 배경 추가
+  background-color: #f0f0f0;
   border-radius: 8px;
 `;
 
 export const MonthHeader = styled.h2`
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 1.2em;
+  margin-bottom: 12px;
+  font-size: 1em;
   color: #333;
+  font-weight: 500;
 `;
 
 export const CalendarWrap = styled.div`
   .rbc-calendar {
-    font-family: 'Arial', sans-serif;
     background-color: transparent;
-    /* 글씨 굵기와 크기 조절 */
-    /* font-weight: bold; */
-    /* font-size: 1em; */
-    opacity: 0.8; /* 글씨 투명도 조절 */
+    font-weight: 300;
+    font-size: 0.9em;
+    color: #555;
+    opacity: 0.8;
   }
   .rbc-header {
     background-color: transparent;
@@ -40,7 +40,7 @@ export const CalendarWrap = styled.div`
     background-color: transparent;
   }
   .rbc-button-link {
-    color: black;
+    color: #555;
     font-size: 0.9em;
   }
   .rbc-date-cell {
@@ -50,10 +50,10 @@ export const CalendarWrap = styled.div`
   .rbc-month-header {
     .rbc-header {
       &:nth-child(7) {
-        color: blue;
+        color: #17a1fa; /* blue */
       }
       &:first-child {
-        color: red;
+        color: #ea4335; /* red */
       }
     }
   }
@@ -61,10 +61,10 @@ export const CalendarWrap = styled.div`
     .rbc-row {
       .rbc-date-cell {
         &:nth-child(7) .rbc-button-link {
-          color: blue;
+          color: #17a1fa;
         }
         &:first-child .rbc-button-link {
-          color: red;
+          color: #ea4335;
         }
       }
     }
