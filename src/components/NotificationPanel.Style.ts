@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const Overlay = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  z-index: 999;
+`;
+
 export const Panel = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 0;
