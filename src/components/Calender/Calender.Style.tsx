@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const CalendarContainer = styled.div`
-  padding: 10px;
+  padding: 18px;
   background-color: #f0f0f0;
-  border-radius: 8px;
+  border-radius: 40px;
 `;
 
 export const MonthHeader = styled.h2`
