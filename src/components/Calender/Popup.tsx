@@ -20,7 +20,11 @@ const Popup = ({ event, onClose }: PopupProps) => {
       <S.PopupContent>
         <S.CloseBtn onClick={onClose}>X</S.CloseBtn>
         <S.EventDate>{moment(event.start).format('M/D')}</S.EventDate>
-        <S.EventTit style={{ color: event.color }}>{event.title}</S.EventTit>
+        <S.EventTitWrapper>
+          <S.ColorDot style={{ backgroundColor: event.color }} />
+          <S.EventTit>{event.title}</S.EventTit>
+          <S.EventSubtitle>결제일</S.EventSubtitle>
+        </S.EventTitWrapper>
       </S.PopupContent>
     </S.PopupCont>
   );
