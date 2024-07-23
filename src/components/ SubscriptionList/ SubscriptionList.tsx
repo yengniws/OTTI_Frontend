@@ -1,31 +1,31 @@
 // src/SubscriptionList.tsx
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import * as S from './ SubscriptionList.Style';
+import axiosInstance from '../../libs/AxiosInstance'; // 수정된 axios 인스턴스를 가져옴
+import * as S from './SubscriptionList.Style';
 import { IoAddCircle } from 'react-icons/io5';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface Ott {
   id: number;
   name: string;
   ratePlan: string;
   price: number;
-  image: string;
+  ott_image: string;
   createdDate: string;
   modifiedDate: string;
 }
 
 interface Subscription {
-  id: number;
+  subscription_id: number;
   name: string;
   payment: number;
   memo: string;
-  paymentDate: string;
-  userId: number;
+  payment_date: string;
+  user_id: number;
   ott: Ott;
   createdDate: string;
   modifiedDate: string;
-  dDay: string;
+  d_day: string;
 }
 
 const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
@@ -35,7 +35,7 @@ const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
     <S.ListContentBox>
       <S.ListImageWrap>
         <S.ListImage
-          src={subscription.ott.image}
+          src={subscription.ott.ott_image}
           alt={`${subscription.ott.name} logo`}
         />
       </S.ListImageWrap>
@@ -45,11 +45,12 @@ const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
         <S.ListTxts>{subscription.payment}원</S.ListTxts>
       </S.ListTxtBox>
       <S.ListDDayContainer>
-        <S.ListDDayTxt>D - {subscription.dDay}</S.ListDDayTxt>
+        <S.ListDDayTxt>D - {subscription.d_day}</S.ListDDayTxt>
       </S.ListDDayContainer>
     </S.ListContentBox>
   );
 };
+
 const SubscriptionList: React.FC = () => {
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const SubscriptionList: React.FC = () => {
   useEffect(() => {
     const fetchSubscriptions = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/subscriptions'); // 백엔드 API 엔드포인트로 수정, 일단은 가상 json 파일로 대체하여 테스트
+        const response = await axiosInstance.get('/api/subscription');
         setSubscriptions(response.data);
       } catch (error) {
         console.error('구독 정보 불러오기 오류:', error);
@@ -68,7 +69,7 @@ const SubscriptionList: React.FC = () => {
   }, []);
 
   const handleAddOtt = () => {
-    navigate('/'); //이동 경로 추후 수정 필요
+    navigate('/'); // 이동 경로 추후 수정 필요
   };
 
   return (
@@ -80,7 +81,10 @@ const SubscriptionList: React.FC = () => {
         </S.ListTitleWrap>
 
         {subscriptions.map((subscription) => (
-          <SubscriptionBox key={subscription.id} subscription={subscription} />
+          <SubscriptionBox
+            key={subscription.subscription_id}
+            subscription={subscription}
+          />
         ))}
         <S.AddOttBtn onClick={handleAddOtt}>+ 구독 추가</S.AddOttBtn>
         {/* 이동하는 링크 추가하기 */}
