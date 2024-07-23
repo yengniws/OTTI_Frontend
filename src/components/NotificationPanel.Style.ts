@@ -197,9 +197,9 @@ export const NotificationItem = styled.li<{ isRead: boolean }>`
 `;
 
 export const UnreadDot = styled.span`
-  position: absolute;
+  position: relative;
   left: 10px;
-  top: 50%;
+  top: 100%;
   transform: translateY(-50%);
   width: 8px;
   height: 8px;

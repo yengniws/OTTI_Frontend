@@ -6,19 +6,20 @@ export const NotificationIconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  right: 20px;
 `;
 
 export const UnreadBadge = styled.span`
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: 28px;
+  right: -2px;
   background-color: red;
   color: white;
   border-radius: 50%;
-  padding: 2px 5px;
-  font-size: 12px;
-  min-width: 18px;
-  height: 18px;
+  padding: 2px 2px;
+  font-size: 11px;
+  min-width: 17px;
+  height: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
