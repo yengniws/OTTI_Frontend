@@ -1,4 +1,3 @@
-// Main.Style.tsx
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
@@ -40,4 +39,20 @@ export const Balance = styled.div`
 export const ContentWrapper = styled.div`
   flex: 1;
   overflow-y: auto;
+`;
+
+export const NotificationIconWrapper = styled.div`
+  position: relative;
+  cursor: pointer;
+`;
+
+export const UnreadBadge = styled.span`
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 8px;
+  font-size: 12px;
 `;
