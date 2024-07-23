@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../../libs/AxiosInstance'; // 생성한 axios 인스턴스를 임포트
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaCamera } from 'react-icons/fa';
 import * as S from './EditProfile.Style';
 
 interface UserProfile {
-  profilePicture: string;
+  user_image: string;
   userId: string;
   nickname: string;
 }
 
-const defaultProfilePicture = 'https://i.ibb.co/xLv21hj/app-logo.png';
+const defaultuser_image = 'https://i.ibb.co/xLv21hj/app-logo.png';
 
 const EditProfile: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
-    profilePicture: defaultProfilePicture,
+    user_image: defaultuser_image,
     userId: '',
     nickname: '',
   });
@@ -26,11 +26,10 @@ const EditProfile: React.FC = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/profile');
+        const response = await axiosInstance.get('/api/users/{userId}/profile');
         const fetchedProfile = response.data;
-        // Check if profilePicture is empty, set to defaultProfilePicture if necessary
-        if (!fetchedProfile.profilePicture) {
-          fetchedProfile.profilePicture = defaultProfilePicture;
+        if (!fetchedProfile.user_image) {
+          fetchedProfile.user_image = defaultuser_image;
         }
         setProfile(fetchedProfile);
       } catch (error) {
@@ -53,7 +52,7 @@ const EditProfile: React.FC = () => {
         if (reader.result) {
           setProfile((prevProfile) => ({
             ...prevProfile,
-            profilePicture: reader.result as string,
+            user_image: reader.result as string,
           }));
         }
       };
@@ -63,7 +62,7 @@ const EditProfile: React.FC = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put('http://localhost:3001/profile', profile);
+      await axiosInstance.put('/api/users/{userId}/profile/update', profile);
       toast.success('프로필이 저장되었습니다.');
       setTimeout(() => {
         navigate('/myPage');
@@ -77,7 +76,7 @@ const EditProfile: React.FC = () => {
     <S.EditProfileContainer>
       <ToastContainer />
       <S.ProfilePictureSection>
-        <S.ProfilePicture src={profile.profilePicture} alt="Profile" />
+        <S.ProfilePicture src={profile.user_image} alt="Profile" />
         <S.EditIcon>
           <FaCamera size={15} color="#aaa" />
           <S.FileInput
