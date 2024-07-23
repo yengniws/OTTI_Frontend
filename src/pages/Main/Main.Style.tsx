@@ -15,18 +15,22 @@ export const MainContainer = styled.div`
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background-color: #fff;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  font-weight: 600;
-  font-size: 24px;
+  // align-items: center;
+  // padding: 16px;
+  // background-color: #fff;
+  // border-radius: 8px;
+  // margin-bottom: 16px;
 `;
 
 export const Logo = styled.h1`
   font-size: 24px;
   font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  font-weight: 600;
 `;
 
 export const Balance = styled.div`
