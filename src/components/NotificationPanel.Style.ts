@@ -186,14 +186,16 @@ export const NotificationItem = styled.li<{ isRead: boolean }>`
   margin: 0px 20px;
   font-size: 14px;
 
-  &::before {
-    content: '${(props) => (props.isRead ? '' : '•')}';
-    color: red;
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  // &::before {
+  //   &::before {
+  //     content: ${(props) => (!props.isRead ? "'•'" : "''")};
+  //     color: red;
+  //     margin-right: 10px;
+  //     position: absolute;
+  //     left: 10px;
+  //     top: 50%;
+  //     transform: translateY(-50%);
+  //   }
 `;
 
 export const UnreadDot = styled.span`
