@@ -1,8 +1,6 @@
-//RedirectHandler.tsx
-
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../../libs/AxiosInstance';
 
 const RedirectHandler: React.FC = () => {
   const location = useLocation();
@@ -12,13 +10,17 @@ const RedirectHandler: React.FC = () => {
     const code = new URL(window.location.href).searchParams.get('code'); // 인가 코드 추출
 
     if (code) {
-      axios
-        .post('/login/kakaologin', { code }) // 인가 코드를 본문에 담아 전송, 엔드 포인트 수정 필요
+      axiosInstance
+        .get('/login/kakaologin', { params: { code } }) // 인가 코드를 본문에 담아 전송
         .then((response) => {
           const data = response.data;
           console.log(data);
           console.log(data.result.user_id);
-          console.log(data.result.jwt); //토큰
+          console.log(data.result.jwt); // 토큰
+
+          // 로그인을 성공적으로 수행한 후 필요한 경우, 토큰을 로컬 스토리지에 저장
+          localStorage.setItem('token', data.result.jwt);
+          localStorage.setItem('userId', data.result.user_id.toString());
 
           navigate('/'); // 로그인 성공 후 리다이렉트
         })
