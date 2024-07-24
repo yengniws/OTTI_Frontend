@@ -19,7 +19,7 @@ interface SubscriptionData {
   value: number;
 }
 
-// 동적으로 색상을 생성하는 함수
+// 동적으로 색상을 생성
 const generateColors = (count: number): string[] => {
   const baseColors = [
     '#FF6384',
