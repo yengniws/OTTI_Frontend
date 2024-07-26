@@ -150,6 +150,7 @@ export const Panel = styled.div<{ isOpen: boolean }>`
   overflow-y: auto;
   border-radius: 20px 0px 0px 20px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  display: ${(props) => (props.isOpen ? 'block' : 'none')};
 `;
 
 export const PanelHeader = styled.div`
