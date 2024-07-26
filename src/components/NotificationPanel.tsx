@@ -69,14 +69,14 @@ import {
 
 interface Notification {
   id: number;
-  type: string;
-  message: string;
+  text: string;
   isRead: boolean;
 }
 
 const NotificationPanel: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
     const loadNotifications = async () => {
@@ -84,6 +84,7 @@ const NotificationPanel: React.FC = () => {
         const notifications = await fetchAllNotifications();
         if (Array.isArray(notifications)) {
           setNotifications(notifications);
+          setUnreadCount(notifications.filter((notif) => !notif.isRead).length);
         } else {
           console.error('Invalid notifications data', notifications);
         }
@@ -94,8 +95,6 @@ const NotificationPanel: React.FC = () => {
 
     loadNotifications();
   }, []);
-
-  const unreadCount = notifications.filter((notif) => !notif.isRead).length;
 
   const togglePanel = () => {
     setIsOpen(!isOpen);
@@ -117,21 +116,9 @@ const NotificationPanel: React.FC = () => {
       setNotifications((prevNotifications) =>
         prevNotifications.map((notif) => ({ ...notif, isRead: true })),
       );
+      setUnreadCount(0);
     } catch (error) {
       console.error('Failed to mark notifications as read', error);
-    }
-  };
-
-  const getNotificationText = (type: string): string => {
-    switch (type) {
-      case 'application_received':
-        return '팟 신청이 들어왔습니다!';
-      case 'application_approved':
-        return '팟 신청이 승인되었습니다!';
-      case 'application_rejected':
-        return '팟 신청이 거부되었습니다!';
-      default:
-        return '알림이 도착했습니다!';
     }
   };
 
@@ -150,7 +137,7 @@ const NotificationPanel: React.FC = () => {
               {notifications.map((notif) => (
                 <S.NotificationItem key={notif.id} isRead={notif.isRead}>
                   {!notif.isRead && <S.UnreadDot />}
-                  {getNotificationText(notif.type)}
+                  {notif.text}
                 </S.NotificationItem>
               ))}
             </S.NotificationList>
@@ -162,3 +149,105 @@ const NotificationPanel: React.FC = () => {
 };
 
 export default NotificationPanel;
+
+// import React, { useState, useEffect } from 'react';
+// import NotificationIcon from './NotificationIcon';
+// import * as S from './NotificationPanel.Style';
+// import {
+//   fetchAllNotifications,
+//   markNotificationAsRead,
+// } from '../api/notifications';
+
+// interface Notification {
+//   id: number;
+//   type: string;
+//   message: string;
+//   isRead: boolean;
+// }
+
+// const NotificationPanel: React.FC = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [notifications, setNotifications] = useState<Notification[]>([]);
+
+//   useEffect(() => {
+//     const loadNotifications = async () => {
+//       try {
+//         const notifications = await fetchAllNotifications();
+//         if (Array.isArray(notifications)) {
+//           setNotifications(notifications);
+//         } else {
+//           console.error('Invalid notifications data', notifications);
+//         }
+//       } catch (error) {
+//         console.error('Failed to fetch notifications', error);
+//       }
+//     };
+
+//     loadNotifications();
+//   }, []);
+
+//   const unreadCount = notifications.filter((notif) => !notif.isRead).length;
+
+//   const togglePanel = () => {
+//     setIsOpen(!isOpen);
+//     if (!isOpen) {
+//       markAllAsRead();
+//     }
+//   };
+
+//   const markAllAsRead = async () => {
+//     try {
+//       await Promise.all(
+//         notifications.map((notif) => {
+//           if (!notif.isRead) {
+//             return markNotificationAsRead(notif.id);
+//           }
+//           return Promise.resolve();
+//         }),
+//       );
+//       setNotifications((prevNotifications) =>
+//         prevNotifications.map((notif) => ({ ...notif, isRead: true })),
+//       );
+//     } catch (error) {
+//       console.error('Failed to mark notifications as read', error);
+//     }
+//   };
+
+//   const getNotificationText = (type: string): string => {
+//     switch (type) {
+//       case 'application_received':
+//         return '팟 신청이 들어왔습니다!';
+//       case 'application_approved':
+//         return '팟 신청이 승인되었습니다!';
+//       default:
+//         return '알림이 도착했습니다!';
+//     }
+//   };
+
+//   return (
+//     <>
+//       <NotificationIcon unreadCount={unreadCount} onClick={togglePanel} />
+//       {isOpen && (
+//         <>
+//           <S.Overlay onClick={togglePanel} />
+//           <S.Panel isOpen={isOpen}>
+//             <S.PanelHeader>
+//               <S.Title>알림</S.Title>
+//               <S.CloseBtn onClick={togglePanel}>x</S.CloseBtn>
+//             </S.PanelHeader>
+//             <S.NotificationList>
+//               {notifications.map((notif) => (
+//                 <S.NotificationItem key={notif.id} isRead={notif.isRead}>
+//                   {!notif.isRead && <S.UnreadDot />}
+//                   {getNotificationText(notif.type)}
+//                 </S.NotificationItem>
+//               ))}
+//             </S.NotificationList>
+//           </S.Panel>
+//         </>
+//       )}
+//     </>
+//   );
+// };
+
+// export default NotificationPanel;
