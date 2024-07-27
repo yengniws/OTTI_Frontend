@@ -35,6 +35,7 @@ const Calendar = () => {
       freq: RRule.MONTHLY,
       dtstart: baseDate,
       interval: 1,
+      until: new Date(2025, 6, 1), // until을 설정하여 무한 루프 방지
     });
 
     return rule.all().map((date) => ({
