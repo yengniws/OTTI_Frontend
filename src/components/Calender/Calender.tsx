@@ -285,7 +285,7 @@ const Calendar = () => {
       freq: RRule.MONTHLY,
       dtstart: baseDate,
       interval: 1,
-      until: new Date(2025, 6, 1), // until을 설정하여 무한 루프 방지
+      until: new Date(2025, 6, 1), // ★until을 설정하여 무한 루프 방지
     });
 
     return rule.all().map((date) => ({
@@ -349,7 +349,7 @@ const Calendar = () => {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 200 }} // Increase the height of the calendar
+          style={{ height: 200 }}
           views={['month']}
           toolbar={false}
           onNavigate={handleNavigate}
