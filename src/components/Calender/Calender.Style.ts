@@ -122,12 +122,12 @@ export const CalendarWrap = styled.div`
   }
   .rbc-button-link {
     color: #555;
-    font-size: 0.8em; /* Font size reduced */
+    font-size: 1.1em;
   }
   .rbc-date-cell {
     text-align: center;
     padding: 2px 0;
-    font-size: 0.8em; /* Font size reduced */
+    font-size: 0.8em;
   }
   .rbc-month-header {
     .rbc-header {
