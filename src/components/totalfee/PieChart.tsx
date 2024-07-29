@@ -450,7 +450,19 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const generateColors = (count) => {
+interface Subscription {
+  payment: number;
+  ott: {
+    name: string;
+  };
+}
+
+interface SubscriptionData {
+  label: string;
+  value: number;
+}
+
+const generateColors = (count: number): string[] => {
   const baseColors = [
     '#FF6384',
     '#36A2EB',
@@ -459,7 +471,7 @@ const generateColors = (count) => {
     '#9966FF',
     '#FF9F40',
   ];
-  const colors = [];
+  const colors: string[] = [];
 
   for (let i = 0; i < count; i++) {
     if (i < baseColors.length) {
@@ -476,14 +488,18 @@ const generateColors = (count) => {
 };
 
 const PieChart = () => {
-  const [subscriptionData, setSubscriptionData] = useState([]);
+  const [subscriptionData, setSubscriptionData] = useState<SubscriptionData[]>(
+    [],
+  );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userId = localStorage.getItem('userId');
         if (userId) {
-          const data = await getUserSubscription(Number(userId));
+          const data: Subscription[] = await getUserSubscription(
+            Number(userId),
+          );
           const formattedData = data.map((subscription) => ({
             label: subscription.ott.name,
             value: subscription.payment,
@@ -498,7 +514,7 @@ const PieChart = () => {
     fetchData();
   }, []);
 
-  const data = {
+  const data: ChartData<'pie', number[], string> = {
     labels: subscriptionData.map((item) => item.label),
     datasets: [
       {
@@ -508,7 +524,7 @@ const PieChart = () => {
     ],
   };
 
-  const options = {
+  const options: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -519,12 +535,12 @@ const PieChart = () => {
           boxWidth: 12,
           padding: 20,
           font: { size: 12 },
-          generateLabels: (chart) => {
+          generateLabels: (chart: ChartJS) => {
             const datasets = chart.data.datasets;
             if (datasets.length === 0) {
               return [];
             }
-            const data = datasets[0].data;
+            const data = datasets[0].data as number[];
             const total = data.reduce((sum, val) => sum + val, 0);
 
             return (
@@ -533,7 +549,9 @@ const PieChart = () => {
                 const percentage = ((value / total) * 100).toFixed(2);
                 return {
                   text: `${label}: ${value}원 (${percentage}%)`,
-                  fillStyle: datasets[0].backgroundColor[i],
+                  fillStyle: Array.isArray(datasets[0].backgroundColor)
+                    ? datasets[0].backgroundColor[i]
+                    : undefined,
                   hidden: false,
                   index: i,
                 };
@@ -544,9 +562,9 @@ const PieChart = () => {
       },
       tooltip: {
         callbacks: {
-          label: (context) => {
+          label: (context: TooltipItem<'pie'>) => {
             const label = context.label || '';
-            const value = context.raw;
+            const value = context.raw as number;
             return `${label}: ${value}원`;
           },
         },
