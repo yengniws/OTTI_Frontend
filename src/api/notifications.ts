@@ -33,7 +33,7 @@ export const fetchNotificationById = async (id: number) => {
   return response.data;
 };
 
-// ㅌㄱ정 id 알림 읽음 표시
+// 특정 id 알림 읽음 표시
 export const markNotificationAsRead = async (id: number) => {
   await axios.post(`/notification/${id}/mark-as-read`);
 };
