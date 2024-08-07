@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001', // 베이스 url 추후 수정 및 env에 숨기기
+  baseURL: process.env.REACT_APP_API_BASE_URL, // 베이스 url 추후 수정 및 env에 숨기기
 });
 
 axiosInstance.interceptors.request.use(
