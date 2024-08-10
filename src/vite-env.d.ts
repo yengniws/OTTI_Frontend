@@ -7,4 +7,8 @@ interface ImportMetaEnv {
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
+  env: {
+    VITE_BASE_URL?: string;
+    VITE_API_KEY?: string;
+  };
 }
