@@ -5,7 +5,7 @@ import * as S from './Main.Style';
 import TotalSubscriptionFee from '../../components/totalfee/TotalSubscriptionFee';
 import NotificationPanel from '../../components/NotificationPanel';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
-import SubscriptionList from '../../components/ SubscriptionList/ SubscriptionList';
+import SubscriptionList from '../../components/SubscriptionList/SubscriptionList';
 import Calendar from '../../components/Calender/Calender';
 
 interface Subscription {
@@ -15,7 +15,7 @@ interface Subscription {
   dueDate: string;
 }
 
-const Main = () => {
+const Main: React.FC = () => {
   const navigate = useNavigate();
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
 
@@ -23,14 +23,12 @@ const Main = () => {
     const fetchSubscriptions = async () => {
       try {
         const response = await axios.get('/api/subscription');
-        // API 응답 구조 확인 및 데이터 처리
         const data = response.data;
+
         if (Array.isArray(data)) {
           setSubscriptions(data);
         } else if (typeof data === 'object' && data !== null) {
-          // 객체 형태로 온 경우 배열로 변환
-          setSubscriptions(Object.values(data)); //Object.values(): ES2017(ES8)에서 도입된 기능
-          //Object.values() 메서드를 인식하지 못해서 발생 -> tsconfig.json lib 추가
+          setSubscriptions(Object.values(data));
         } else {
           console.error('Unexpected data structure:', data);
           setSubscriptions([]);
@@ -52,7 +50,7 @@ const Main = () => {
     try {
       const response = await axios.get(`/api/subscription/${subscriptionId}`);
       console.log('Subscription details:', response.data);
-      // 여기서 상세 정보를 표시하거나 다른 페이지로 이동할 수 있습니다.
+      // Handle displaying subscription details or navigate to another page
     } catch (error) {
       console.error('Error fetching subscription details:', error);
     }
@@ -68,15 +66,14 @@ const Main = () => {
         <div onClick={handleTotalFeeClick}>
           <TotalSubscriptionFee />
         </div>
-        {Array.isArray(subscriptions) &&
-          subscriptions.map((subscription) => (
-            <div
-              key={subscription.id}
-              onClick={() => handleSubscriptionClick(subscription.id)}
-            >
-              {subscription.name}: {subscription.amount}원
-            </div>
-          ))}
+        {subscriptions.map((subscription) => (
+          <div
+            key={subscription.id}
+            onClick={() => handleSubscriptionClick(subscription.id)}
+          >
+            {subscription.name}: {subscription.amount}원
+          </div>
+        ))}
       </S.PageContainer>
       <Calendar />
       <SubscriptionList />
