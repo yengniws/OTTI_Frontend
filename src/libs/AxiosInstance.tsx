@@ -28,13 +28,13 @@
 
 import axios from 'axios';
 
-// const axiosInstance = axios.create({
-//   baseURL: import.meta.env.VITE_BASE_URL, // 베이스 url 추후 수정 및 env에 숨기기
-// });
-
 const axiosInstance = axios.create({
-  baseURL: process.env.VITE_BASE_URL, // This may work depending on your setup
+  baseURL: import.meta.env.VITE_BASE_URL, // 베이스 url 추후 수정 및 env에 숨기기
 });
+
+// const axiosInstance = axios.create({
+//   baseURL: process.env.VITE_BASE_URL, // This may work depending on your setup
+// });
 
 axiosInstance.interceptors.request.use(
   (config) => {
