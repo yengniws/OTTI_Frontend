@@ -14,6 +14,8 @@ import MyPage from './pages/MyPage/MyPage';
 import EditProfile from './pages/MyPage/EditProfile';
 import Onboarding from './pages/Onboarding/OnBoarding';
 import Login from './pages/Login/Login';
+import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
   return (
@@ -35,6 +37,11 @@ const App: React.FC = () => {
         <Route path="/community" element={<Community />} />
         <Route path="/pot" element={<Pot />} />
         <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/main" element={<Main />} />
+        <Route
+          path="/main/subscriptionDetail/:id"
+          element={<SubscriptionDetail />} //경로 수정 필요 -> userid관련 issue
+        />
       </Routes>
     </>
   );
