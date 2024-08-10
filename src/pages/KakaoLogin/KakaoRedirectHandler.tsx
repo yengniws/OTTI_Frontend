@@ -93,14 +93,15 @@ const RedirectHandler: React.FC = () => {
 
   useEffect(() => {
     if (code) {
+      // console.log(code);
       // Step 1: 인가 코드를 이용해 백엔드에서 카카오 액세스 토큰 요청 (GET 방식)
       axiosInstance
-        // .get(`/kakao/callback?code=${code}`)
+
         .get('/api/oauth/kakao', { params: { code } }) //인가 코드 보내기
         .then((response) => {
-          const kakaoToken = response.data.kakaoToken; // 백엔드에서 받은 카카오 토큰
-          console.log('카카오 토큰:', kakaoToken);
-          console.log(response.data);
+          const kakaoToken = response.data.accessToken; // 백엔드에서 받은 카카오 토큰
+          // console.log('카카오 토큰:', kakaoToken);
+          // console.log(response.data);
 
           // Step 2: 카카오 액세스 토큰을 이용해 백엔드에서 JWT 토큰을 요청 (Post)
           return axiosInstance.post('/api/oauth/login', { kakaoToken });
@@ -109,9 +110,10 @@ const RedirectHandler: React.FC = () => {
           const data = response.data;
 
           // 서버로부터 받은 액세스 토큰을 로컬 스토리지에 저장
-          localStorage.setItem('access_token', data.accessToken); // 백엔드 서버 액세스 토큰
+          localStorage.setItem('access_token', data.access_token); // 백엔드 서버 액세스 토큰
           // localStorage.setItem('refresh_token', data.refreshToken);
           // console.log('성공');
+          // console.log(response.data);
           navigate('/'); // 로그인 성공 후 홈 페이지로 리다이렉트
         })
         .catch((error) => {
