@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-<<<<<<< HEAD
 // 한 사람의 전체 구독 정보 조회
 // /api/subscription/user/{userid}
-=======
+
 interface Subscription {
   id: number;
   platformName: string;
@@ -20,7 +19,6 @@ interface Subscription {
 //   }
 // };
 
->>>>>>> 1bdf04bb21b8499fe423cd3b9670a294cbb4b2d4
 export const getUserSubscription = async (userId: number) => {
   try {
     const response = await axios.get(`/api/subscription/user/${userId}`);
