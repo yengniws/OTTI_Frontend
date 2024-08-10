@@ -51,19 +51,19 @@ export const TopMenuList = styled.div`
   margin: 20px 0;
   display: flex;
   width: 80%;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const TopMenuItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 135px;
-  height: 50px;
+  width: 85px;
+  height: 72px;
   padding: 5px;
   background-color: #222222;
   color: white;
-  font-size: 15px;
+  font-size: 12px;
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
@@ -78,6 +78,7 @@ export const Menu = styled.div`
 export const MenuItem = styled.div`
   padding: 10px;
   border: none;
+
   text-align: left;
   margin-top: 20px;
   cursor: pointer;
@@ -88,26 +89,5 @@ export const MenuItem = styled.div`
     content: '>';
     position: absolute;
     left: 90%;
-  }
-`;
-
-export const MenuUserLog = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-top: 10%;
-  font-size: 11px;
-  opacity: 0.8;
-`;
-
-export const MenuItemUserLog = styled.div`
-  padding: 10px;
-  border: none;
-  text-align: left;
-  margin-top: 5px;
-  cursor: pointer;
-
-  &:nth-child(2) {
-    color: red;
   }
 `;

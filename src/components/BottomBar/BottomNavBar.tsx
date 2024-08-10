@@ -34,7 +34,7 @@ const BottomNavBar: React.FC = () => {
           </S.NavLink>
         </S.BottomItem>
         <S.BottomItem>
-          <S.NavLink to="/profile">
+          <S.NavLink to="/myPage">
             <S.BottomIcon>
               <GoPerson size={33} />
             </S.BottomIcon>
