@@ -16,6 +16,7 @@ import Onboarding from './pages/Onboarding/OnBoarding';
 import Login from './pages/Login/Login';
 import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
+import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
 
 const App: React.FC = () => {
   return (
@@ -41,6 +42,10 @@ const App: React.FC = () => {
         <Route
           path="/main/subscriptionDetail/:id"
           element={<SubscriptionDetail />} //경로 수정 필요 -> userid관련 issue
+        />
+        <Route
+          path="/subscription-detail"
+          element={<SubscriptionFeeDetail />}
         />
       </Routes>
     </>

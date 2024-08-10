@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "두두콩 구독 ^^~",
+    "payment": 15000,
+    "memo": "월간 구독료",
+    "paymentDate": "2024-06-30",
+    "userId": 1,
+    "ott": {
+      "id": 2,
+      "name": "Netflix",
+      "ratePlan": "Standard",
+      "price": 13500,
+      "image": "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYN1MC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png",
+      "createdDate": "2024-07-08T02:06:37.000+00:00",
+      "modifiedDate": "2024-07-08T02:06:37.000+00:00"
+    },
+    "createdDate": "2024-07-08T02:07:12.409+00:00",
+    "modifiedDate": "2024-07-08T02:07:12.409+00:00"
+  }
+]
