@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Community from './pages/';
 // import Pot from './pages/';
 // import Profile from './pages/';
+import MyPage from './pages/MyPage/MyPage';
+import EditProfile from './pages/MyPage/EditProfile';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +21,8 @@ const App: React.FC = () => {
         <Route path="/" element={<KakaoLogin />} />
         <Route path="/api/oauth/kakao" element={<KakaoRedirectHandler />} />
         <Route path="/main" element={<Main />} />
+        <Route path="/myPage" element={<MyPage />} />
+        <Route path="/myPage/editProfile" element={<EditProfile />} />
         <Route
           path="/main/addOttSubscription"
           element={<AddOttSubscription />}
