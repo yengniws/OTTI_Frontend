@@ -68,7 +68,7 @@ import { useLocation } from 'react-router-dom';
 import TopBar from '../../components/topbar/TopBar';
 import TotalSubscriptionFee from '../../components/totalfee/TotalSubscriptionFee';
 import PieChart from '../../components/totalfee/PieChart';
-import * as S from './SubscriptionFeeDetail.Style';
+import * as S from './SubscriptionDetailFeeDetail.Style';
 import * as T from './Main.Style';
 
 interface LocationState {
