@@ -114,7 +114,7 @@ const RedirectHandler: React.FC = () => {
           // localStorage.setItem('refresh_token', data.refreshToken);
           // console.log('성공');
           // console.log(response.data);
-          navigate('/'); // 로그인 성공 후 홈 페이지로 리다이렉트
+          navigate('/main'); // 로그인 성공 후 홈 페이지로 리다이렉트
         })
         .catch((error) => {
           console.error('로그인 실패', error);

@@ -17,10 +17,12 @@ import Login from './pages/Login/Login';
 import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
+// import { GlobalStyle } from './styles/Globalstyled';
 
 const App: React.FC = () => {
   return (
     <>
+      {/* <GlobalStyle /> */}
       <ToastContainer />
       <Routes>
         <Route path="/" element={<KakaoLogin />} />
