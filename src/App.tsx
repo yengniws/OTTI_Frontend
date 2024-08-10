@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Home from './pages/';
 // import Community from './pages/';
 // import Pot from './pages/';
-// import Profile from './pages/';
 import MyPage from './pages/MyPage/MyPage';
 import EditProfile from './pages/MyPage/EditProfile';
 import Onboarding from './pages/Onboarding/OnBoarding';
@@ -38,8 +37,8 @@ const App: React.FC = () => {
         />
         {/* <Route path="/home" element={<Home />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/pot" element={<Pot />} />
-        <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/pot" element={<Pot />} /> */}
+        {/* <Route path="/profile" element={<MyPage />} /> */}
         <Route path="/main" element={<Main />} />
         <Route
           path="/main/subscriptionDetail/:id"

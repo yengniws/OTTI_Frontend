@@ -1,46 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../libs/AxiosInstance'; // 생성한 axios 인스턴스를 임포트
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FaCamera } from 'react-icons/fa';
-import * as S from './EditProfile.Style';
+import * as S from './MyPage.Style';
 
 interface UserProfile {
-  user_image: string;
-  userId: string;
+  profilePicture: string;
   nickname: string;
 }
 
-const defaultuser_image = 'https://i.ibb.co/xLv21hj/app-logo.png';
-
-const EditProfile: React.FC = () => {
+const Mypage: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
-    user_image: defaultuser_image,
-    userId: '',
+    profilePicture: '',
     nickname: '',
   });
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        // 프로필 정보를 가져오기 위한 API 호출
-        const response = await axiosInstance.get('/api/users/profile');
-        const fetchedProfile = response.data;
-
-        // 프로필 사진이 없을 경우 기본 프로필 사진 설정
-        if (!fetchedProfile.user_image) {
-          fetchedProfile.user_image = defaultuser_image;
-        }
-
-        // 프로필 정보를 설정
-        setProfile({
-          user_image: fetchedProfile.user_image,
-          userId: fetchedProfile.user_id,
-          nickname: fetchedProfile.nickname,
-        });
+        const response = await fetch('http://localhost:3001/profile');
+        const data = await response.json();
+        setProfile(data);
       } catch (error) {
         console.error('프로필 불러오는 중 오류 발생:', error);
       }
@@ -49,80 +28,34 @@ const EditProfile: React.FC = () => {
     fetchUserProfile();
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setProfile((prevProfile) => ({ ...prevProfile, [name]: value }));
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.result) {
-          setProfile((prevProfile) => ({
-            ...prevProfile,
-            user_image: reader.result as string,
-          }));
-        }
-      };
-      reader.readAsDataURL(e.target.files[0]);
-    }
-  };
-
-  const handleSave = async () => {
-    try {
-      const updatedProfile = {
-        user_image: profile.user_image,
-        nickname: profile.nickname,
-      };
-
-      await axiosInstance.put('/api/users/profile/update', updatedProfile);
-      toast.success('프로필이 저장되었습니다.');
-      setTimeout(() => {
-        navigate('/myPage');
-      }, 1500);
-    } catch (error) {
-      console.error('프로필 저장 중 오류 발생:', error);
-    }
+  const navigateTo = (path: string) => {
+    navigate(path);
   };
 
   return (
-    <S.EditProfileContainer>
-      <ToastContainer />
-      <S.ProfilePictureSection>
-        <S.ProfilePicture src={profile.user_image} alt="Profile" />
-        <S.EditIcon>
-          <FaCamera size={15} color="#aaa" />
-          <S.FileInput
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-        </S.EditIcon>
-      </S.ProfilePictureSection>
-      <S.ProfileInput>
-        <S.InputLabel>닉네임</S.InputLabel>
-        <S.Input
-          type="text"
-          name="nickname"
-          value={profile.nickname}
-          onChange={handleInputChange}
-        />
-      </S.ProfileInput>
-      <S.ProfileInput>
-        <S.InputLabel>카카오 아이디</S.InputLabel>
-        <S.Input
-          type="text"
-          name="userId"
-          value={profile.userId}
-          onChange={handleInputChange}
-          disabled
-        />
-      </S.ProfileInput>
-
-      <S.SaveButton onClick={handleSave}>저장하기</S.SaveButton>
-    </S.EditProfileContainer>
+    <S.MypageContainer>
+      <S.ProfileSection>
+        <S.ProfilePicture src={profile.profilePicture} alt="Profile" />
+        <S.Nickname>{profile.nickname}</S.Nickname>
+        <S.EditButton onClick={() => navigateTo('/myPage/editProfile')}>
+          프로필 수정
+        </S.EditButton>
+      </S.ProfileSection>
+      <S.TopMenuList>
+        <S.TopMenuItem onClick={() => navigateTo('/main')}>
+          내가 쓴 글
+        </S.TopMenuItem>
+        <S.TopMenuItem onClick={() => navigateTo('/main')}>
+          팟 신청 리스트
+        </S.TopMenuItem>
+      </S.TopMenuList>
+      <S.Menu>
+        <S.MenuItem onClick={() => navigateTo('/main')}>공지사항</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>고객 센터</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
+      </S.Menu>
+    </S.MypageContainer>
   );
 };
 
-export default EditProfile;
+export default Mypage;
