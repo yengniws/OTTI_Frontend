@@ -6,6 +6,7 @@ import TotalSubscriptionFee from '../../components/totalfee/TotalSubscriptionFee
 import NotificationPanel from '../../components/NotificationPanel';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import SubscriptionList from '../../components/ SubscriptionList/ SubscriptionList';
+import Calendar from '../../components/Calender/Calender';
 
 interface Subscription {
   id: string;
@@ -63,10 +64,6 @@ const Main = () => {
         <S.Logo>OTTi</S.Logo>
         <NotificationPanel />
       </S.Header>
-      <S.BottomNavBarWrapper>
-        <BottomNavBar />
-      </S.BottomNavBarWrapper>
-      <SubscriptionList />
       <S.PageContainer>
         <div onClick={handleTotalFeeClick}>
           <TotalSubscriptionFee />
@@ -81,6 +78,11 @@ const Main = () => {
             </div>
           ))}
       </S.PageContainer>
+      <Calendar />
+      <SubscriptionList />
+      <S.BottomNavBarWrapper>
+        <BottomNavBar />
+      </S.BottomNavBarWrapper>
     </S.MainContainer>
   );
 };
