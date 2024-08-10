@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Profile from './pages/';
 import MyPage from './pages/MyPage/MyPage';
 import EditProfile from './pages/MyPage/EditProfile';
+import Onboarding from './pages/Onboarding/OnBoarding';
+import Login from './pages/Login/Login';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +25,8 @@ const App: React.FC = () => {
         <Route path="/main" element={<Main />} />
         <Route path="/myPage" element={<MyPage />} />
         <Route path="/myPage/editProfile" element={<EditProfile />} />
+        <Route path="/" element={<Onboarding />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/main/addOttSubscription"
           element={<AddOttSubscription />}
