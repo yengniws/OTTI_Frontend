@@ -60,11 +60,9 @@
 
 import React from 'react';
 import * as S from './Main.Style';
-<<<<<<< HEAD
 import NotificationPanel from '../../components/NotificationPanel';
-=======
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
->>>>>>> 222b725eb8c6006214dbe726ff36371c0a612569
+import SubscriptionList from '../../components/ SubscriptionList/ SubscriptionList';
 
 const Main = () => {
   return (
@@ -76,6 +74,7 @@ const Main = () => {
       <S.BottomNavBarWrapper>
         <BottomNavBar />
       </S.BottomNavBarWrapper>
+      <SubscriptionList />
     </S.MainContainer>
   );
 };
