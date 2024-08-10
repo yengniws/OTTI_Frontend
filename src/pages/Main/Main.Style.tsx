@@ -9,7 +9,11 @@ export const MainContainer = styled.div`
   height: 100vh;
   box-sizing: border-box;
   margin-top: 10px;
+<<<<<<< HEAD
   overflow: hidden;
+=======
+  position: relative; //하단네브바 고정용 스타일
+>>>>>>> 222b725eb8c6006214dbe726ff36371c0a612569
 `;
 
 export const Header = styled.header`
@@ -59,4 +63,11 @@ export const UnreadBadge = styled.span`
   border-radius: 50%;
   padding: 5px 8px;
   font-size: 12px;
+`;
+
+export const BottomNavBarWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 375px;
 `;
