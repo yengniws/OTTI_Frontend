@@ -48,6 +48,8 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
+        
+      
       </Routes>
     </>
   );

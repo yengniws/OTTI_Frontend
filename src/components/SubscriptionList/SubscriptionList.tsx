@@ -69,7 +69,7 @@ const SubscriptionList: React.FC = () => {
   }, []);
 
   const handleAddOtt = () => {
-    navigate('/'); // 이동 경로 추후 수정 필요
+    navigate('/main/addOttSubscription'); // 이동 경로 추후 수정 필요
   };
 
   return (
