@@ -118,7 +118,11 @@ const AddOttSubscription: React.FC = () => {
       <S.Divider />
       <S.Section>
         <S.Label>구독료</S.Label>
-        <S.Input value={amount} onChange={(e) => setAmount(e.target.value)} />
+        <S.Input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
       </S.Section>
       <S.Divider />
       <S.Section>
