@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../libs/AxiosInstance'; // axiosInstance 불러오기
 import * as S from './MyPage.Style';
 
 interface UserProfile {
@@ -17,11 +18,12 @@ const Mypage: React.FC = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await fetch('http://localhost:3001/profile');
-        const data = await response.json();
-        setProfile(data);
+        const response = await axiosInstance.get(
+          '/api/users/{userId}/profile', // baseURL이 이미 설정되어 있으므로 상대 경로만 사용
+        );
+        setProfile(response.data);
       } catch (error) {
-        console.error('프로필 불러오는 중 오류 발생:', error);
+        console.error('프로필 불러오기 오류:', error);
       }
     };
 

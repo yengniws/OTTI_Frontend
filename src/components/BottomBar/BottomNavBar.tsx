@@ -10,7 +10,7 @@ const BottomNavBar: React.FC = () => {
     <S.BottomNavBarContainer>
       <S.BottomList>
         <S.BottomItem>
-          <S.NavLink to="/home">
+          <S.NavLink to="/main">
             <S.BottomIcon>
               <IoHomeOutline size={33} />
             </S.BottomIcon>
