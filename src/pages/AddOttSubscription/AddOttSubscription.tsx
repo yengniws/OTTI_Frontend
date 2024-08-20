@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axiosInstance from '../../libs/AxiosInstance'; // Update the path accordingly
+import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './AddOttSubscription.Style';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -57,6 +57,14 @@ const AddOttSubscription: React.FC = () => {
       ottOptions[0];
     setOtt(selectedOtt);
     setPlan('');
+  };
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      //숫자만 필터링 하는 정규식을 사용해 텍스트 입력 제어
+      setAmount(value);
+    }
   };
 
   const handleSubmit = async () => {
@@ -118,11 +126,7 @@ const AddOttSubscription: React.FC = () => {
       <S.Divider />
       <S.Section>
         <S.Label>구독료</S.Label>
-        <S.Input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
+        <S.Input value={amount} onChange={handleAmountChange} />
       </S.Section>
       <S.Divider />
       <S.Section>
