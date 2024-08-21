@@ -32,10 +32,6 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL, // 베이스 url 추후 수정 및 env에 숨기기
 });
 
-// const axiosInstance = axios.create({
-//   baseURL: process.env.VITE_BASE_URL, // This may work depending on your setup
-// });
-
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('access_token'); // 토큰을 로컬 스토리지에서 가져옴
