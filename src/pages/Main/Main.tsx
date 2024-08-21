@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as S from './Main.Style';
 import TotalSubscriptionFee from '../../components/totalfee/TotalSubscriptionFee';
-import NotificationPanel from '../../components/NotificationPanel';
+import NotificationPanel from '../../components/Notification/NotificationPanel';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import SubscriptionList from '../../components/SubscriptionList/SubscriptionList';
 import Calendar from '../../components/Calender/Calender';

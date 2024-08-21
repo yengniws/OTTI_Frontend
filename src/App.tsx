@@ -1,5 +1,5 @@
 import React from 'react';
-import KakaoLogin from './components/KakaoLogin';
+import KakaoLogin from './components/KakaoLogin/KakaoLogin';
 import KakaoRedirectHandler from './pages/KakaoLogin/KakaoRedirectHandler';
 import { Routes, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
