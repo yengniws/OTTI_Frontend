@@ -140,7 +140,7 @@ const AddOttSubscription: React.FC = () => {
         <S.InputMemo value={memo} onChange={(e) => setMemo(e.target.value)} />
       </S.MemoBox>
       <S.ButtonContainer>
-        <S.ButtonSave onClick={handleSubmit}>등록하기!</S.ButtonSave>
+        <S.ButtonSave onClick={handleSubmit}>등록하기</S.ButtonSave>
       </S.ButtonContainer>
     </S.Container>
   );
