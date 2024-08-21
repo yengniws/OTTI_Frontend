@@ -7,7 +7,7 @@ const KakaoLogin: React.FC = () => {
   return (
     <Link to={kakaoURL}>
       <img
-        src="../../assets/img/kakao-login-medium-wide.png"
+        src="../../../assets/img/kakao-login-medium-wide.png"
         alt="Kakao 로그인"
       />
     </Link>
