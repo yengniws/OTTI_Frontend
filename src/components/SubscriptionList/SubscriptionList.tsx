@@ -10,7 +10,7 @@ interface Ott {
   name: string;
   ratePlan: string;
   price: number;
-  ott_image: string;
+  image: string;
   createdDate: string;
   modifiedDate: string;
 }
@@ -35,7 +35,7 @@ const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
     <S.ListContentBox>
       <S.ListImageWrap>
         <S.ListImage
-          src={subscription.ott.ott_image}
+          src={subscription.ott.image}
           alt={`${subscription.ott.name} logo`}
         />
       </S.ListImageWrap>
