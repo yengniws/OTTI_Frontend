@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './OnBoarding.Style';
 import logo from '../../assets/img/OTTI.png';
-import KakaoLogin from '../../components/KakaoLogin';
+import KakaoLogin from '../../components/KakaoLogin/KakaoLogin';
 
 const Onboarding: React.FC = () => {
   return (
