@@ -54,7 +54,7 @@ const Mypage: React.FC = () => {
       </S.TopMenuList>
       <S.Menu>
         <S.MenuItem onClick={() => navigateTo('/main')}>공지사항</S.MenuItem>
-        <S.MenuItem onClick={() => navigateTo('/main')}>고객 센터</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>고객센터</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
       </S.Menu>
       <S.BottomNavBarWrapper>

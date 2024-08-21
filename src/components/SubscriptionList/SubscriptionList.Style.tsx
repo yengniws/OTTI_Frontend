@@ -33,8 +33,8 @@ export const ListContentBox = styled.div`
 `;
 
 export const ListImageWrap = styled.div`
-  width: 45px;
-  height: 45px;
+  /* width: 45px;
+  height: 45px; */
   border-radius: 50px;
   display: flex;
   justify-content: center;
@@ -43,8 +43,9 @@ export const ListImageWrap = styled.div`
 `;
 
 export const ListImage = styled.img`
-  width: 27px;
+  width: 45px;
   height: auto;
+  border-radius: 50px;
 `;
 
 export const ListTxtBox = styled.div`
