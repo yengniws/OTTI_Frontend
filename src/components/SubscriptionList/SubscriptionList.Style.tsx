@@ -78,6 +78,10 @@ export const ListDDayTxt = styled.div`
   font-weight: bold;
 `;
 
+export const ButtonWrap = styled.div`
+  padding-bottom: 1px; //이게 없으면 버튼 하단으로 여백이 안 생김,,,
+`;
+
 export const AddOttBtn = styled.button`
   display: block;
   width: 130px;
