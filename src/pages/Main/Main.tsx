@@ -56,30 +56,32 @@ const Main: React.FC = () => {
   };
 
   return (
-    <S.MainContainer>
-      <S.Header>
-        <S.Logo>OTTi</S.Logo>
-        <NotificationPanel />
-      </S.Header>
-      <S.PageContainer>
-        <div onClick={handleTotalFeeClick}>
-          <TotalSubscriptionFee />
-        </div>
-        {subscriptions.map((subscription) => (
-          <div
-            key={subscription.id}
-            onClick={() => handleSubscriptionClick(subscription.id)}
-          >
-            {subscription.name}: {subscription.amount}원
+    <>
+      <S.MainContainer>
+        <S.Header>
+          <S.Logo>OTTi</S.Logo>
+          <NotificationPanel />
+        </S.Header>
+        <S.PageContainer>
+          <div onClick={handleTotalFeeClick}>
+            <TotalSubscriptionFee />
           </div>
-        ))}
-      </S.PageContainer>
-      <Calendar />
-      <SubscriptionList />
-      <S.BottomNavBarWrapper>
-        <BottomNavBar />
-      </S.BottomNavBarWrapper>
-    </S.MainContainer>
+          {subscriptions.map((subscription) => (
+            <div
+              key={subscription.id}
+              onClick={() => handleSubscriptionClick(subscription.id)}
+            >
+              {subscription.name}: {subscription.amount}원
+            </div>
+          ))}
+        </S.PageContainer>
+        <Calendar />
+        <SubscriptionList />
+        <S.BottomNavBarWrapper>
+          <BottomNavBar />
+        </S.BottomNavBarWrapper>
+      </S.MainContainer>
+    </>
   );
 };
 
