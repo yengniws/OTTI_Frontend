@@ -50,8 +50,8 @@ const NotificationPanel: React.FC = () => {
       }
     };
 
-    loadNotifications(); // Ensure this is correctly placed within useEffect
-  }, []); // Correctly close useEffect
+    loadNotifications();
+  }, []);
 
   const togglePanel = () => {
     setIsOpen(!isOpen);
