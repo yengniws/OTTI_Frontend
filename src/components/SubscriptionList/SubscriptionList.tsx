@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../libs/AxiosInstance'; // 수정된 axios 인스턴스를 가져옴
 import * as S from './SubscriptionList.Style';
-import { IoAddCircle } from 'react-icons/io5';
+// import { IoAddCircle } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
 interface Ott {
@@ -58,7 +58,7 @@ const SubscriptionList: React.FC = () => {
   useEffect(() => {
     const fetchSubscriptions = async () => {
       try {
-        const response = await axiosInstance.get('/api/subscription');
+        const response = await axiosInstance.get('/api/subscription/user');
         setSubscriptions(response.data);
       } catch (error) {
         console.error('구독 정보 불러오기 오류:', error);
@@ -77,7 +77,7 @@ const SubscriptionList: React.FC = () => {
       <S.ListContainer>
         <S.ListTitleWrap>
           <S.ListTitle>구독 중인 OTT</S.ListTitle>
-          <IoAddCircle />
+          {/* <IoAddCircle /> */}
         </S.ListTitleWrap>
 
         {subscriptions.map((subscription) => (
