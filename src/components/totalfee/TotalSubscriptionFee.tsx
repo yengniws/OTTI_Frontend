@@ -103,7 +103,7 @@ const TotalSubscriptionFee: React.FC = () => {
 
   return (
     <S.TotalFeeContainer>
-      <S.TotalFeeTitle>이번달 총 구독료</S.TotalFeeTitle>
+      <S.TotalFeeTitle>이번 달 총 구독료</S.TotalFeeTitle>
       <S.TotalFeeAmount>{totalAmount}원</S.TotalFeeAmount>
     </S.TotalFeeContainer>
   );
