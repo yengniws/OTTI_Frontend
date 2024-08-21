@@ -10,6 +10,7 @@ export const MypageContainer = styled.div`
   height: 100vh;
   margin: 0 auto;
   box-sizing: border-box;
+  position: relative;
 `;
 
 export const ProfileSection = styled.div`
@@ -90,4 +91,15 @@ export const MenuItem = styled.div`
     position: absolute;
     left: 90%;
   }
+`;
+
+export const BottomNavBarWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  max-width: 375px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; // z-index를 높게 설정하여 최상단에 위치하도록 함
+  padding: 0; // MainContainer의 padding 영향을 받지 않도록 설정
 `;

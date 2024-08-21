@@ -10,11 +10,8 @@ export const MainContainer = styled.div`
   padding: 0 20px;
   box-sizing: border-box;
   margin-top: 10px;
-<<<<<<< HEAD
   overflow: hidden;
-=======
   position: relative; //하단네브바 고정용 스타일
->>>>>>> 222b725eb8c6006214dbe726ff36371c0a612569
 `;
 
 export const Header = styled.header`
@@ -68,9 +65,13 @@ export const UnreadBadge = styled.span`
 
 export const BottomNavBarWrapper = styled.div`
   position: absolute;
-  bottom: 0;
   width: 100%;
   max-width: 375px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99; // z-index를 높게 설정하여 최상단에 위치하도록 함
+  padding: 0; // MainContainer의 padding 영향을 받지 않도록 설정
 `;
 
 export const PageContainer = styled.div`

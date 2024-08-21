@@ -50,7 +50,6 @@ const Main: React.FC = () => {
     try {
       const response = await axios.get(`/api/subscription/${subscriptionId}`);
       console.log('Subscription details:', response.data);
-      // Handle displaying subscription details or navigate to another page
     } catch (error) {
       console.error('Error fetching subscription details:', error);
     }
