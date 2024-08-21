@@ -16,6 +16,7 @@ import Login from './pages/Login/Login';
 import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
+
 // import { GlobalStyle } from './styles/Globalstyled';
 
 const App: React.FC = () => {
@@ -24,7 +25,7 @@ const App: React.FC = () => {
       {/* <GlobalStyle /> */}
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<KakaoLogin />} />
+        <Route path="/" element={<Onboarding />} />
         <Route path="/api/oauth/kakao" element={<KakaoRedirectHandler />} />
         <Route path="/main" element={<Main />} />
         <Route path="/myPage" element={<MyPage />} />
@@ -48,8 +49,6 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
-        
-      
       </Routes>
     </>
   );
