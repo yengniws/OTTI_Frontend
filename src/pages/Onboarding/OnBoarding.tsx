@@ -8,7 +8,9 @@ const Onboarding: React.FC = () => {
     <S.OnboardingContainer>
       <S.Logo src={logo} alt="OTTi Logo" />
       <S.Title>OTTi</S.Title>
-      <KakaoLogin />
+      <S.KakaoLoginCont>
+        <KakaoLogin />
+      </S.KakaoLoginCont>
     </S.OnboardingContainer>
   );
 };
