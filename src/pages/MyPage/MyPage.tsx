@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance'; // axiosInstance 불러오기
 import * as S from './MyPage.Style';
+import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 
 interface UserProfile {
   profilePicture: string;
@@ -56,6 +57,9 @@ const Mypage: React.FC = () => {
         <S.MenuItem onClick={() => navigateTo('/main')}>고객 센터</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
       </S.Menu>
+      <S.BottomNavBarWrapper>
+        <BottomNavBar />
+      </S.BottomNavBarWrapper>
     </S.MypageContainer>
   );
 };
