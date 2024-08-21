@@ -50,37 +50,38 @@ const Main: React.FC = () => {
     try {
       const response = await axios.get(`/api/subscription/${subscriptionId}`);
       console.log('Subscription details:', response.data);
-      // Handle displaying subscription details or navigate to another page
     } catch (error) {
       console.error('Error fetching subscription details:', error);
     }
   };
 
   return (
-    <S.MainContainer>
-      <S.Header>
-        <S.Logo>OTTi</S.Logo>
-        <NotificationPanel />
-      </S.Header>
-      <S.PageContainer>
-        <div onClick={handleTotalFeeClick}>
-          <TotalSubscriptionFee />
-        </div>
-        {subscriptions.map((subscription) => (
-          <div
-            key={subscription.id}
-            onClick={() => handleSubscriptionClick(subscription.id)}
-          >
-            {subscription.name}: {subscription.amount}원
+    <>
+      <S.MainContainer>
+        <S.Header>
+          <S.Logo>OTTi</S.Logo>
+          <NotificationPanel />
+        </S.Header>
+        <S.PageContainer>
+          <div onClick={handleTotalFeeClick}>
+            <TotalSubscriptionFee />
           </div>
-        ))}
-      </S.PageContainer>
-      <Calendar />
-      <SubscriptionList />
-      <S.BottomNavBarWrapper>
-        <BottomNavBar />
-      </S.BottomNavBarWrapper>
-    </S.MainContainer>
+          {subscriptions.map((subscription) => (
+            <div
+              key={subscription.id}
+              onClick={() => handleSubscriptionClick(subscription.id)}
+            >
+              {subscription.name}: {subscription.amount}원
+            </div>
+          ))}
+        </S.PageContainer>
+        <Calendar />
+        <SubscriptionList />
+        <S.BottomNavBarWrapper>
+          <BottomNavBar />
+        </S.BottomNavBarWrapper>
+      </S.MainContainer>
+    </>
   );
 };
 

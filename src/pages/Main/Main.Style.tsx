@@ -10,21 +10,15 @@ export const MainContainer = styled.div`
   padding: 0 20px;
   box-sizing: border-box;
   margin-top: 10px;
-<<<<<<< HEAD
   overflow: hidden;
-=======
-  position: relative; //하단네브바 고정용 스타일
->>>>>>> 222b725eb8c6006214dbe726ff36371c0a612569
+  overflow-y: auto;
+  margin-bottom: 85px;
+  z-index: 50;
 `;
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  // align-items: center;
-  // padding: 16px;
-  // background-color: #fff;
-  // border-radius: 8px;
-  // margin-bottom: 16px;
 `;
 
 export const Logo = styled.h1`
@@ -67,10 +61,15 @@ export const UnreadBadge = styled.span`
 `;
 
 export const BottomNavBarWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
+  position: fixed; // 화면에 고정
+  bottom: 0; // 화면의 세로상 최하단에 위치
+  left: 50%; // 가로상 중앙에 위치
+  transform: translateX(-50%); // 정확히 중앙 정렬
   width: 100%;
   max-width: 375px;
+  z-index: 99; // z-index를 높게 설정하여 최상단에 위치하도록 함
+  padding: 0; // MainContainer의 padding 영향을 받지 않도록 설정
+  overflow: hidden;
 `;
 
 export const PageContainer = styled.div`

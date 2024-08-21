@@ -1,42 +1,36 @@
 import React, { useState } from 'react';
-import axiosInstance from '../../libs/AxiosInstance'; // Update the path accordingly
+import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './AddOttSubscription.Style';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ottOptions = [
   {
-    ott_id: 1,
     ott_name: '넷플릭스',
     ott_image: 'https://i.ibb.co/hdrL7nM/Netflix.png',
     rate_plans: ['광고형', '스탠다드', '프리미엄', '기타'],
   },
   {
-    ott_id: 2,
     ott_name: '티빙',
     ott_image: 'https://i.ibb.co/xJYNbMZ/tving.png',
     rate_plans: ['광고형', '베이직', '스탠다드', '프리미엄', '기타'],
   },
   {
-    ott_id: 3,
     ott_name: '웨이브',
     ott_image: 'https://i.ibb.co/5YnVYMd/Wavve.png',
     rate_plans: ['베이직', '스탠다드', '프리미엄', '기타'],
   },
   {
-    ott_id: 4,
     ott_name: '디즈니+',
     ott_image: 'https://i.ibb.co/wKm4GMF/Disney-plus.png',
     rate_plans: ['스탠다드', '프리미엄', '기타'],
   },
   {
-    ott_id: 5,
     ott_name: '쿠팡플레이',
     ott_image: 'https://i.ibb.co/Y3N6qcb/Coupang-play.png',
     rate_plans: ['쿠팡와우회원', '기타'],
   },
   {
-    ott_id: 6,
     ott_name: '왓챠',
     ott_image: 'https://i.ibb.co/4MQ02LS/Watcha.png',
     rate_plans: ['베이직', '프리미엄', '기타'],
@@ -59,16 +53,25 @@ const AddOttSubscription: React.FC = () => {
     setPlan('');
   };
 
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setAmount(value);
+    }
+  };
+
   const handleSubmit = async () => {
     try {
+      // const userId = localStorage.getItem('user_id'); // 유저 ID를 로컬 스토리지에서 가져옴
+
       await axiosInstance.post('/api/subscription', {
-        ott_id: ott.ott_id,
-        ott_name: ott.ott_name,
-        rate_plan: plan,
-        price: amount,
-        createdDate: new Date(),
-        modifiedDate: new Date(),
+        name: name,
+        payment: Number(amount),
         memo: memo,
+        paymentDate: Number(date),
+        //userId: Number(userId),
+        ottName: ott.ott_name,
+        ottRatePlan: plan,
       });
 
       toast.success('등록되었어요!', {
@@ -118,11 +121,7 @@ const AddOttSubscription: React.FC = () => {
       <S.Divider />
       <S.Section>
         <S.Label>구독료</S.Label>
-        <S.Input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
+        <S.Input value={amount} onChange={handleAmountChange} />
       </S.Section>
       <S.Divider />
       <S.Section>

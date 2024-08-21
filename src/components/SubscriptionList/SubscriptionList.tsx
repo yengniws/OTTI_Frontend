@@ -86,7 +86,10 @@ const SubscriptionList: React.FC = () => {
             subscription={subscription}
           />
         ))}
-        <S.AddOttBtn onClick={handleAddOtt}>+ 구독 추가</S.AddOttBtn>
+        <S.ButtonWrap>
+          <S.AddOttBtn onClick={handleAddOtt}>+ 구독 추가</S.AddOttBtn>
+        </S.ButtonWrap>
+
         {/* 이동하는 링크 추가하기 */}
       </S.ListContainer>
     </>
