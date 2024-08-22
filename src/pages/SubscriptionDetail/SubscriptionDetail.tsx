@@ -75,7 +75,7 @@ const SubscriptionDetail: React.FC = () => {
           navigate('/main');
         }, 1000);
       })
-      .catch((error) => console.error('데이터 삭제 중 에러:', error));
+      .catch((error) => console.error('데이터 삭제 중 오류:', error));
   };
 
   const handleSave = () => {
