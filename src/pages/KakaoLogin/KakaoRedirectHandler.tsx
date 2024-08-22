@@ -86,6 +86,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
+import LoadingPage from '../Loading/LoadingPage';
 
 const RedirectHandler: React.FC = () => {
   const navigate = useNavigate();
@@ -124,7 +125,7 @@ const RedirectHandler: React.FC = () => {
     }
   }, [code, navigate]);
 
-  return <div>로그인 중입니다...</div>;
+  return <LoadingPage />;
 };
 
 export default RedirectHandler;
