@@ -44,7 +44,7 @@ const App: React.FC = () => {
         <Route path="/main" element={<Main />} />
         <Route
           path="/main/subscriptionDetail/:id"
-          element={<SubscriptionDetail />} //경로 수정 필요 -> userid관련 issue
+          element={<SubscriptionDetail />}
         />
         <Route
           path="/subscription-detail"

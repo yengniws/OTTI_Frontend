@@ -68,8 +68,8 @@ export const ListDDayContainer = styled.div`
   background-color: #d9d9d9;
   padding: 10px;
   border-radius: 50px;
-  width: 70px;
-  height: 40px;
+  width: 45px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
