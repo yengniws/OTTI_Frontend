@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MypageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 100%;
   max-width: 375px; // 최대 너비 설정
@@ -12,11 +12,21 @@ export const MypageContainer = styled.div`
   box-sizing: border-box;
   position: relative;
 `;
+export const TitleWrapper = styled.header`
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 0.5px solid black;
+`;
 
 export const ProfileSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 30px;
   margin-bottom: 20px;
   width: 80%;
   height: 15%;
@@ -35,6 +45,7 @@ export const Nickname = styled.div`
   font-weight: bold;
   margin-left: 20px;
   text-align: left;
+  /* border: 1px solid black; */
 `;
 
 export const EditButton = styled.button`

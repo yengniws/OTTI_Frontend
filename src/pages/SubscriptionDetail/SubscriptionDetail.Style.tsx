@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const OttDetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 375px;
+  height: 100vh;
+`;
+
 export const Container = styled.div`
   width: 90%;
   max-width: 375px;
@@ -10,6 +19,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
+`;
+
+export const TitleWrapper = styled.header`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid black;
 `;
 
 export const Header = styled.div`

@@ -1,15 +1,30 @@
 import styled from 'styled-components';
 
+export const ProfileWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 375px;
+`;
+
 export const EditProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 375px;
+  height: 100vh;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 20px;
+  margin-top: 50px;
+`;
+
+export const TitleWrapper = styled.header`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.5px solid black;
 `;
 
 export const ProfilePictureSection = styled.div`

@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../libs/AxiosInstance'; // 생성한 axios 인스턴스를 임포트
+import axiosInstance from '../../libs/AxiosInstance';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaCamera } from 'react-icons/fa';
 import * as S from './EditProfile.Style';
+import NewTopBar from '../../components/topbar/NewTopBar';
 
 interface UserProfile {
-  user_image: string;
-  userId: string;
-  nickname: string;
+  profilePhotoUrl: string;
+  username: string;
 }
 
 const defaultuser_image = 'https://i.ibb.co/xLv21hj/app-logo.png';
 
 const EditProfile: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
-    user_image: defaultuser_image,
-    userId: '',
-    nickname: '',
+    profilePhotoUrl: defaultuser_image,
+    username: '',
   });
 
   const navigate = useNavigate();
@@ -28,9 +27,12 @@ const EditProfile: React.FC = () => {
       try {
         const response = await axiosInstance.get('/api/users/{userId}/profile');
         const fetchedProfile = response.data;
-        if (!fetchedProfile.user_image) {
-          fetchedProfile.user_image = defaultuser_image;
+
+        // profilePhotoUrl 값이 없으면 defaultuser_image를 사용
+        if (!fetchedProfile.profilePhotoUrl) {
+          fetchedProfile.profilePhotoUrl = defaultuser_image;
         }
+
         setProfile(fetchedProfile);
       } catch (error) {
         console.error('프로필 불러오는 중 오류 발생:', error);
@@ -52,7 +54,7 @@ const EditProfile: React.FC = () => {
         if (reader.result) {
           setProfile((prevProfile) => ({
             ...prevProfile,
-            user_image: reader.result as string,
+            profilePhotoUrl: reader.result as string,
           }));
         }
       };
@@ -73,41 +75,46 @@ const EditProfile: React.FC = () => {
   };
 
   return (
-    <S.EditProfileContainer>
-      <ToastContainer />
-      <S.ProfilePictureSection>
-        <S.ProfilePicture src={profile.user_image} alt="Profile" />
-        <S.EditIcon>
-          <FaCamera size={15} color="#aaa" />
-          <S.FileInput
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
+    <S.ProfileWrapper>
+      <S.TitleWrapper>
+        <NewTopBar title="프로필 수정" />
+      </S.TitleWrapper>
+      <S.EditProfileContainer>
+        <ToastContainer />
+        <S.ProfilePictureSection>
+          <S.ProfilePicture src={profile.profilePhotoUrl} alt="Profile" />
+          <S.EditIcon>
+            <FaCamera size={15} color="#aaa" />
+            <S.FileInput
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </S.EditIcon>
+        </S.ProfilePictureSection>
+        <S.ProfileInput>
+          <S.InputLabel>닉네임</S.InputLabel>
+          <S.Input
+            type="text"
+            name="nickname"
+            value={profile.username}
+            onChange={handleInputChange}
           />
-        </S.EditIcon>
-      </S.ProfilePictureSection>
-      <S.ProfileInput>
-        <S.InputLabel>닉네임</S.InputLabel>
-        <S.Input
-          type="text"
-          name="nickname"
-          value={profile.nickname}
-          onChange={handleInputChange}
-        />
-      </S.ProfileInput>
-      <S.ProfileInput>
-        <S.InputLabel>카카오 아이디</S.InputLabel>
-        <S.Input
-          type="text"
-          name="userId"
-          value={profile.userId}
-          onChange={handleInputChange}
-          disabled
-        />
-      </S.ProfileInput>
+        </S.ProfileInput>
+        <S.ProfileInput>
+          <S.InputLabel>카카오 아이디</S.InputLabel>
+          {/* 카카오 아이디 불러오는 json 값 스웨거에 없음 */}
+          <S.Input
+            type="text"
+            name="userId"
+            onChange={handleInputChange}
+            disabled
+          />
+        </S.ProfileInput>
 
-      <S.SaveButton onClick={handleSave}>저장하기</S.SaveButton>
-    </S.EditProfileContainer>
+        <S.SaveButton onClick={handleSave}>저장하기</S.SaveButton>
+      </S.EditProfileContainer>
+    </S.ProfileWrapper>
   );
 };
 

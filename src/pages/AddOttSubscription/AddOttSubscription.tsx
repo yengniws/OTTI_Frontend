@@ -3,6 +3,7 @@ import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './AddOttSubscription.Style';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NewTopBar from '../../components/topbar/NewTopBar';
 
 const ottOptions = [
   {
@@ -61,6 +62,11 @@ const AddOttSubscription: React.FC = () => {
   };
 
   const handleSubmit = async () => {
+    if (!name || !amount) {
+      toast.error('모든 값을 입력해주세요!');
+      return;
+    }
+
     try {
       // const userId = localStorage.getItem('user_id'); // 유저 ID를 로컬 스토리지에서 가져옴
 
@@ -89,60 +95,65 @@ const AddOttSubscription: React.FC = () => {
   const dateOptions = Array.from({ length: 31 }, (_, i) => i + 1);
 
   return (
-    <S.Container>
-      <S.Header>
-        <S.Image src={ott.ott_image} alt={ott.ott_name} />
-        <S.SelectOttName
-          value={ott.ott_name}
-          onChange={(e) => handleOttChange(e.target.value)}
-        >
-          {ottOptions.map((option) => (
-            <option key={option.ott_name} value={option.ott_name}>
-              {option.ott_name}
-            </option>
-          ))}
-        </S.SelectOttName>
-      </S.Header>
-      <S.Section>
-        <S.Label>이름</S.Label>
-        <S.Input value={name} onChange={(e) => setName(e.target.value)} />
-      </S.Section>
-      <S.Divider />
-      <S.Section>
-        <S.Label>요금제 선택</S.Label>
-        <S.Select value={plan} onChange={(e) => setPlan(e.target.value)}>
-          {ott.rate_plans.map((plan) => (
-            <option key={plan} value={plan}>
-              {plan}
-            </option>
-          ))}
-        </S.Select>
-      </S.Section>
-      <S.Divider />
-      <S.Section>
-        <S.Label>구독료</S.Label>
-        <S.Input value={amount} onChange={handleAmountChange} />
-      </S.Section>
-      <S.Divider />
-      <S.Section>
-        <S.Label>정기결제일</S.Label>
-        <S.Select value={date} onChange={(e) => setDate(e.target.value)}>
-          {dateOptions.map((day) => (
-            <option key={day} value={day.toString()}>
-              {`${day}일`}
-            </option>
-          ))}
-        </S.Select>
-      </S.Section>
-      <S.Divider />
-      <S.LabelMemo>메모</S.LabelMemo>
-      <S.MemoBox>
-        <S.InputMemo value={memo} onChange={(e) => setMemo(e.target.value)} />
-      </S.MemoBox>
-      <S.ButtonContainer>
-        <S.ButtonSave onClick={handleSubmit}>등록하기</S.ButtonSave>
-      </S.ButtonContainer>
-    </S.Container>
+    <S.AddOttWrapper>
+      <S.TitleWrapper>
+        <NewTopBar title="OTT 추가" />
+      </S.TitleWrapper>
+      <S.Container>
+        <S.Header>
+          <S.Image src={ott.ott_image} alt={ott.ott_name} />
+          <S.SelectOttName
+            value={ott.ott_name}
+            onChange={(e) => handleOttChange(e.target.value)}
+          >
+            {ottOptions.map((option) => (
+              <option key={option.ott_name} value={option.ott_name}>
+                {option.ott_name}
+              </option>
+            ))}
+          </S.SelectOttName>
+        </S.Header>
+        <S.Section>
+          <S.Label>이름</S.Label>
+          <S.Input value={name} onChange={(e) => setName(e.target.value)} />
+        </S.Section>
+        <S.Divider />
+        <S.Section>
+          <S.Label>요금제 선택</S.Label>
+          <S.Select value={plan} onChange={(e) => setPlan(e.target.value)}>
+            {ott.rate_plans.map((plan) => (
+              <option key={plan} value={plan}>
+                {plan}
+              </option>
+            ))}
+          </S.Select>
+        </S.Section>
+        <S.Divider />
+        <S.Section>
+          <S.Label>구독료</S.Label>
+          <S.Input value={amount} onChange={handleAmountChange} />
+        </S.Section>
+        <S.Divider />
+        <S.Section>
+          <S.Label>정기결제일</S.Label>
+          <S.Select value={date} onChange={(e) => setDate(e.target.value)}>
+            {dateOptions.map((day) => (
+              <option key={day} value={day.toString()}>
+                {`${day}일`}
+              </option>
+            ))}
+          </S.Select>
+        </S.Section>
+        <S.Divider />
+        <S.LabelMemo>메모</S.LabelMemo>
+        <S.MemoBox>
+          <S.InputMemo value={memo} onChange={(e) => setMemo(e.target.value)} />
+        </S.MemoBox>
+        <S.ButtonContainer>
+          <S.ButtonSave onClick={handleSubmit}>등록하기</S.ButtonSave>
+        </S.ButtonContainer>
+      </S.Container>
+    </S.AddOttWrapper>
   );
 };
 

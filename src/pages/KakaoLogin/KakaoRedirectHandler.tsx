@@ -86,6 +86,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
+import LoadingPage from '../Loading/LoadingPage';
 
 const RedirectHandler: React.FC = () => {
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ const RedirectHandler: React.FC = () => {
         .get('/api/oauth/kakao', { params: { code } }) //인가 코드 보내기
         .then((response) => {
           const kakaoToken = response.data.accessToken; // 백엔드에서 받은 카카오 토큰
-          // console.log('카카오 토큰:', kakaoToken);
+          console.log('카카오 토큰:', kakaoToken);
           // console.log(response.data);
 
           // Step 2: 카카오 액세스 토큰을 이용해 백엔드에서 JWT 토큰을 요청 (Post)
@@ -113,7 +114,7 @@ const RedirectHandler: React.FC = () => {
           localStorage.setItem('access_token', data.access_token); // 백엔드 서버 액세스 토큰
           // localStorage.setItem('refresh_token', data.refreshToken);
           // console.log('성공');
-          // console.log(response.data);
+          console.log(response.data);
           navigate('/main'); // 로그인 성공 후 홈 페이지로 리다이렉트
         })
         .catch((error) => {
@@ -124,7 +125,7 @@ const RedirectHandler: React.FC = () => {
     }
   }, [code, navigate]);
 
-  return <div>로그인 중입니다...</div>;
+  return <LoadingPage />;
 };
 
 export default RedirectHandler;

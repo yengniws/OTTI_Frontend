@@ -3,26 +3,33 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance'; // axiosInstance 불러오기
 import * as S from './MyPage.Style';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
+import MyPageTopBar from '../../components/topbar/MyPageTopBar';
 
+// /api/users/{userId}/profile 경로에 대한 json 값 스웨거에 없음! 세은이한테 받기
 interface UserProfile {
   profilePicture: string;
   nickname: string;
 }
 
+const defaultuser_image = 'https://i.ibb.co/xLv21hj/app-logo.png'; // 기본 이미지 URL
+
 const Mypage: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
-    profilePicture: '',
+    profilePicture: defaultuser_image, // 기본 이미지로 초기화
     nickname: '',
   });
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axiosInstance.get(
-          '/api/users/{userId}/profile', // baseURL이 이미 설정되어 있으므로 상대 경로만 사용
-        );
-        setProfile(response.data);
+        const response = await axiosInstance.get('/api/users/{userId}/profile');
+
+        const profilePicture =
+          response.data.profilePicture || defaultuser_image;
+
+        setProfile({ ...response.data, profilePicture });
       } catch (error) {
         console.error('프로필 불러오기 오류:', error);
       }
@@ -37,9 +44,13 @@ const Mypage: React.FC = () => {
 
   return (
     <S.MypageContainer>
+      <S.TitleWrapper>
+        <MyPageTopBar title="마이 페이지" />
+      </S.TitleWrapper>
       <S.ProfileSection>
         <S.ProfilePicture src={profile.profilePicture} alt="Profile" />
-        <S.Nickname>{profile.nickname}</S.Nickname>
+        <S.Nickname>박예은{profile.nickname}</S.Nickname>
+        {/* 확인을 위한 하드 코딩 값, 추후 삭제 */}
         <S.EditButton onClick={() => navigateTo('/myPage/editProfile')}>
           프로필 수정
         </S.EditButton>
@@ -54,7 +65,7 @@ const Mypage: React.FC = () => {
       </S.TopMenuList>
       <S.Menu>
         <S.MenuItem onClick={() => navigateTo('/main')}>공지사항</S.MenuItem>
-        <S.MenuItem onClick={() => navigateTo('/main')}>고객 센터</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>고객센터</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
       </S.Menu>
       <S.BottomNavBarWrapper>

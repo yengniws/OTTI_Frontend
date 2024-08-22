@@ -1,8 +1,7 @@
-// src/SubscriptionList.tsx
 import React, { useEffect, useState } from 'react';
-import axiosInstance from '../../libs/AxiosInstance'; // 수정된 axios 인스턴스를 가져옴
+import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './SubscriptionList.Style';
-// import { IoAddCircle } from 'react-icons/io5';
+import { IoAddCircle } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
 interface Ott {
@@ -10,32 +9,57 @@ interface Ott {
   name: string;
   ratePlan: string;
   price: number;
-  ott_image: string;
+  image: string;
   createdDate: string;
   modifiedDate: string;
 }
 
 interface Subscription {
-  subscription_id: number;
+  id: number; // subscription_id
   name: string;
   payment: number;
   memo: string;
-  payment_date: string;
-  user_id: number;
+  paymentDate: number;
+  userId: number;
   ott: Ott;
   createdDate: string;
   modifiedDate: string;
-  d_day: string;
+}
+
+interface DDayResponse {
+  dday: number;
 }
 
 const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
   subscription,
 }) => {
+  const navigate = useNavigate();
+  const [dday, setDday] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchDday = async () => {
+      try {
+        const response = await axiosInstance.get<DDayResponse>(
+          `/api/subscription/d-day/${subscription.id}`,
+        );
+        setDday(response.data.dday);
+      } catch (error) {
+        console.error('D-Day 정보를 불러오기 중 에러:', error);
+      }
+    };
+
+    fetchDday();
+  }, [subscription.id]);
+
+  const handleClick = () => {
+    navigate(`/main/subscriptionDetail/${subscription.id}`);
+  };
+
   return (
-    <S.ListContentBox>
+    <S.ListContentBox onClick={handleClick}>
       <S.ListImageWrap>
         <S.ListImage
-          src={subscription.ott.ott_image}
+          src={subscription.ott.image}
           alt={`${subscription.ott.name} logo`}
         />
       </S.ListImageWrap>
@@ -45,7 +69,9 @@ const SubscriptionBox: React.FC<{ subscription: Subscription }> = ({
         <S.ListTxts>{subscription.payment}원</S.ListTxts>
       </S.ListTxtBox>
       <S.ListDDayContainer>
-        <S.ListDDayTxt>D - {subscription.d_day}</S.ListDDayTxt>
+        <S.ListDDayTxt>
+          {dday !== null ? (dday === 0 ? 'D-Day' : `D - ${dday}`) : 'null'}
+        </S.ListDDayTxt>
       </S.ListDDayContainer>
     </S.ListContentBox>
   );
@@ -69,7 +95,7 @@ const SubscriptionList: React.FC = () => {
   }, []);
 
   const handleAddOtt = () => {
-    navigate('/main/addOttSubscription'); // 이동 경로 추후 수정 필요
+    navigate('/main/addOttSubscription');
   };
 
   return (
@@ -77,20 +103,15 @@ const SubscriptionList: React.FC = () => {
       <S.ListContainer>
         <S.ListTitleWrap>
           <S.ListTitle>구독 중인 OTT</S.ListTitle>
-          {/* <IoAddCircle /> */}
+          <IoAddCircle size={20} onClick={handleAddOtt} />
         </S.ListTitleWrap>
 
         {subscriptions.map((subscription) => (
-          <SubscriptionBox
-            key={subscription.subscription_id}
-            subscription={subscription}
-          />
+          <SubscriptionBox key={subscription.id} subscription={subscription} />
         ))}
         <S.ButtonWrap>
           <S.AddOttBtn onClick={handleAddOtt}>+ 구독 추가</S.AddOttBtn>
         </S.ButtonWrap>
-
-        {/* 이동하는 링크 추가하기 */}
       </S.ListContainer>
     </>
   );
