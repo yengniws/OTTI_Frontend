@@ -4,7 +4,7 @@ export const CalendarCont = styled.div`
   padding: 18px;
   background-color: #f0f0f0;
   border-radius: 40px;
-  margin: 20px;
+  margin-top: 40px;
 `;
 
 export const MonthTit = styled.h2`
