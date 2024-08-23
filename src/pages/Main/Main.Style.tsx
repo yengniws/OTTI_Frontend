@@ -67,8 +67,8 @@ export const BottomNavBarWrapper = styled.div`
   transform: translateX(-50%); // 정확히 중앙 정렬
   width: 100%;
   max-width: 375px;
-  z-index: 99; // z-index를 높게 설정하여 최상단에 위치하도록 함
-  padding: 0; // MainContainer의 padding 영향을 받지 않도록 설정
+  z-index: 99;
+  padding: 0;
   overflow: hidden;
 `;
 
