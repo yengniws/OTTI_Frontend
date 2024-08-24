@@ -28,3 +28,12 @@ export const getUserSubscription = async (userId: number) => {
     throw error;
   }
 };
+
+// export const fetchSubscriptions = async () => {
+//   try {
+//     const response = await axiosInstance.get('/api/subscription/user');
+//     setSubscriptions(response.data);
+//   } catch (error) {
+//     console.error('구독 정보 불러오기 오류:', error);
+//   }
+// };
