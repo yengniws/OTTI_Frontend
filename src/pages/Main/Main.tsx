@@ -62,8 +62,6 @@ const Main: React.FC = () => {
           <S.Logo>OTTi</S.Logo>
           <NotificationPanel />
         </S.Header>
-
-        {/* TotalSubscriptionFee 컴포넌트를 PageContainer 밖으로 이동 */}
         <div onClick={handleTotalFeeClick}>
           <TotalSubscriptionFee />
         </div>
