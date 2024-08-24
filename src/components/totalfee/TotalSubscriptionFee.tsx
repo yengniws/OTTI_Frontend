@@ -68,13 +68,52 @@
 
 // export default TotalSubscriptionFee;
 
+// import React, { useState, useEffect } from 'react';
+// import * as S from './TotalSubscriptionFee.Style';
+// import { getUserSubscription } from '../../api/subscriptionApi';
+
+// interface Subscription {
+//   payment: number;
+// }
+
+// const TotalSubscriptionFee: React.FC = () => {
+//   const [totalAmount, setTotalAmount] = useState<number>(0);
+
+//   useEffect(() => {
+//     const fetchTotalAmount = async () => {
+//       try {
+//         const userId = localStorage.getItem('userId');
+//         if (userId) {
+//           const subscriptions: Subscription[] = await getUserSubscription(
+//             Number(userId),
+//           );
+//           const total = subscriptions.reduce(
+//             (acc, subscription) => acc + subscription.payment,
+//             0,
+//           );
+//           setTotalAmount(total);
+//         }
+//       } catch (error) {
+//         console.error('Error fetching total amount:', error);
+//       }
+//     };
+
+//     fetchTotalAmount();
+//   }, []);
+
+//   return (
+//     <S.TotalFeeContainer>
+//       <S.TotalFeeTitle>이번 달 총 구독료</S.TotalFeeTitle>
+//       <S.TotalFeeAmount>{totalAmount}원</S.TotalFeeAmount>
+//     </S.TotalFeeContainer>
+//   );
+// };
+
+// export default TotalSubscriptionFee;
+
 import React, { useState, useEffect } from 'react';
 import * as S from './TotalSubscriptionFee.Style';
-import { getUserSubscription } from '../../api/subscriptionApi';
-
-interface Subscription {
-  payment: number;
-}
+import axiosInstance from '../../libs/AxiosInstance';
 
 const TotalSubscriptionFee: React.FC = () => {
   const [totalAmount, setTotalAmount] = useState<number>(0);
@@ -82,19 +121,12 @@ const TotalSubscriptionFee: React.FC = () => {
   useEffect(() => {
     const fetchTotalAmount = async () => {
       try {
-        const userId = localStorage.getItem('userId');
-        if (userId) {
-          const subscriptions: Subscription[] = await getUserSubscription(
-            Number(userId),
-          );
-          const total = subscriptions.reduce(
-            (acc, subscription) => acc + subscription.payment,
-            0,
-          );
-          setTotalAmount(total);
-        }
+        const response = await axiosInstance.get(
+          '/api/subscription/total-payment',
+        );
+        setTotalAmount(response.data.totalPayment);
       } catch (error) {
-        console.error('Error fetching total amount:', error);
+        console.error('총 구독료를 불러오는 중 오류 발생:', error);
       }
     };
 
