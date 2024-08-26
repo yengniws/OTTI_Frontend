@@ -47,29 +47,32 @@ interface IEvent {
 interface PopupProps {
   event: IEvent;
   onClose: () => void;
+  id: number; // subscriptionId를 Props로 받음
 }
 
 interface Subscription {
   name: string;
 }
 
-const Popup = ({ event, onClose }: PopupProps) => {
+const Popup = ({ event, onClose, id }: PopupProps) => {
   const [subscription, setSubscription] = useState<Subscription | null>(null);
 
   useEffect(() => {
     const fetchSubscription = async () => {
+      console.log('Fetching subscription for ID:', id); // ID 값 로그 출력
       try {
         const response = await axios.get<Subscription>(
-          '/api/subscription/{subscriptionid}',
+          `/api/subscription/${id}`,
         );
+        console.log('API Response:', response.data); // API 응답 로그 출력
         setSubscription(response.data);
       } catch (error) {
-        console.error('Error fetching subscription:', error);
+        console.error('Error fetching subscription:', error); // 오류 로그 출력
       }
     };
 
     fetchSubscription();
-  }, []);
+  }, [id]);
 
   return (
     <S.PopupCont>
