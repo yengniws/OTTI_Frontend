@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 
+// export const MainContainer = styled.div`
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   max-width: 375px;
+//   height: 100vh;
+//   padding: 0 20px;
+//   box-sizing: border-box;
+//   margin-top: 10px;
+// `;
+
 export const MainContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 375px;
   height: 100vh;
-  padding: 0 20px;
-  box-sizing: border-box;
-  margin-top: 10px;
 `;
 
 export const PageContainer = styled.div`
@@ -27,12 +36,19 @@ export const DetailContainer = styled.div`
 
 export const TitleWrapper = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  background-color: #fff;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  border-bottom: 0.5px solid black;
+`;
+
+export const Container = styled.div`
+  width: 90%;
+  max-width: 375px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
 `;
 
 export const PieChartTitle = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import TopBar from '../../components/topbar/TopBar';
+import NewTopBar from '../../components/topbar/NewTopBar';
 import TotalSubscriptionFee from '../../components/totalfee/TotalSubscriptionFee';
 import PieChart from '../../components/totalfee/PieChart';
 import * as S from './SubscriptionDetailFeeDetail.Style';
@@ -17,15 +17,15 @@ const SubscriptionFeeDetail: React.FC = () => {
   return (
     <S.MainContainer>
       <S.TitleWrapper>
-        <TopBar title="이번 달 총 구독료" />
+        <NewTopBar title="이번 달 총 구독료" />
       </S.TitleWrapper>
-      {/* <S.PageContainer> */}
-      <TotalSubscriptionFee initialTotalAmount={totalAmount} />
-      <S.PieChartTitle>한 눈에 보기</S.PieChartTitle>
-      <S.DetailContainer>
-        <PieChart />
-      </S.DetailContainer>
-      {/* </S.PageContainer> */}
+      <S.Container>
+        <TotalSubscriptionFee initialTotalAmount={totalAmount} />
+        <S.PieChartTitle>한 눈에 보기</S.PieChartTitle>
+        <S.DetailContainer>
+          <PieChart />
+        </S.DetailContainer>
+      </S.Container>
     </S.MainContainer>
   );
 };
