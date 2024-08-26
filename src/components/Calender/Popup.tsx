@@ -50,7 +50,7 @@ interface PopupProps {
 }
 
 interface Subscription {
-  ottname: string;
+  name: string;
 }
 
 const Popup = ({ event, onClose }: PopupProps) => {
@@ -79,7 +79,7 @@ const Popup = ({ event, onClose }: PopupProps) => {
         <S.EventTitWrapper>
           <S.ColorDot style={{ backgroundColor: event.color }} />
           <S.EventTit>
-            {subscription ? subscription.ottname : 'Loading...'}
+            {subscription ? subscription.name : 'Loading...'}
           </S.EventTit>
           <S.EventSubtitle>결제일</S.EventSubtitle>
         </S.EventTitWrapper>
