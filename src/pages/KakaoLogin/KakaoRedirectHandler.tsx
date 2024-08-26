@@ -101,7 +101,7 @@ const RedirectHandler: React.FC = () => {
         .get('/api/oauth/kakao', { params: { code } }) //인가 코드 보내기
         .then((response) => {
           const kakaoToken = response.data.accessToken; // 백엔드에서 받은 카카오 토큰
-          console.log('카카오 토큰:', kakaoToken);
+          // console.log('카카오 토큰:', kakaoToken);
           // console.log(response.data);
 
           // Step 2: 카카오 액세스 토큰을 이용해 백엔드에서 JWT 토큰을 요청 (Post)
