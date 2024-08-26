@@ -25,7 +25,7 @@ const EditProfile: React.FC = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axiosInstance.get('/api/users/{userId}/profile');
+        const response = await axiosInstance.get('/api/users/profile/user');
         const fetchedProfile = response.data;
 
         // profilePhotoUrl 값이 없으면 defaultuser_image를 사용
@@ -64,7 +64,7 @@ const EditProfile: React.FC = () => {
 
   const handleSave = async () => {
     try {
-      await axiosInstance.put('/api/users/{userId}/profile/update', profile);
+      await axiosInstance.put('/api/users/profile/update', profile);
       toast.success('프로필이 저장되었습니다.');
       setTimeout(() => {
         navigate('/myPage');
@@ -96,21 +96,21 @@ const EditProfile: React.FC = () => {
           <S.InputLabel>닉네임</S.InputLabel>
           <S.Input
             type="text"
-            name="nickname"
+            name="username"
             value={profile.username}
             onChange={handleInputChange}
           />
         </S.ProfileInput>
-        <S.ProfileInput>
-          <S.InputLabel>카카오 아이디</S.InputLabel>
-          {/* 카카오 아이디 불러오는 json 값 스웨거에 없음 */}
-          <S.Input
+        {/* <S.ProfileInput> */}
+        {/* <S.InputLabel>카카오 아이디</S.InputLabel> */}
+        {/* 카카오 아이디 불러오는 json 값 스웨거에 없음 */}
+        {/* <S.Input
             type="text"
             name="userId"
             onChange={handleInputChange}
             disabled
-          />
-        </S.ProfileInput>
+          /> */}
+        {/* </S.ProfileInput> */}
 
         <S.SaveButton onClick={handleSave}>저장하기</S.SaveButton>
       </S.EditProfileContainer>

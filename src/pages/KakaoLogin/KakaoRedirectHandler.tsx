@@ -114,7 +114,7 @@ const RedirectHandler: React.FC = () => {
           localStorage.setItem('access_token', data.access_token); // 백엔드 서버 액세스 토큰
           // localStorage.setItem('refresh_token', data.refreshToken);
           // console.log('성공');
-          console.log(response.data);
+          // console.log(response.data);
           navigate('/main'); // 로그인 성공 후 홈 페이지로 리다이렉트
         })
         .catch((error) => {
