@@ -60,7 +60,7 @@ const Popup = ({ event, onClose }: PopupProps) => {
     const fetchSubscription = async () => {
       try {
         const response = await axios.get<Subscription>(
-          '/api/subscription/user',
+          '/api/subscription/{subscriptionid}',
         );
         setSubscription(response.data);
       } catch (error) {
