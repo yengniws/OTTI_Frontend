@@ -15,6 +15,7 @@ export const LoadingContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 375px;
   height: 100vh;
   background-color: #222222;
   /* opacity: 0.75; */
