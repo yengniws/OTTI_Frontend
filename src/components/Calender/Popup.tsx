@@ -102,6 +102,7 @@ interface IEvent {
   end: Date;
   title: string;
   color: string;
+  id: number; // id를 추가
 }
 
 interface PopupProps {
@@ -111,7 +112,6 @@ interface PopupProps {
 }
 
 interface Subscription {
-  id: number; // 구독 ID 추가
   name: string;
 }
 
@@ -119,45 +119,20 @@ const Popup = ({ event, onClose, id }: PopupProps) => {
   const [subscriptionName, setSubscriptionName] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchSubscriptions = async () => {
-      console.log('Fetching subscriptions for user');
+    const fetchSubscription = async () => {
+      console.log('Fetching subscription for ID:', id);
       try {
-        const response = await axios.get<{ data: Subscription[] }>(
-          '/api/subscription/user',
-          {
-            // 필요시 헤더 설정
-            headers: {
-              'Content-Type': 'application/json',
-              // 'Authorization': `Bearer ${your_token}` // 인증이 필요하다면 추가
-            },
-          },
+        const response = await axios.get<Subscription>(
+          `/api/subscription/${id}`,
         );
-
-        // 응답의 데이터 확인
-        console.log('Full API Response:', response);
-
-        const subscriptions = response.data.data; // 데이터 접근 부분
-
-        if (!subscriptions) {
-          console.error('No subscription data found.');
-          return;
-        }
-
-        const subscription = subscriptions.find((sub) => sub.id === id);
-
-        if (subscription) {
-          console.log('Fetched subscription name:', subscription.name);
-          setSubscriptionName(subscription.name);
-        } else {
-          console.warn('No subscription found for the given ID.');
-          setSubscriptionName(null);
-        }
+        console.log('API Response:', response.data);
+        setSubscriptionName(response.data.name);
       } catch (error) {
         console.error('Error fetching subscription:', error);
       }
     };
 
-    fetchSubscriptions();
+    fetchSubscription();
   }, [id]);
 
   return (

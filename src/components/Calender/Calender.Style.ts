@@ -80,15 +80,15 @@ export const CalendarWrap = styled.div`
     border: none;
     box-sizing: border-box;
     box-shadow: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 1px 0px;
     padding-left: 4px;
     background-color: #3174ad;
     border-radius: 20px;
     color: #fff;
     cursor: pointer;
-    width: 100%;
-    height: 10%; // 크기 설정
+    width: 90%;
+    height: 150%; // 크기 설정
     text-align: left;
     font-size: 0.3em;
   }
