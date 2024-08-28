@@ -19,9 +19,9 @@ export const CalendarWrap = styled.div`
   .rbc-calendar {
     background-color: transparent;
     font-weight: 300;
-    font-size: 0.9em;
+    font-size: 0.1em;
     color: #555;
-    opacity: 0.8;
+    opacity: 1;
   }
   .rbc-header {
     background-color: transparent;
@@ -89,7 +89,11 @@ export const CalendarWrap = styled.div`
     cursor: pointer;
     width: 90%;
     height: 150%; // 크기 설정
-    text-align: left;
+    text-align: center; /* 텍스트 가운데 정렬 */
+    line-height: 1; /* 텍스트 라인 높이 설정 */
+    font-size: 0.3em; /* 글씨 크기 조정 */
+    box-sizing: border-box; /* 패딩과 보더를 포함한 크기 계산 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
     font-size: 0.3em;
   }
 `;
