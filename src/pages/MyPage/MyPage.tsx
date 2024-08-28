@@ -113,28 +113,28 @@ const Mypage: React.FC = () => {
     fetchUserProfile();
   }, []);
 
-  const handleResetProfilePicture = async () => {
-    try {
-      // 클라이언트 측에서 기본 이미지로 상태 업데이트
-      setProfile((prevProfile) => ({
-        ...prevProfile,
-        profilePhotoUrl: defaultuser_image,
-      }));
+  // const handleResetProfilePicture = async () => {
+  //   try {
+  //     // 클라이언트 측에서 기본 이미지로 상태 업데이트
+  //     setProfile((prevProfile) => ({
+  //       ...prevProfile,
+  //       profilePhotoUrl: defaultuser_image,
+  //     }));
 
-      // 서버에 기본 이미지로 업데이트 요청
-      await axiosInstance.put('/api/users/profile/update', {
-        profilePhotoUrl: defaultuser_image,
-        username: profile.username, // 나머지 데이터 유지
-      });
+  //     // 서버에 기본 이미지로 업데이트 요청
+  //     await axiosInstance.put('/api/users/profile/update', {
+  //       profilePhotoUrl: defaultuser_image,
+  //       username: profile.username, // 나머지 데이터 유지
+  //     });
 
-      console.log('프로필 이미지가 기본 이미지로 변경되었습니다.');
-    } catch (error) {
-      console.error(
-        '프로필 이미지를 기본 이미지로 변경하는 중 오류 발생:',
-        error,
-      );
-    }
-  };
+  //     console.log('프로필 이미지가 기본 이미지로 변경되었습니다.');
+  //   } catch (error) {
+  //     console.error(
+  //       '프로필 이미지를 기본 이미지로 변경하는 중 오류 발생:',
+  //       error,
+  //     );
+  //   }
+  // };
 
   const navigateTo = (path: string) => {
     navigate(path);

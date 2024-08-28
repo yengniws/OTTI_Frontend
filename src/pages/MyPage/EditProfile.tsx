@@ -71,6 +71,7 @@ const EditProfile: React.FC = () => {
       }, 1500);
     } catch (error) {
       console.error('프로필 저장 중 오류 발생:', error);
+      toast.error('프로필 수정에 실패했어요.');
     }
   };
 

@@ -84,7 +84,7 @@ const AddOttSubscription: React.FC = () => {
         onClose: () => {
           window.location.href = '/main';
         },
-        autoClose: 1000,
+        autoClose: 1500,
       });
     } catch (error) {
       console.error('정보 저장 중 에러 발생', error);
