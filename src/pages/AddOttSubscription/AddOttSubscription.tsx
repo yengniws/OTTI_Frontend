@@ -8,32 +8,38 @@ import NewTopBar from '../../components/topbar/NewTopBar';
 const ottOptions = [
   {
     ott_name: '넷플릭스',
-    ott_image: 'https://i.ibb.co/hdrL7nM/Netflix.png',
+    ott_image:
+      'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/netflix.png',
     rate_plans: ['광고형', '스탠다드', '프리미엄', '기타'],
   },
   {
     ott_name: '티빙',
-    ott_image: 'https://i.ibb.co/xJYNbMZ/tving.png',
+    ott_image:
+      'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/tving.png',
     rate_plans: ['광고형', '베이직', '스탠다드', '프리미엄', '기타'],
   },
   {
     ott_name: '웨이브',
-    ott_image: 'https://i.ibb.co/5YnVYMd/Wavve.png',
+    ott_image:
+      'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/wavve.png',
     rate_plans: ['베이직', '스탠다드', '프리미엄', '기타'],
   },
   {
     ott_name: '디즈니+',
-    ott_image: 'https://i.ibb.co/wKm4GMF/Disney-plus.png',
+    ott_image:
+      'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/disney-plus.png',
     rate_plans: ['스탠다드', '프리미엄', '기타'],
   },
   {
     ott_name: '쿠팡플레이',
-    ott_image: 'https://i.ibb.co/Y3N6qcb/Coupang-play.png',
+    ott_image:
+      'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/coupang-play.png',
     rate_plans: ['쿠팡와우회원', '기타'],
   },
   {
     ott_name: '왓챠',
-    ott_image: 'https://i.ibb.co/4MQ02LS/Watcha.png',
+    ott_image:
+      'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/watcha.png',
     rate_plans: ['베이직', '프리미엄', '기타'],
   },
 ];
