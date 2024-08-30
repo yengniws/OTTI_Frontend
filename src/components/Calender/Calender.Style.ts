@@ -197,13 +197,12 @@ export const CalendarWrap = styled.div`
     box-shadow: none;
     margin: 0 auto;
     padding: 1px 0px;
+    padding-left: 3px;
     border-radius: 5px;
     cursor: pointer;
-    width: 85%;
-    height: 20%; /* 크기 설정 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-    line-height: 1; /* 텍스트 라인 높이 설정 */
-    font-size: 0.3em; /* 글씨 크기 조정 */
-    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    width: 101%;
+    height: 100%; 
+    text-align: center; 
+    overflow: hidden; 
   }
 `;
