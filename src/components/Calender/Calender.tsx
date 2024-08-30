@@ -1,3 +1,4 @@
+// // payment 만 가져옴
 // import React, { useState, useEffect } from 'react';
 // import {
 //   Calendar as BigCalendar,
@@ -186,6 +187,7 @@
 // export default Calendar;
 
 
+// // 행 늘이기
 // import React, { useState, useEffect } from 'react';
 // import {
 //   Calendar as BigCalendar,
@@ -528,7 +530,7 @@ const Calendar: React.FC = () => {
         justifyContent: 'center',
       }}
     >
-      <span style={{ marginRight: '3px' }}>{event.ottName}</span>
+      <span style={{ marginRight: '3px', padding: '1px' }}>{event.ottName}</span>
     </div>
   );
 

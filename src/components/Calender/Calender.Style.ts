@@ -196,11 +196,11 @@ export const CalendarWrap = styled.div`
     box-sizing: border-box;
     box-shadow: none;
     margin: 0 auto;
-    padding: 1px 0px;
+    padding: 1px;
     padding-left: 3px;
     border-radius: 5px;
     cursor: pointer;
-    width: 101%;
+    width: 100%;
     height: 100%; 
     text-align: center; 
     overflow: hidden; 
