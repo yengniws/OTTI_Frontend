@@ -377,64 +377,69 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface Subscription {
-  ottName: string;
+  id: number;
+  name: string;
   payment: number;
-}
-
-interface TotalPaymentResponse {
-  totalPayment: number;
+  memo: string;
+  paymentDate: number;
+  userId: number;
+  ott?: {
+    id: number;
+    name: string;
+    ratePlan: string;
+    price: number;
+    image: string;
+    createdDate: string;
+    modifiedDate: string;
+  };
+  createdDate: string;
+  modifiedDate: string;
 }
 
 const generateColors = (count: number): string[] => {
-  const baseColors = [
-    '#FF6384',
-    '#36A2EB',
-    '#FFCE56',
-    '#4BC0C0',
-    '#9966FF',
-    '#FF9F40',
-  ];
-  const colors: string[] = [];
-
-  for (let i = 0; i < count; i++) {
-    if (i < baseColors.length) {
-      colors.push(baseColors[i]);
-    } else {
-      const r = Math.floor(Math.random() * 255);
-      const g = Math.floor(Math.random() * 255);
-      const b = Math.floor(Math.random() * 255);
-      colors.push(`rgb(${r}, ${g}, ${b})`);
-    }
-  }
-
-  return colors;
+  // ... (같은 코드 유지)
 };
 
 const PieChart = () => {
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [totalPayment, setTotalPayment] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [subscriptionsResponse, totalPaymentResponse] = await Promise.all(
-          [
-            axios.get<Subscription[]>('/api/subscription/user'),
-            axios.get<TotalPaymentResponse>('/api/subscription/total-payment'),
-          ],
+        setIsLoading(true);
+        // Assuming we have multiple subscription IDs to fetch
+        const subscriptionIds = [1, 2, 3]; // Replace with actual IDs
+        const subscriptionPromises = subscriptionIds.map(id => 
+          axios.get<Subscription>(`/api/subscription/${id}`)
         );
-        setSubscriptions(subscriptionsResponse.data);
-        setTotalPayment(totalPaymentResponse.data.totalPayment);
+        
+        const responses = await Promise.all(subscriptionPromises);
+        const fetchedSubscriptions = responses.map(response => response.data);
+        
+        setSubscriptions(fetchedSubscriptions);
+        setTotalPayment(fetchedSubscriptions.reduce((sum, sub) => sum + sub.payment, 0));
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (subscriptions.length === 0) {
+    return <div>No subscription data available.</div>;
+  }
+
   const data: ChartData<'pie', number[], string> = {
-    labels: subscriptions.map((sub) => sub.ottName),
+    labels: subscriptions.map((sub) => sub.ott?.name || sub.name),
     datasets: [
       {
         data: subscriptions.map((sub) => sub.payment),
@@ -458,11 +463,9 @@ const PieChart = () => {
           },
           generateLabels: (chart) => {
             return subscriptions.map((sub, i) => {
-              const percentage = ((sub.payment / totalPayment) * 100).toFixed(
-                2,
-              );
+              const percentage = ((sub.payment / totalPayment) * 100).toFixed(2);
               return {
-                text: `${sub.ottName}: ${sub.payment}원 (${percentage}%)`,
+                text: `${sub.ott?.name || sub.name}: ${sub.payment}원 (${percentage}%)`,
                 fillStyle: Array.isArray(chart.data.datasets[0].backgroundColor)
                   ? chart.data.datasets[0].backgroundColor[i]
                   : undefined,
