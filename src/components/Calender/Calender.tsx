@@ -368,7 +368,7 @@
 // export default Calendar;
 
 
-
+// id 깡코드
 import React, { useState, useEffect } from 'react';
 import {
   Calendar as BigCalendar,
@@ -528,7 +528,7 @@ const Calendar: React.FC = () => {
         justifyContent: 'center',
       }}
     >
-      <span style={{ marginRight: '4px' }}>{event.ottName}</span>
+      <span style={{ marginRight: '3px' }}>{event.ottName}</span>
     </div>
   );
 
