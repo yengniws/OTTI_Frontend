@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ChartContainer = styled.div`
   position: relative;
-  padding-top: 20px;
+  padding: 20px 0px;
   width: 100%;
-  height: 300px;
+  height: 400px;
 `;
