@@ -16,6 +16,7 @@ import Login from './pages/Login/Login';
 import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
+import Community from './pages/Community/Community';
 // import LoadingPage from './pages/Loading/LoadingPage';
 
 // import { GlobalStyle } from './styles/Globalstyled';
@@ -50,8 +51,7 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
-        {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
-        {/* 로딩 페이지 테스트 용 */}
+        <Route path="/community" element={<Community />} /> {' '}
       </Routes>
     </>
   );
