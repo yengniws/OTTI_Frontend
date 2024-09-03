@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import NewTopBar from '../../components/topbar/NewTopBar';
-import TotalSubscriptionFee from '../../components/totalfee/TotalSubscriptionFee';
-import PieChart from '../../components/totalfee/PieChart';
+import NewTopBar from '../../components/TopBar/NewTopBar';
+import TotalSubscriptionFee from '../../components/TotalFee/TotalSubscriptionFee';
+import PieChart from '../../components/TotalFee/PieChart';
 import * as S from './SubscriptionDetailFeeDetail.Style';
 
 interface LocationState {

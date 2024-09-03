@@ -170,7 +170,7 @@ import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './AddOttSubscription.Style';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import NewTopBar from '../../components/topbar/NewTopBar';
+import NewTopBar from '../../components/TopBar/NewTopBar';
 
 const ottOptions = [
   {

@@ -411,15 +411,17 @@ const PieChart = () => {
         setIsLoading(true);
         // Assuming we have multiple subscription IDs to fetch
         const subscriptionIds = [1, 2, 3]; // Replace with actual IDs
-        const subscriptionPromises = subscriptionIds.map(id => 
-          axios.get<Subscription>(`/api/subscription/${id}`)
+        const subscriptionPromises = subscriptionIds.map((id) =>
+          axios.get<Subscription>(`/api/subscription/${id}`),
         );
-        
+
         const responses = await Promise.all(subscriptionPromises);
-        const fetchedSubscriptions = responses.map(response => response.data);
-        
+        const fetchedSubscriptions = responses.map((response) => response.data);
+
         setSubscriptions(fetchedSubscriptions);
-        setTotalPayment(fetchedSubscriptions.reduce((sum, sub) => sum + sub.payment, 0));
+        setTotalPayment(
+          fetchedSubscriptions.reduce((sum, sub) => sum + sub.payment, 0),
+        );
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -463,7 +465,9 @@ const PieChart = () => {
           },
           generateLabels: (chart) => {
             return subscriptions.map((sub, i) => {
-              const percentage = ((sub.payment / totalPayment) * 100).toFixed(2);
+              const percentage = ((sub.payment / totalPayment) * 100).toFixed(
+                2,
+              );
               return {
                 text: `${sub.ott?.name || sub.name}: ${sub.payment}원 (${percentage}%)`,
                 fillStyle: Array.isArray(chart.data.datasets[0].backgroundColor)

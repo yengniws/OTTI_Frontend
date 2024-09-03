@@ -81,7 +81,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './MyPage.Style';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
-import MyPageTopBar from '../../components/topbar/MyPageTopBar';
+import MyPageTopBar from '../../components/TopBar/MyPageTopBar';
 
 interface UserProfile {
   profilePhotoUrl: string;
