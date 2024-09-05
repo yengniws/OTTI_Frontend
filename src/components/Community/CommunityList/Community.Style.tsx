@@ -302,14 +302,17 @@ export const ListItem = styled.li`
   justify-content: space-between;
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 17px;
+  padding-top: 17px;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
 `;
 
 export const ImgWrapper = styled.div`
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   margin-right: 12px;
   flex-shrink: 0;
   display: flex;
