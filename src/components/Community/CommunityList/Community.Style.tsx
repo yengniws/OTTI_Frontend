@@ -306,7 +306,9 @@ export const ListItem = styled.li`
   padding-left: 17px;
   padding-right: 17px;
   padding-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  // box-shadow: 2px 2px 4px 0px rgba(0.4, 0.4, 0.4, 0.1);
+  box-shadow: 0px 0px 3px 2px #ddd;
+  border: 1px solid #ddd;
   width: 100%;
 `;
 
@@ -378,7 +380,7 @@ export const CommentWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 230px;
-  padding-top: 2px;
+  // padding-top: 2px;
   flex-shrink: 0;
 `;
 
