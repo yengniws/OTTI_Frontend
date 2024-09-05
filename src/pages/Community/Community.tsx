@@ -62,8 +62,10 @@ const Community = () => {
 
   return (
     <div>
-      <DropDown options={ottOptions} />
       <S.CommuniyContainer>
+        {/* <S.TitleWrapper> */}
+        <DropDown options={ottOptions} />
+        {/* </S.TitleWrapper> */}
         <Search />
         <CommunityList />
         <ActionButton text="글 작성" onClick={handleCreatePost} />

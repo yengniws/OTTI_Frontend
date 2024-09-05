@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const CommuniyContainer = styled.div`
   position: relative;
-  display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 375px;
@@ -12,7 +11,6 @@ export const CommuniyContainer = styled.div`
   margin-top: 10px;
   overflow: hidden;
   overflow-y: auto;
-  margin-bottom: 85px;
   z-index: 50;
 `;
 
@@ -27,3 +25,21 @@ export const BottomNavBarWrapper = styled.div`
   padding: 0;
   overflow: hidden;
 `;
+
+// import styled from 'styled-components';
+
+// export const CommuniyContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   width: 100%;
+//   max-width: 375px;
+//   height: 100vh;
+// `;
+
+// export const TitleWrapper = styled.header`
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   border-bottom: 0.5px solid black;
+// `;

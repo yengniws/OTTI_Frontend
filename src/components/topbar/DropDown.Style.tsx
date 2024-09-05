@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Dropdown = styled.div`
+position: absolute
   display: flex;
   align-items: center;
   border-bottom: 0.5px solid black;

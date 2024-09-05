@@ -4,7 +4,7 @@ import * as S from './Search.Style';
 const Search = () => {
   return (
     <S.SearchCont>
-      <S.SearchInp placeholder="검색어를 입력하세요." />
+      <S.SearchInp placeholder="원하시는 OTT를 입력해보세요." />
     </S.SearchCont>
   );
 };

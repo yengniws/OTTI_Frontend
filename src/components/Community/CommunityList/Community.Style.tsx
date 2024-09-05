@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ListCont = styled.div`
-  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
