@@ -368,13 +368,13 @@ export const Description = styled.p`
   color: #545454;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Ensures the description stays on one line */
+  text-overflow: ellipsis;
 `;
 
 export const CommentWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 270px;
+  margin-left: 230px;
   padding-top: 2px;
   flex-shrink: 0;
 `;
