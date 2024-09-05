@@ -39,7 +39,7 @@ export const TopBar = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
