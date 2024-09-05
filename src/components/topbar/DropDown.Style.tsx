@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 
 export const Dropdown = styled.div`
-  margin: 16px 0;
-  padding: 0 16px;
+  display: flex;
+  align-items: center;
 `;
 
 export const DropdownSelect = styled.select`
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
+  padding-left: 20px;
+  border-bottom: 0.5px solid black;
+  font-size: 20px;
+  padding-top: 36px;
+  padding-bottom: 20px;
   appearance: none;
-  background-color: #f8f8f8;
+  background-color: #fff;
   outline: none;
   cursor: pointer;
+  font-weight: 400;
 `;

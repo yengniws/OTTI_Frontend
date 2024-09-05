@@ -28,12 +28,14 @@ const CommunityWrite: React.FC = () => {
         <NewTopBar title="글쓰기" />
         <RegisterBtn onClick={handleRegister} />
       </S.TopBar>
-      <PotSelect
-        options={ottOptions}
-        selected={selectedPot}
-        onSelect={setSelectedPot}
-      />
-      <WritePost />
+      <S.Container>
+        <PotSelect
+          options={ottOptions}
+          selected={selectedPot}
+          onSelect={setSelectedPot}
+        />
+        <WritePost />
+      </S.Container>
     </S.CommunityWrite>
   );
 };

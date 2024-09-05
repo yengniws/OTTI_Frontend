@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const PotSelect = styled.div`
-  margin: 20px 16px;
+  // margin: 20px 10px;
 `;
 
 export const Select = styled.select`
   width: 100%;
   padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  font-size: 16px;
+  border: none;
   outline: none;
-  background-color: #f9f9f9;
-
+  background-color: #ffffff;
+  border-bottom: 0.5px solid black;
+  padding: 20px 16px;
   &:focus {
     border-color: #888;
   }

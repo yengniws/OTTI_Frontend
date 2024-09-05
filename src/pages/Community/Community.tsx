@@ -34,8 +34,6 @@
 
 // export default Community;
 
-// pages/Community/Community.tsx
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../components/Search/Search';
@@ -65,12 +63,14 @@ const Community = () => {
   return (
     <div>
       <DropDown options={ottOptions} />
-      <Search />
-      <CommunityList />
-      <ActionButton text="글 작성" onClick={handleCreatePost} />
-      <S.BottomNavBarWrapper>
-        <BottomNavBar />
-      </S.BottomNavBarWrapper>
+      <S.CommuniyContainer>
+        <Search />
+        <CommunityList />
+        <ActionButton text="글 작성" onClick={handleCreatePost} />
+        <S.BottomNavBarWrapper>
+          <BottomNavBar />
+        </S.BottomNavBarWrapper>
+      </S.CommuniyContainer>
     </div>
   );
 };
