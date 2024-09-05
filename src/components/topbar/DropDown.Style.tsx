@@ -26,8 +26,9 @@ export const DropdownSelect = styled.select`
   padding-left: 20px;
   border: none;
   font-size: 20px;
-  padding-top: 36px;
-  padding-bottom: 20px;
+  padding-top: 18px;
+  margin-top: 18px;
+  padding-bottom: 22px;
   outline: none;
   cursor: pointer;
   font-weight: 400;
