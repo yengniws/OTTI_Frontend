@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
 export const RegisterBtn = styled.button`
-  background: #000;
-  color: #fff;
-  padding: 6px 12px;
+  display: flex;
+  background: none;
+  color: #f0b762;
+  //   padding: 10px 12px;
+  margin-right: 10px;
+  margin-top: 8.5px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
-  margin-left: 10px;
-
-  &:hover {
-    background: #333;
-  }
+  font-size: 15px;
 `;

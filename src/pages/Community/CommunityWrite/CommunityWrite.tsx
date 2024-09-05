@@ -3,6 +3,7 @@ import NewTopBar from '../../../components/TopBar/NewTopBar';
 import PotSelect from '../../../components/Community/PotSelect/PotSelect';
 import WritePost from '../../../components/Community/WritePost/WritePost';
 import * as S from './CommunityWrite.Style';
+import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
 
 const CommunityWrite: React.FC = () => {
   const [selectedPot, setSelectedPot] = useState('');
@@ -23,7 +24,10 @@ const CommunityWrite: React.FC = () => {
 
   return (
     <S.CommunityWrite>
-      <NewTopBar title="글쓰기" />
+      <S.TopBar>
+        <NewTopBar title="글쓰기" />
+        <RegisterBtn onClick={handleRegister} />
+      </S.TopBar>
       <PotSelect
         options={ottOptions}
         selected={selectedPot}

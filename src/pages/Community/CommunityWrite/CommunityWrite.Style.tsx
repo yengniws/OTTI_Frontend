@@ -19,3 +19,11 @@ export const CommunityWrite = styled.div`
   margin-bottom: 85px;
   z-index: 50;
 `;
+
+export const TopBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+`;

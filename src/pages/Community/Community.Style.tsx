@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
-export const Dropdown = styled.div`
+export const CommuniyContainer = styled.div`
   position: relative;
-`;
-
-export const DropdownSelect = styled.select`
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 375px;
+  height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-bottom: 85px;
+  z-index: 50;
 `;
 
 export const BottomNavBarWrapper = styled.div`
