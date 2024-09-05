@@ -1,25 +1,5 @@
-// import React from 'react';
-// import Search from '../../components/Search/Search';
-// import CommunityList from '../../components/CommunityList/CommunityList';
-// import BottomNavBar from '../../components/BottomBar/BottomNavBar';
-// import * as S from './Community.Style';
-
-// const Community = () => {
-//   return (
-//     <div>
-//       <Search />
-//       <CommunityList />
-//       <S.BottomNavBarWrapper>
-//         <BottomNavBar />
-//       </S.BottomNavBarWrapper>
-//     </div>
-//   );
-// };
-
-// export default Community;
-
 import Search from '../../components/Search/Search';
-import CommunityList from '../../components/CommunityList/CommunityList';
+import CommunityList from '../../components/Community/CommunityList/CommunityList';
 import DropDown from '../../components/TopBar/DropDown';
 import ActionButton from '../../components/common/ActionButton';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
@@ -27,7 +7,7 @@ import * as S from './Community.Style';
 
 const Community = () => {
   const handleCreatePost = () => {
-    window.location.href = '/create-post';
+    window.location.href = '/community-write';
   };
 
   const ottOptions = [

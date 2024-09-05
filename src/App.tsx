@@ -17,6 +17,7 @@ import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
 import Community from './pages/Community/Community';
+import CommunityWrite from './pages/Community/CommunityWrite/CommunityWrite';
 // import LoadingPage from './pages/Loading/LoadingPage';
 
 // import { GlobalStyle } from './styles/Globalstyled';
@@ -51,7 +52,8 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
-        <Route path="/community" element={<Community />} /> {' '}
+        <Route path="/community" element={<Community />} />{' '}
+        <Route path="/community-write" element={<CommunityWrite />} />{' '}
       </Routes>
     </>
   );
