@@ -12,6 +12,18 @@ export const CommuniyContainer = styled.div`
   overflow: hidden;
   overflow-y: auto;
   z-index: 50;
+  margin: 0 auto;
+`;
+
+export const TitleWrapper = styled.header`
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 0.5px solid black;
+  margin: 0 auto;
 `;
 
 export const BottomNavBarWrapper = styled.div`

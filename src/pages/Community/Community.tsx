@@ -62,7 +62,9 @@ const Community = () => {
 
   return (
     <div>
-      <DropDown options={ottOptions} />
+      <S.TitleWrapper>
+        <DropDown options={ottOptions} />
+      </S.TitleWrapper>
       <S.CommuniyContainer>
         <Search />
         <CommunityList />

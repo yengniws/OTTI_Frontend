@@ -4,7 +4,7 @@ export const Dropdown = styled.div`
 position: absolute
   display: flex;
   align-items: center;
-  border-bottom: 0.5px solid black;
+//   border-bottom: 0.5px solid black;
 `;
 
 // export const DropdownSelect = styled.select`
@@ -23,7 +23,7 @@ position: absolute
 
 export const DropdownSelect = styled.select`
   border: none;
-  padding-left: 20px;
+  padding-left: 16px;
   border: none;
   font-size: 20px;
   padding-top: 18px;
@@ -34,3 +34,6 @@ export const DropdownSelect = styled.select`
   font-weight: 400;
   background-color: #fff;
 `;
+
+// 18 0 22 20
+// 36 0 20 20
