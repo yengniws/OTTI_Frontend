@@ -19,7 +19,6 @@ export const LoadingContainer = styled.div`
   height: 100vh;
   background-color: #222222;
   /* opacity: 0.75; */
-  margin: 0 auto;
 `;
 
 // 로고 컨테이너
