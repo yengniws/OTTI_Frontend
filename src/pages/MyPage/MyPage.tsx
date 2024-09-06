@@ -88,7 +88,8 @@ interface UserProfile {
   username: string;
 }
 
-const defaultuser_image = 'https://i.ibb.co/xLv21hj/app-logo.png';
+const defaultuser_image =
+  'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/otti-image/otti.png';
 
 const Mypage: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile>({
