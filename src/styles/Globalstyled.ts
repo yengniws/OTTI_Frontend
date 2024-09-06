@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
