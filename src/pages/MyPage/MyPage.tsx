@@ -167,6 +167,8 @@ const Mypage: React.FC = () => {
         <S.MenuItem onClick={() => navigateTo('/main')}>공지사항</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>고객센터</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>로그아웃</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>계정 탈퇴</S.MenuItem>
       </S.Menu>
       <S.BottomNavBarWrapper>
         <BottomNavBar />

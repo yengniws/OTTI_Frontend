@@ -14,6 +14,7 @@ export const MainContainer = styled.div`
   overflow-y: auto;
   margin-bottom: 85px;
   z-index: 50;
+  margin: 0 auto;
 `;
 
 export const Header = styled.header`
