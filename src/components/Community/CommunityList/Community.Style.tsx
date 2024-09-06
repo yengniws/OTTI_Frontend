@@ -379,7 +379,7 @@ export const Description = styled.p`
 export const CommentWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 230px;
+  margin-left: 270px;
   // padding-top: 2px;
   flex-shrink: 0;
 `;
