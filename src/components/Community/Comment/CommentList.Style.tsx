@@ -9,18 +9,49 @@ export const ListContainer = styled.div`
 
 export const CommentItem = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: vertical;
   padding: 12px;
   background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-bottom: 1px solid #e0e0e0;
 `;
 
-export const Author = styled.div`
+export const ProfileWrapper = styled.div`
+  display: flex;
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ProfilePicture = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+`;
+
+export const Nickname = styled.div`
+  flex: 1;
   font-weight: bold;
   font-size: 14px;
   color: #333;
   margin-bottom: 4px;
+`;
+
+export const CommentWrapper = styled.div`
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+`;
+
+export const CreatedAt = styled.div`
+  font-size: 12px;
+  color: #757575;
+  white-space: nowrap;
 `;
 
 export const Content = styled.p`

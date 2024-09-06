@@ -6,17 +6,18 @@ export const Container = styled.div`
   margin-top: 16px;
 `;
 
-export const Input = styled.input`
+export const TextArea = styled.input`
   flex: 1;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+  background-color: #f4f4f4;
 `;
 
-export const Button = styled.button`
+export const AddBtn = styled.button`
   padding: 8px 16px;
-  background-color: #007bff;
+  background-color: #000;
   color: white;
   border: none;
   border-radius: 4px;
