@@ -2,14 +2,14 @@ import React from 'react';
 import * as S from './CommunityPost.Style';
 
 interface CommunityPostProps {
-  author: string;
+  username: string;
   createdAt: string;
   title: string;
   content: string;
 }
 
 const CommunityPost: React.FC<CommunityPostProps> = ({
-  author,
+  username,
   createdAt,
   title,
   content,
@@ -19,7 +19,7 @@ const CommunityPost: React.FC<CommunityPostProps> = ({
       <S.Header>
         <S.ProfileImg src="/images/default-profile.png" alt="프로필 이미지" />
         <S.AuthorInfo>
-          <S.Author>{author}</S.Author>
+          <S.Author>{username}</S.Author>
           <S.CreatedAt>{createdAt}</S.CreatedAt>
         </S.AuthorInfo>
       </S.Header>

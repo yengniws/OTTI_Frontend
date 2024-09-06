@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-top: 16px;
 `;
 
-export const TextArea = styled.input`
+export const Input = styled.input`
   flex: 1;
   padding: 8px;
   border: 1px solid #ddd;
@@ -23,9 +23,9 @@ export const AddBtn = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s;
+  // transition: background-color 0.3s;
 
-  &:hover {
-    background-color: #0056b3;
-  }
+  // &:hover {
+  //   background-color: #ddd;
+  // }
 `;
