@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SearchCont = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
 `;
 
