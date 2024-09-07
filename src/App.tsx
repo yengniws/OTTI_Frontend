@@ -20,6 +20,7 @@ import Community from './pages/Community/Community';
 import CommunityWrite from './pages/Community/CommunityWrite/CommunityWrite';
 import CommunityList from './components/Community/CommunityList/CommunityList';
 import CommunityDetail from './pages/Community/CommunityDetail/CommunityDetail';
+import JoinPot from './pages/Community/JoinPot/JoinPot';
 // import LoadingPage from './pages/Loading/LoadingPage';
 
 // import { GlobalStyle } from './styles/Globalstyled';
@@ -58,6 +59,7 @@ const App: React.FC = () => {
         <Route path="/community-write" element={<CommunityWrite />} />{' '}
         <Route path="/communitydetail" element={<CommunityList />} />{' '}
         <Route path="/detail/:id" element={<CommunityDetail />} />
+        <Route path="/joinpot" element={<JoinPot />} />
       </Routes>
     </>
   );

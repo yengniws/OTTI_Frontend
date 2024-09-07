@@ -66,7 +66,7 @@ interface Comment {
   username: string;
   content: string;
   createdAt: string;
-  profilePhotoUrl: string; // Added this property
+  profilePhotoUrl: string;
 }
 
 const CommunityDetail: React.FC = () => {
@@ -98,7 +98,7 @@ const CommunityDetail: React.FC = () => {
             content="프리미엄 요금제 1명 자리 남았습니다. "
           />
 
-          <JoinBtn text="참여하기" />
+          <JoinBtn />
         </S.CommunityPostWrapper>
 
         <AddComment onAddComment={handleAddComment} />
