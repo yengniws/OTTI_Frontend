@@ -29,7 +29,7 @@ import * as S from './JoinDetails.Style';
 interface JoinDetailsProps {
   username: string;
   joinContent: string;
-  onJoinContentChange: (newContent: string) => void; // 부모 컴포넌트에서 상태를 업데이트할 수 있도록 콜백 추가
+  onJoinContentChange: (newContent: string) => void;
 }
 
 const JoinDetails = ({
@@ -38,7 +38,7 @@ const JoinDetails = ({
   onJoinContentChange,
 }: JoinDetailsProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onJoinContentChange(event.target.value); // 부모 컴포넌트의 상태를 업데이트
+    onJoinContentChange(event.target.value);
   };
 
   return (
