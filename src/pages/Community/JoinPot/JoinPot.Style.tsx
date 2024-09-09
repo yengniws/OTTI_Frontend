@@ -34,3 +34,10 @@ export const OttWrapper = styled.div`
 export const JoinWrapper = styled.div`
   //   margin-top: 20px;
 `;
+
+export const Title = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 10px;
+  margin-bottom: 5px;
+`;

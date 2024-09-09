@@ -6,10 +6,10 @@ export const OttInfoWrap = styled.div`
   background-color: #f8f8f8;
   //   width: 90%;
   //   padding: 20px;
-  padding-top: 40px;
+  padding-top: 35px;
   padding-left: 35px;
   padding-right: 35px;
-  padding-bottom: 30px;
+  padding-bottom: 35px;
   border-radius: 30px;
 `;
 
@@ -22,7 +22,7 @@ export const OttImage = styled.img`
 export const OttName = styled.p`
   font-size: 20px;
   margin: 0;
-  width: 30%;
+  width: 35%;
   //   padding-right: 25px;
 `;
 
