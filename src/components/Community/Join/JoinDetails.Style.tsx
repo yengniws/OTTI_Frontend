@@ -35,5 +35,5 @@ export const TextArea = styled.textarea`
   font-size: 14px;
   color: #333;
   resize: none;
-  height: 100px;
+  height: 30px;
 `;

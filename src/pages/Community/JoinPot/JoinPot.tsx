@@ -9,16 +9,24 @@ import * as S from './JoinPot.Style';
 const JoinPot = () => {
   return (
     <S.JoinPotWrap>
-      <NewTopBar title="가입하기" />
-      <OttInfo
-        imageUrl="/path/to/netflix-logo.png"
-        name="넷플릭스"
-        plan="프리미엄"
-        price="5000원"
-        paymentDate="매월 2일"
-        currentMembers="3명"
-      />
-      <JoinDetails username="김이박" joinContent="" />
+      <S.TitleWrapper>
+        <NewTopBar title="가입하기" />
+      </S.TitleWrapper>
+      <S.PageContainer>
+        <S.OttWrapper>
+          <OttInfo
+            imageUrl="/path/to/netflix-logo.png"
+            ottname="넷플릭스"
+            plan="프리미엄"
+            price="5000원"
+            paymentDate="매월 2일"
+            currentMembers="3명"
+          />
+        </S.OttWrapper>
+        <S.JoinWrapper>
+          <JoinDetails username="김이박" joinContent="" />
+        </S.JoinWrapper>
+      </S.PageContainer>
       <SendBtn />
     </S.JoinPotWrap>
   );
