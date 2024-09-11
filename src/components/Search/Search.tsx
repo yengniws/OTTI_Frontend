@@ -41,7 +41,7 @@ const Search = () => {
         onChange={handleInputChange}
       />
       <S.SearchBtn onClick={handleSearch}>
-        <IoIosSearch size={25} />
+        <IoIosSearch size={25} color="#757575" />
       </S.SearchBtn>
     </S.SearchCont>
   );

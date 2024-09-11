@@ -39,8 +39,4 @@ export const SearchBtn = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-
-  &:hover {
-    color: #007bff;
-  }
 `;
