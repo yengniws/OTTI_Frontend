@@ -32,10 +32,10 @@ export const ListItem = styled.li`
   justify-content: space-between;
   background-color: #ffffff;
   border-radius: 12px;
-  padding-top: 17px;
+  padding-top: 18px;
   padding-left: 17px;
   padding-right: 17px;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   // box-shadow: 2px 2px 4px 0px rgba(0.4, 0.4, 0.4, 0.1);
   box-shadow: 0px 0px 3px 2px #ddd;
   border: 1px solid #ddd;
@@ -110,7 +110,7 @@ export const CommentWrapper = styled.div`
   display: flex;
   // align-items: center;
   margin-left: 218px;
-  // padding-bottom: 10px;
+  padding-top: 5px;
   flex-shrink: 0;
 `;
 
