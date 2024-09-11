@@ -11,7 +11,6 @@
 
 // export default Search;
 
-// Search.tsx
 import React, { useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import * as S from './Search.Style';
