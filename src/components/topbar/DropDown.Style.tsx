@@ -4,7 +4,7 @@ export const Dropdown = styled.div`
 position: absolute
   display: flex;
   align-items: center;
-//   border-bottom: 0.5px solid black;
+  margin-left: 5px;
 `;
 
 // export const DropdownSelect = styled.select`
