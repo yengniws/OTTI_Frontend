@@ -10,6 +10,7 @@ export const ListContainer = styled.ul`
   list-style: none;
   padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
 `;
 
 export const ListItemWrapper = styled.div`

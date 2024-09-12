@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CommuniyContainer = styled.div`
   position: relative;
   flex-direction: column;
-  width: 100%;
+  width: 375px;
   max-width: 375px;
   height: 100vh;
   padding: 0 20px;
