@@ -91,6 +91,50 @@
 
 // export default WritePost;
 
+// import React, { forwardRef, useImperativeHandle, useState } from 'react';
+// import * as S from './WritePost.Style';
+// import { BsFillImageFill } from 'react-icons/bs';
+
+// export interface WritePostHandle {
+//   title: string;
+//   content: string;
+//   potId: number | null;
+// }
+
+// const WritePost = forwardRef<WritePostHandle>((_, ref) => {
+//   const [title, setTitle] = useState('');
+//   const [content, setContent] = useState('');
+//   const [potId, setPotId] = useState<number | null>(null);
+
+//   useImperativeHandle(ref, () => ({
+//     title,
+//     content,
+//     potId,
+//   }));
+
+//   return (
+//     <S.WritePost>
+//       <S.TitleWrapper>
+//         <S.Input
+//           placeholder="제목을 입력하세요"
+//           value={title}
+//           onChange={(e) => setTitle(e.target.value)}
+//         />
+//       </S.TitleWrapper>
+//       <S.TextArea
+//         placeholder="내용을 입력하세요"
+//         value={content}
+//         onChange={(e) => setContent(e.target.value)}
+//       />
+//       <S.ImageWrapper>
+//         <BsFillImageFill size="30px" color="#c9c9c9" />
+//       </S.ImageWrapper>
+//     </S.WritePost>
+//   );
+// });
+
+// export default WritePost;
+
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import * as S from './WritePost.Style';
 import { BsFillImageFill } from 'react-icons/bs';
@@ -105,12 +149,27 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [potId, setPotId] = useState<number | null>(null);
+  const [images, setImages] = useState<File[]>([]);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   useImperativeHandle(ref, () => ({
     title,
     content,
     potId,
   }));
+
+  const handleImageUpload = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      setImages(Array.from(files)); // Update the state with selected images
+    }
+  };
 
   return (
     <S.WritePost>
@@ -127,8 +186,32 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
         onChange={(e) => setContent(e.target.value)}
       />
       <S.ImageWrapper>
-        <BsFillImageFill size="30px" color="#c9c9c9" />
+        <BsFillImageFill
+          size="30px"
+          color="#c9c9c9"
+          onClick={handleImageUpload}
+        />
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: 'none' }}
+          multiple
+          onChange={handleFileChange}
+        />
       </S.ImageWrapper>
+      {/* Optional: Display selected images */}
+      {images.length > 0 && (
+        <S.ImagePreview>
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={URL.createObjectURL(image)}
+              alt={`preview ${index}`}
+              style={{ width: '100px', height: '100px', margin: '5px' }}
+            />
+          ))}
+        </S.ImagePreview>
+      )}
     </S.WritePost>
   );
 });

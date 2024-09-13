@@ -41,4 +41,18 @@ export const ImageWrapper = styled.div`
   border-top: 1px solid #ddd;
   padding-left: 20px;
   padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+`;
+
+export const ImagePreview = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+
+  img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
 `;
