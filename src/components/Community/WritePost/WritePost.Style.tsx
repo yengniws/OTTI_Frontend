@@ -12,6 +12,7 @@ export const TitleWrapper = styled.div`
 
 export const Input = styled.input`
   padding: 12px;
+  padding-left: 20px;
   margin: 5px 0px;
   font-size: 16px;
   border: none;
@@ -24,7 +25,8 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   padding: 12px;
-  height: 150px;
+  padding-left: 20px;
+  height: 370px;
   font-size: 14px;
   border: none;
   resize: none;
@@ -33,4 +35,10 @@ export const TextArea = styled.textarea`
   &:focus {
     border-color: #888;
   }
+`;
+
+export const ImageWrapper = styled.div`
+  border-top: 1px solid #ddd;
+  padding-left: 20px;
+  padding-top: 10px;
 `;
