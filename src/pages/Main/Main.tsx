@@ -121,11 +121,7 @@ const Main: React.FC = () => {
   return (
     <>
       <S.MainContainer>
-        {' '}
-        {/* 메인 컨테이너 스타일 컴포넌트 */}
         <S.Header>
-          {' '}
-          {/* 헤더 섹션 */}
           <S.Logo>OTTi</S.Logo> {/* 로고 표시 */}
           {/* <NotificationPanel /> 알림 패널 (주석처리) */}
         </S.Header>
