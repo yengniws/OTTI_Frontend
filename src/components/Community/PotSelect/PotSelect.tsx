@@ -51,7 +51,7 @@ const PotSelect: React.FC<PotSelectProps> = ({
     const fetchPotOptions = async () => {
       try {
         const response = await axiosInstance.get(
-          '/api/pot/application/user/pots/approve/permission',
+          'api/pot/application/user/pots/permission',
         );
         if (Array.isArray(response.data)) {
           const options = response.data.map(
