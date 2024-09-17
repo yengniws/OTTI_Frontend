@@ -88,21 +88,96 @@
 
 // export default CommunityList;
 
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import * as S from './Community.Style';
+// import { FaRegComment } from 'react-icons/fa';
+// import { PiEyesFill } from 'react-icons/pi';
+// import { Post } from '../../../pages/Community/types'; // Post 타입 사용
+
+// interface CommunityListProps {
+//   posts?: Post[]; // posts를 optional로 설정
+// }
+
+// const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
+//   // 기본값을 빈 배열로 설정
+//   const navigate = useNavigate();
+
+//   const handleItemClick = (id: number) => {
+//     navigate(`/detail/${id}`);
+//   };
+
+//   return (
+//     <S.ListContainer>
+//       {posts.map((post) => (
+//         <S.ListItemWrapper
+//           key={post.id}
+//           onClick={() => handleItemClick(post.id)}
+//         >
+//           <S.ListItem>
+//             <S.FlexWrap>
+//               <S.ImgWrapper>
+//                 <S.PlatformImg
+//                   src={`/images/${post.platform}.png`}
+//                   alt={post.platform}
+//                 />
+//               </S.ImgWrapper>
+//               <S.ContentWrapper>
+//                 <S.Title>{post.title}</S.Title>
+//                 <S.MetaInfo>
+//                   <S.Author>{post.author}</S.Author>
+//                   <S.CreatedAt>
+//                     {new Date(post.createdAt).toLocaleTimeString()}
+//                   </S.CreatedAt>
+//                 </S.MetaInfo>
+//                 <S.Description>{post.content}</S.Description>
+//               </S.ContentWrapper>
+//             </S.FlexWrap>
+//             <S.CommentWrapper>
+//               <S.CountWrapper>
+//                 <FaRegComment size={13} color="#757575" />
+//                 <S.CommentCount>{post.commentCount}</S.CommentCount>
+//               </S.CountWrapper>
+//               <S.CountWrapper>
+//                 <PiEyesFill size={13} color="#757575" />
+//                 <S.ViewCount>{post.viewCount}</S.ViewCount>
+//               </S.CountWrapper>
+//             </S.CommentWrapper>
+//           </S.ListItem>
+//         </S.ListItemWrapper>
+//       ))}
+//     </S.ListContainer>
+//   );
+// };
+
+// export default CommunityList;
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Community.Style';
 import { FaRegComment } from 'react-icons/fa';
 import { PiEyesFill } from 'react-icons/pi';
-import { Post } from '../../../pages/Community/types'; // Post 타입 사용
+
+// Post 타입 정의
+export interface Post {
+  id: number;
+  title: string;
+  content: string;
+  viewCount: number;
+  commentCount: number;
+  userName: string;
+  ottImage: string;
+  createdDate: string;
+}
 
 interface CommunityListProps {
-  posts?: Post[]; // posts를 optional로 설정
+  posts: Post[]; // Post 배열을 props로 받음
 }
 
 const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
-  // 기본값을 빈 배열로 설정
   const navigate = useNavigate();
 
+  // 게시글 클릭 시 상세 페이지로 이동
   const handleItemClick = (id: number) => {
     navigate(`/detail/${id}`);
   };
@@ -117,17 +192,14 @@ const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
           <S.ListItem>
             <S.FlexWrap>
               <S.ImgWrapper>
-                <S.PlatformImg
-                  src={`/images/${post.platform}.png`}
-                  alt={post.platform}
-                />
+                <S.PlatformImg src={post.ottImage} alt="ott-image" />
               </S.ImgWrapper>
               <S.ContentWrapper>
                 <S.Title>{post.title}</S.Title>
                 <S.MetaInfo>
-                  <S.Author>{post.author}</S.Author>
+                  <S.Author>{post.userName}</S.Author>
                   <S.CreatedAt>
-                    {new Date(post.createdAt).toLocaleTimeString()}
+                    {new Date(post.createdDate).toLocaleTimeString()}
                   </S.CreatedAt>
                 </S.MetaInfo>
                 <S.Description>{post.content}</S.Description>
