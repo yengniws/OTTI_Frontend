@@ -60,5 +60,6 @@ export const ImagesWrapper = styled.div`
 
 export const PostImage = styled.div`
   width: 85px;
-  height: 85px;
+  height: auto;
+  display: block;
 `;
