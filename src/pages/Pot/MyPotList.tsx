@@ -32,7 +32,9 @@ const MyPotList = () => {
         ))}
       </S.PotList>
 
-      <ActionButton text="팟 만들기" onClick={() => navigate('/MakePot')} />
+      <S.MakePotButton onClick={() => navigate('/MakePot')}>
+        팟 만들기
+      </S.MakePotButton>
 
       <S.BottomNavBarWrapper>
         <BottomNavBar />

@@ -161,7 +161,7 @@ const MakePot: React.FC = () => {
         </S.Section>
       </S.Container>
       <S.ButtonWrapper>
-        <ActionButton text="완료" onClick={handleSubmit} />
+        <S.DoneButton onClick={handleSubmit}>완료</S.DoneButton>
       </S.ButtonWrapper>
     </S.AddOttWrapper>
   );

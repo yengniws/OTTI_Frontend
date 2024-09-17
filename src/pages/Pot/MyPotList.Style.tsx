@@ -76,3 +76,21 @@ export const BottomNavBarWrapper = styled.div`
   z-index: 1000; // z-index를 높게 설정하여 최상단에 위치하도록 함
   padding: 0;
 `;
+
+export const MakePotButton = styled.button`
+  width: 90%;
+  padding: 14px;
+  margin: 16px 0;
+  background-color: #222222;
+  margin: 16px 0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #333;
+  }
+`;
