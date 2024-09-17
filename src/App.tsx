@@ -17,6 +17,7 @@ import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
 import PotApplicationList from './pages/Pot/PotApplicationList';
+import MyPotList from './pages/Pot/MyPotList';
 // import LoadingPage from './pages/Loading/LoadingPage';
 
 // import { GlobalStyle } from './styles/Globalstyled';
@@ -53,6 +54,7 @@ const App: React.FC = () => {
         {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
         {/* 로딩 페이지 테스트 용 */}
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
+        <Route path="/MyPotList" element={<MyPotList />} />
       </Routes>
     </>
   );
