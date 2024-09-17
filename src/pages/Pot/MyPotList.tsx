@@ -2,7 +2,6 @@ import React from 'react';
 import * as S from './MyPotList.Style';
 import MyPageTopBar from '../../components/topbar/MyPageTopBar';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
-import ActionButton from '../../components/common/ActionButton';
 import { useNavigate } from 'react-router-dom';
 
 const MyPotList = () => {
@@ -27,7 +26,8 @@ const MyPotList = () => {
               <S.Icon src={pot.icon} alt={pot.name} />
             </S.IconWrapper>
             <S.PotName>{pot.name}</S.PotName>
-            <S.Arrow> &gt; </S.Arrow>
+            <S.Arrow onClick={() => navigate('/PotDetail')}> &gt; </S.Arrow>
+            {/* <S.Arrow onClick={() => navigate('/PotDetail/:potId')}> &gt; </S.Arrow> */}
           </S.PotItem>
         ))}
       </S.PotList>

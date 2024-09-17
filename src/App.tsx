@@ -19,6 +19,8 @@ import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
 import PotApplicationList from './pages/Pot/PotApplicationList';
 import MyPotList from './pages/Pot/MyPotList';
 import MakePot from './pages/Pot/MakePot';
+import PotDetail from './pages/Pot/PotDetail';
+import PotMember from './pages/Pot/PotMember';
 
 // import LoadingPage from './pages/Loading/LoadingPage';
 
@@ -58,6 +60,10 @@ const App: React.FC = () => {
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
+        <Route path="/PotDetail" element={<PotDetail />} />
+        {/* <Route path="/PotDetail/:potId" element={<PotDetail />} /> */}
+        {/* 팟 통신용 경로 */}
+        <Route path="/PotMember" element={<PotMember />} />
       </Routes>
     </>
   );
