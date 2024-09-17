@@ -157,7 +157,7 @@ const Mypage: React.FC = () => {
         <S.TopMenuItem onClick={() => navigateTo('/main')}>
           내가 쓴 글
         </S.TopMenuItem>
-        <S.TopMenuItem onClick={() => navigateTo('/main')}>
+        <S.TopMenuItem onClick={() => navigateTo('/PotApplicationList')}>
           팟 신청 리스트
         </S.TopMenuItem>
       </S.TopMenuList>
