@@ -52,3 +52,13 @@ export const Content = styled.p`
   color: #555;
   line-height: 1.6;
 `;
+
+export const ImagesWrapper = styled.div`
+  display: flex;
+  margin: 20px;
+`;
+
+export const PostImage = styled.div`
+  width: 85px;
+  height: 85px;
+`;
