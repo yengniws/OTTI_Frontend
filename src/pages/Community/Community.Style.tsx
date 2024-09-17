@@ -1,17 +1,9 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  width: 375px;
+`;
 export const CommuniyContainer = styled.div`
-  // position: relative;
-  // flex-direction: column;
-  // width: 375px;
-  // max-width: 375px;
-  // height: 100vh;
-  // padding: 0 20px;
-  // box-sizing: border-box;
-  // margin-top: 10px;
-  // overflow: hidden;
-  // overflow-y: auto;
-  // z-index: 50;
   // margin: 0 auto;
   position: relative;
   display: flex;
