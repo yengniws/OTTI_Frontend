@@ -1,21 +1,70 @@
+// import React, { useState } from 'react';
+// import * as S from './AddComment.Style';
+
+// interface AddCommentProps {
+//   onAddComment: (comment: string) => void;
+// }
+
+// const AddComment: React.FC<AddCommentProps> = ({ onAddComment }) => {
+//   const [comment, setComment] = useState('');
+
+//   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setComment(e.target.value);
+//   };
+
+//   const handleAddComment = () => {
+//     if (comment.trim()) {
+//       onAddComment(comment);
+//       setComment('');
+//     }
+//   };
+
+//   return (
+//     <S.Container>
+//       <S.Input
+//         type="text"
+//         value={comment}
+//         onChange={handleInputChange}
+//         placeholder="댓글 추가"
+//       />
+//       <S.AddBtn onClick={handleAddComment}>댓글 추가</S.AddBtn>
+//     </S.Container>
+//   );
+// };
+
+// export default AddComment;
+
 import React, { useState } from 'react';
+import axiosInstance from '../../../libs/AxiosInstance'; // axiosInstance를 import합니다.
 import * as S from './AddComment.Style';
 
 interface AddCommentProps {
+  postId: number; // 게시글의 ID를 받아오기 위해 추가합니다.
   onAddComment: (comment: string) => void;
 }
 
-const AddComment: React.FC<AddCommentProps> = ({ onAddComment }) => {
+const AddComment: React.FC<AddCommentProps> = ({ postId, onAddComment }) => {
   const [comment, setComment] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setComment(e.target.value);
   };
 
-  const handleAddComment = () => {
+  const handleAddComment = async () => {
     if (comment.trim()) {
-      onAddComment(comment);
-      setComment('');
+      try {
+        // 댓글을 API로 전송합니다.
+        await axiosInstance.post('/api/post/comment', {
+          text: comment,
+          post: postId,
+        });
+
+        // 댓글 추가 후 부모 컴포넌트에 알립니다.
+        onAddComment(comment);
+        setComment('');
+      } catch (error) {
+        console.error('댓글 추가 실패:', error);
+      }
     }
   };
 
@@ -33,42 +82,3 @@ const AddComment: React.FC<AddCommentProps> = ({ onAddComment }) => {
 };
 
 export default AddComment;
-
-// import React, { useState } from 'react';
-// import * as S from './AddComment.Style';
-
-// interface AddCommentProps {
-//   onAddComment: (comment: string, createdAt: string) => void;
-// }
-
-// const AddComment: React.FC<AddCommentProps> = ({ onAddComment }) => {
-//   const [comment, setComment] = useState('');
-
-//   // Input에 대한 onChange 핸들러
-//   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setComment(e.target.value);
-//   };
-
-//   // 댓글 추가 버튼 클릭 시 호출되는 함수
-//   const handleAddComment = () => {
-//     if (comment.trim()) {
-//       const now = new Date().toLocaleString(); // 현재 시각을 가져옵니다.
-//       onAddComment(comment, now); // 댓글과 생성 시각을 전달합니다.
-//       setComment('');
-//     }
-//   };
-
-//   return (
-//     <S.Container>
-//       <S.Input
-//         type="text"
-//         value={comment}
-//         onChange={handleInputChange} // 핸들러 타입 맞춤
-//         placeholder="댓글 추가"
-//       />
-//       <S.AddBtn onClick={handleAddComment}>댓글 추가</S.AddBtn>
-//     </S.Container>
-//   );
-// };
-
-// export default AddComment;

@@ -55,11 +55,6 @@ export const Content = styled.p`
 
 export const ImagesWrapper = styled.div`
   display: flex;
-  margin: 20px;
-`;
-
-export const PostImage = styled.div`
-  width: 85px;
+  width: 30%;
   height: auto;
-  display: block;
 `;
