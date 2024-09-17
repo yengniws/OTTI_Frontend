@@ -501,6 +501,266 @@
 
 // export default CommunityWrite;
 
+// import React, { useState, useRef, useEffect } from 'react';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import NewTopBar from '../../../components/TopBar/NewTopBar';
+// import PotSelect from '../../../components/Community/PotSelect/PotSelect';
+// import WritePost, {
+//   WritePostHandle,
+// } from '../../../components/Community/WritePost/WritePost';
+// import * as S from './CommunityWrite.Style';
+// import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+
+// interface PotMembership {
+//   id: number;
+//   name: string;
+// }
+
+// const CommunityWrite: React.FC = () => {
+//   const [selectedPot, setSelectedPot] = useState<string>('');
+//   const [ottOptions, setOttOptions] = useState<string[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const writePostRef = useRef<WritePostHandle>(null);
+
+//   // Fetch OTT options from API
+//   useEffect(() => {
+//     const fetchOttOptions = async () => {
+//       try {
+//         const response = await axiosInstance.get(
+//           'api/pot/application/user/pots/permission',
+//         );
+//         console.log('API Response:', response.data);
+
+//         if (Array.isArray(response.data)) {
+//           const options = response.data.map((pot: PotMembership) => pot.name);
+//           setOttOptions(options);
+//         } else {
+//           setOttOptions([]);
+//         }
+//       } catch (error) {
+//         setError('OTT options을 가져오는 데 실패했습니다.');
+//         console.error('OTT options 가져오기 실패:', error);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchOttOptions();
+//   }, []);
+
+//   const handleRegister = async (access_token: string) => {
+//     if (!writePostRef.current) return;
+
+//     const { title, content, images } = writePostRef.current;
+//     const potId = ottOptions.indexOf(selectedPot);
+
+//     if (!title || !content || potId === -1) {
+//       alert('모든 필드를 입력해 주세요.');
+//       return;
+//     }
+
+//     const formData = new FormData();
+//     images.forEach((image: File) => {
+//       formData.append('files', image);
+//     });
+
+//     try {
+//       const imageResponse = await axiosInstance.post(
+//         '/api/post/image',
+//         formData,
+//         {
+//           headers: {
+//             'Content-Type': 'multipart/form-data',
+//           },
+//         },
+//       );
+
+//       const imageUrls = imageResponse.data; // Assuming API returns image URLs
+
+//       const postData = {
+//         title,
+//         content,
+//         images: imageUrls,
+//         potId,
+//       };
+
+//       await axiosInstance.post('/api/post', postData, {
+//         headers: {
+//           Authorization: `Bearer ${access_token}`, // access_token을 헤더에 추가
+//         },
+//       });
+
+//       alert('게시글이 성공적으로 저장되었습니다.');
+//       window.location.href = '/community'; // 성공 시 페이지 이동
+//     } catch (error) {
+//       console.error('게시글 저장에 실패했습니다.', error);
+//       alert('게시글 저장에 실패했습니다.');
+//     }
+//   };
+
+//   if (loading) return <p>Loading...</p>; // Loading state
+//   if (error) return <p>{error}</p>; // Error state
+
+//   return (
+//     <S.CommunityWrite>
+//       <S.TopBar>
+//         <NewTopBar title="글쓰기" />
+//         <RegisterBtn onRegister={handleRegister} />
+//       </S.TopBar>
+//       <S.Container>
+//         <PotSelect
+//           options={ottOptions}
+//           selected={selectedPot}
+//           onSelect={setSelectedPot}
+//         />
+//         <WritePost ref={writePostRef} />
+//       </S.Container>
+//     </S.CommunityWrite>
+//   );
+// };
+
+// export default CommunityWrite;
+
+// import React, { useState, useRef, useEffect } from 'react';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import NewTopBar from '../../../components/TopBar/NewTopBar';
+// import PotSelect from '../../../components/Community/PotSelect/PotSelect';
+// import WritePost, {
+//   WritePostHandle,
+// } from '../../../components/Community/WritePost/WritePost';
+// import * as S from './CommunityWrite.Style';
+// import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+
+// interface PotMembership {
+//   id: number;
+//   name: string;
+// }
+
+// const CommunityWrite: React.FC = () => {
+//   const [selectedPot, setSelectedPot] = useState<string>('');
+//   const [ottOptions, setOttOptions] = useState<PotMembership[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const writePostRef = useRef<WritePostHandle>(null);
+
+//   // Fetch OTT options from API
+//   useEffect(() => {
+//     //   const fetchOttOptions = async () => {
+//     //     try {
+//     //       const response = await axiosInstance.get(
+//     //         '/api/pot/application/user/pots/permission',
+//     //       );
+//     //       if (Array.isArray(response.data)) {
+//     //         setOttOptions(response.data);
+//     //         console.log('API Response:', response.data);
+//     //       } else {
+//     //         setOttOptions([]);
+//     //       }
+//     //     } catch (error) {
+//     //       setError('OTT options을 가져오는 데 실패했습니다.');
+//     //     } finally {
+//     //       setLoading(false);
+//     //     }
+//     //   };
+
+//     //   fetchOttOptions();
+//     // }, []);
+//     const fetchOttOptions = async () => {
+//       try {
+//         const response = await axiosInstance.get(
+//           '/api/pot/application/user/pots/permission',
+//         );
+
+//         // Check the API response format
+//         if (Array.isArray(response.data)) {
+//           const options = response.data.map((pot: PotMembership) => ({
+//             id: pot.id,
+//             name: pot.name, // Ensure the name field contains the potName
+//           }));
+//           setOttOptions(options);
+//           console.log(response.data);
+//         } else {
+//           setOttOptions([]); // Set to empty array if the response is not an array
+//         }
+//       } catch (error) {
+//         setError('OTT options을 가져오는 데 실패했습니다.');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchOttOptions();
+//   }, []);
+
+//   const handleRegister = async () => {
+//     if (!writePostRef.current) return;
+
+//     const { title, content, images } = writePostRef.current;
+//     const selectedPotObj = ottOptions.find((pot) => pot.name === selectedPot);
+//     const potId = selectedPotObj ? selectedPotObj.id : null;
+
+//     if (!title || !content || potId === null) {
+//       alert('모든 필드를 입력해 주세요.');
+//       return;
+//     }
+
+//     const formData = new FormData();
+//     images.forEach((image: File) => {
+//       formData.append('files', image);
+//     });
+
+//     try {
+//       const imageResponse = await axiosInstance.post(
+//         '/api/post/image',
+//         formData,
+//         {
+//           headers: { 'Content-Type': 'multipart/form-data' },
+//         },
+//       );
+
+//       const imageUrls = imageResponse.data;
+
+//       const postData = {
+//         title,
+//         content,
+//         images: imageUrls,
+//         potId, // Send potId here
+//       };
+
+//       await axiosInstance.post('/api/post', postData);
+
+//       alert('게시글이 성공적으로 저장되었습니다.');
+//       window.location.href = '/community';
+//     } catch (error) {
+//       console.error('게시글 저장에 실패했습니다.', error);
+//       alert('게시글 저장에 실패했습니다.');
+//     }
+//   };
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <S.CommunityWrite>
+//       <S.TopBar>
+//         <NewTopBar title="글쓰기" />
+//         <RegisterBtn onRegister={handleRegister} />
+//       </S.TopBar>
+//       <S.Container>
+//         <PotSelect
+//           options={ottOptions}
+//           selected={selectedPot}
+//           onSelect={setSelectedPot}
+//         />
+//         <WritePost ref={writePostRef} />
+//       </S.Container>
+//     </S.CommunityWrite>
+//   );
+// };
+
+// export default CommunityWrite;
+
 import React, { useState, useRef, useEffect } from 'react';
 import axiosInstance from '../../../libs/AxiosInstance';
 import NewTopBar from '../../../components/TopBar/NewTopBar';
@@ -513,12 +773,12 @@ import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
 
 interface PotMembership {
   id: number;
-  name: string;
+  potName: string;
 }
 
 const CommunityWrite: React.FC = () => {
   const [selectedPot, setSelectedPot] = useState<string>('');
-  const [ottOptions, setOttOptions] = useState<string[]>([]);
+  const [ottOptions, setOttOptions] = useState<PotMembership[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const writePostRef = useRef<WritePostHandle>(null);
@@ -528,19 +788,20 @@ const CommunityWrite: React.FC = () => {
     const fetchOttOptions = async () => {
       try {
         const response = await axiosInstance.get(
-          'api/pot/application/user/pots/permission',
+          '/api/pot/application/user/pots/permission',
         );
-        console.log('API Response:', response.data);
 
         if (Array.isArray(response.data)) {
-          const options = response.data.map((pot: PotMembership) => pot.name);
+          const options = response.data.map((pot: PotMembership) => ({
+            id: pot.id,
+            potName: pot.potName, // Ensure the potName field contains the potName
+          }));
           setOttOptions(options);
         } else {
           setOttOptions([]);
         }
       } catch (error) {
         setError('OTT options을 가져오는 데 실패했습니다.');
-        console.error('OTT options 가져오기 실패:', error);
       } finally {
         setLoading(false);
       }
@@ -549,13 +810,16 @@ const CommunityWrite: React.FC = () => {
     fetchOttOptions();
   }, []);
 
-  const handleRegister = async (access_token: string) => {
+  const handleRegister = async () => {
     if (!writePostRef.current) return;
 
     const { title, content, images } = writePostRef.current;
-    const potId = ottOptions.indexOf(selectedPot);
+    const selectedPotObj = ottOptions.find(
+      (pot) => pot.potName === selectedPot,
+    );
+    const potId = selectedPotObj ? selectedPotObj.id : null;
 
-    if (!title || !content || potId === -1) {
+    if (!title || !content || potId === null) {
       alert('모든 필드를 입력해 주세요.');
       return;
     }
@@ -570,13 +834,11 @@ const CommunityWrite: React.FC = () => {
         '/api/post/image',
         formData,
         {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' },
         },
       );
 
-      const imageUrls = imageResponse.data; // Assuming API returns image URLs
+      const imageUrls = imageResponse.data;
 
       const postData = {
         title,
@@ -585,22 +847,18 @@ const CommunityWrite: React.FC = () => {
         potId,
       };
 
-      await axiosInstance.post('/api/post', postData, {
-        headers: {
-          Authorization: `Bearer ${access_token}`, // access_token을 헤더에 추가
-        },
-      });
+      await axiosInstance.post('/api/post', postData);
 
       alert('게시글이 성공적으로 저장되었습니다.');
-      window.location.href = '/community'; // 성공 시 페이지 이동
+      window.location.href = '/community';
     } catch (error) {
       console.error('게시글 저장에 실패했습니다.', error);
       alert('게시글 저장에 실패했습니다.');
     }
   };
 
-  if (loading) return <p>Loading...</p>; // Loading state
-  if (error) return <p>{error}</p>; // Error state
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <S.CommunityWrite>
