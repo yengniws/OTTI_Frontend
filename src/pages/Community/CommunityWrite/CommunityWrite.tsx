@@ -761,6 +761,315 @@
 
 // export default CommunityWrite;
 
+// import React, { useState, useRef, useEffect } from 'react';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import NewTopBar from '../../../components/TopBar/NewTopBar';
+// import PotSelect from '../../../components/Community/PotSelect/PotSelect';
+// import WritePost, {
+//   WritePostHandle,
+// } from '../../../components/Community/WritePost/WritePost';
+// import * as S from './CommunityWrite.Style';
+// import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+
+// interface PotMembership {
+//   id: number;
+//   potName: string;
+// }
+
+// const CommunityWrite: React.FC = () => {
+//   const [selectedPot, setSelectedPot] = useState<string>('');
+//   const [ottOptions, setOttOptions] = useState<PotMembership[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const writePostRef = useRef<WritePostHandle>(null);
+
+//   // Fetch OTT options from API
+//   useEffect(() => {
+//     const fetchOttOptions = async () => {
+//       try {
+//         const response = await axiosInstance.get(
+//           '/api/pot/application/user/pots/permission',
+//         );
+
+//         if (Array.isArray(response.data)) {
+//           const options = response.data.map((pot: PotMembership) => ({
+//             id: pot.id,
+//             potName: pot.potName, // Ensure the potName field contains the potName
+//           }));
+//           setOttOptions(options);
+//         } else {
+//           setOttOptions([]);
+//         }
+//       } catch (error) {
+//         setError('OTT options을 가져오는 데 실패했습니다.');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchOttOptions();
+//   }, []);
+
+//   const handleRegister = async () => {
+//     if (!writePostRef.current) return;
+
+//     const { title, content, images } = writePostRef.current;
+//     const selectedPotObj = ottOptions.find(
+//       (pot) => pot.potName === selectedPot,
+//     );
+//     const potId = selectedPotObj ? selectedPotObj.id : null;
+
+//     if (!title || !content || potId === null) {
+//       alert('모든 필드를 입력해 주세요.');
+//       return;
+//     }
+
+//     const formData = new FormData();
+//     images.forEach((image: File) => {
+//       formData.append('files', image);
+//     });
+
+//     try {
+//       const imageResponse = await axiosInstance.post(
+//         '/api/post/image',
+//         formData,
+//         {
+//           headers: { 'Content-Type': 'multipart/form-data' },
+//         },
+//       );
+
+//       const imageUrls = imageResponse.data;
+
+//       const postData = {
+//         title,
+//         content,
+//         images: imageUrls,
+//         potId,
+//       };
+
+//       await axiosInstance.post('/api/post', postData);
+
+//       alert('게시글이 성공적으로 저장되었습니다.');
+//       window.location.href = '/community';
+//     } catch (error) {
+//       console.error('게시글 저장에 실패했습니다.', error);
+//       alert('게시글 저장에 실패했습니다.');
+//     }
+//   };
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <S.CommunityWrite>
+//       <S.TopBar>
+//         <NewTopBar title="글쓰기" />
+//         <RegisterBtn onRegister={handleRegister} />
+//       </S.TopBar>
+//       <S.Container>
+//         <PotSelect
+//           options={ottOptions}
+//           selected={selectedPot}
+//           onSelect={setSelectedPot}
+//         />
+//         <WritePost ref={writePostRef} />
+//       </S.Container>
+//     </S.CommunityWrite>
+//   );
+// };
+
+// export default CommunityWrite;
+
+// import React, { useState, useRef, useEffect } from 'react';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import NewTopBar from '../../../components/TopBar/NewTopBar';
+// import PotSelect from '../../../components/Community/PotSelect/PotSelect';
+// import WritePost, {
+//   WritePostHandle,
+// } from '../../../components/Community/WritePost/WritePost';
+// import * as S from './CommunityWrite.Style';
+// import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+
+// interface PotMembership {
+//   id: number;
+//   potName: string;
+// }
+
+// const CommunityWrite: React.FC = () => {
+//   const [selectedPot, setSelectedPot] = useState<string>('');
+//   const [ottOptions, setOttOptions] = useState<PotMembership[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const writePostRef = useRef<WritePostHandle>(null);
+
+//   // Fetch OTT options from API
+//   useEffect(() => {
+//     const fetchOttOptions = async () => {
+//       try {
+//         const response = await axiosInstance.get(
+//           '/api/pot/application/user/pots/permission',
+//         );
+
+//         if (Array.isArray(response.data)) {
+//           const options = response.data.map((pot: PotMembership) => ({
+//             id: pot.id,
+//             potName: pot.potName, // Ensure the potName field contains the potName
+//           }));
+//           setOttOptions(options);
+//         } else {
+//           setOttOptions([]);
+//         }
+//       } catch (error) {
+//         setError('OTT options을 가져오는 데 실패했습니다.');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchOttOptions();
+//   }, []);
+
+//   const getPostData = () => {
+//     if (!writePostRef.current) return null;
+
+//     const { title, content, images } = writePostRef.current;
+//     const selectedPotObj = ottOptions.find(
+//       (pot) => pot.potName === selectedPot,
+//     );
+//     const potId = selectedPotObj ? selectedPotObj.id : null;
+
+//     if (!title || !content || potId === null) {
+//       alert('모든 필드를 입력해 주세요.');
+//       return null;
+//     }
+
+//     const formData = new FormData();
+//     images.forEach((image: File) => {
+//       formData.append('files', image);
+//     });
+
+//     return { title, content, images: formData, potId };
+//   };
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <S.CommunityWrite>
+//       <S.TopBar>
+//         <NewTopBar title="글쓰기" />
+//         <RegisterBtn getPostData={getPostData} />
+//       </S.TopBar>
+//       <S.Container>
+//         <PotSelect
+//           options={ottOptions}
+//           selected={selectedPot}
+//           onSelect={setSelectedPot}
+//         />
+//         <WritePost ref={writePostRef} />
+//       </S.Container>
+//     </S.CommunityWrite>
+//   );
+// };
+
+// export default CommunityWrite;
+
+// import React, { useState, useRef, useEffect } from 'react';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import NewTopBar from '../../../components/TopBar/NewTopBar';
+// import PotSelect from '../../../components/Community/PotSelect/PotSelect';
+// import WritePost, {
+//   WritePostHandle,
+// } from '../../../components/Community/WritePost/WritePost';
+// import * as S from './CommunityWrite.Style';
+// import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+
+// interface PotMembership {
+//   id: number;
+//   potName: string;
+// }
+
+// const CommunityWrite: React.FC = () => {
+//   const [selectedPot, setSelectedPot] = useState<string>('');
+//   const [ottOptions, setOttOptions] = useState<PotMembership[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const writePostRef = useRef<WritePostHandle>(null);
+
+//   // Fetch OTT options from API
+//   useEffect(() => {
+//     const fetchOttOptions = async () => {
+//       try {
+//         const response = await axiosInstance.get(
+//           '/api/pot/application/user/pots/permission',
+//         );
+
+//         if (Array.isArray(response.data)) {
+//           const options = response.data.map((pot: PotMembership) => ({
+//             id: pot.id,
+//             potName: pot.potName, // Ensure the potName field contains the potName
+//           }));
+//           setOttOptions(options);
+//         } else {
+//           setOttOptions([]);
+//         }
+//       } catch (error) {
+//         setError('OTT options을 가져오는 데 실패했습니다.');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchOttOptions();
+//   }, []);
+
+//   const getPostData = () => {
+//     if (!writePostRef.current) return null;
+
+//     const { title, content, images } = writePostRef.current;
+//     const selectedPotObj = ottOptions.find(
+//       (pot) => pot.potName === selectedPot,
+//     );
+//     const potId = selectedPotObj ? selectedPotObj.id : null;
+
+//     if (!title || !content || potId === null) {
+//       alert('모든 필드를 입력해 주세요.');
+//       return null;
+//     }
+
+//     const formData = new FormData();
+//     if (images && images.length > 0) {
+//       images.forEach((image: File) => {
+//         formData.append('files', image);
+//       });
+//     }
+
+//     return { title, content, images: formData, potId };
+//   };
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <S.CommunityWrite>
+//       <S.TopBar>
+//         <NewTopBar title="글쓰기" />
+//         <RegisterBtn getPostData={getPostData} />
+//       </S.TopBar>
+//       <S.Container>
+//         <PotSelect
+//           options={ottOptions}
+//           selected={selectedPot}
+//           onSelect={setSelectedPot}
+//         />
+//         <WritePost ref={writePostRef} />
+//       </S.Container>
+//     </S.CommunityWrite>
+//   );
+// };
+
+// export default CommunityWrite;
+
 import React, { useState, useRef, useEffect } from 'react';
 import axiosInstance from '../../../libs/AxiosInstance';
 import NewTopBar from '../../../components/TopBar/NewTopBar';
@@ -810,8 +1119,26 @@ const CommunityWrite: React.FC = () => {
     fetchOttOptions();
   }, []);
 
-  const handleRegister = async () => {
-    if (!writePostRef.current) return;
+  const uploadImages = async (images: File[]) => {
+    try {
+      const formData = new FormData();
+      images.forEach((image) => {
+        formData.append('files', image);
+      });
+
+      const response = await axiosInstance.post('/api/post/image', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      return response.data; // Assuming the response data contains the image IDs
+    } catch (error) {
+      console.error('이미지 업로드 실패:', error);
+      return [];
+    }
+  };
+
+  const getPostData = async () => {
+    if (!writePostRef.current) return null;
 
     const { title, content, images } = writePostRef.current;
     const selectedPotObj = ottOptions.find(
@@ -821,40 +1148,15 @@ const CommunityWrite: React.FC = () => {
 
     if (!title || !content || potId === null) {
       alert('모든 필드를 입력해 주세요.');
-      return;
+      return null;
     }
 
-    const formData = new FormData();
-    images.forEach((image: File) => {
-      formData.append('files', image);
-    });
-
-    try {
-      const imageResponse = await axiosInstance.post(
-        '/api/post/image',
-        formData,
-        {
-          headers: { 'Content-Type': 'multipart/form-data' },
-        },
-      );
-
-      const imageUrls = imageResponse.data;
-
-      const postData = {
-        title,
-        content,
-        images: imageUrls,
-        potId,
-      };
-
-      await axiosInstance.post('/api/post', postData);
-
-      alert('게시글이 성공적으로 저장되었습니다.');
-      window.location.href = '/community';
-    } catch (error) {
-      console.error('게시글 저장에 실패했습니다.', error);
-      alert('게시글 저장에 실패했습니다.');
+    let imageIds: number[] = [];
+    if (images.length > 0) {
+      imageIds = await uploadImages(images);
     }
+
+    return { title, content, images: imageIds, potId };
   };
 
   if (loading) return <p>Loading...</p>;
@@ -864,7 +1166,7 @@ const CommunityWrite: React.FC = () => {
     <S.CommunityWrite>
       <S.TopBar>
         <NewTopBar title="글쓰기" />
-        <RegisterBtn onRegister={handleRegister} />
+        <RegisterBtn getPostData={getPostData} />
       </S.TopBar>
       <S.Container>
         <PotSelect
