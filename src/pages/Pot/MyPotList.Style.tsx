@@ -24,8 +24,13 @@ export const TitleWrapper = styled.div`
 `;
 
 export const PotList = styled.div`
-  flex: 1;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 80%;
+  height: 60%;
+  overflow-y: auto; // 스크롤 가능하도록 설정
 `;
 
 export const PotItem = styled.div`
@@ -37,8 +42,8 @@ export const PotItem = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: #f0f0f0;
   display: flex;
@@ -47,33 +52,27 @@ export const IconWrapper = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 60px;
+  height: 60px;
 `;
 
 export const PotName = styled.div`
   flex: 1;
   margin-left: 16px;
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 export const Arrow = styled.div`
   font-size: 18px;
-  color: #888;
-`;
-
-export const CreatePotButton = styled.button`
-  width: calc(100% - 32px);
-  padding: 16px;
-  margin: 16px;
-  background-color: black;
-  color: white;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
 `;
 
 export const BottomNavBarWrapper = styled.div`
+  position: absolute;
   width: 100%;
+  max-width: 375px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; // z-index를 높게 설정하여 최상단에 위치하도록 함
+  padding: 0;
 `;
