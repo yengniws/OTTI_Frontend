@@ -16,11 +16,17 @@ import Login from './pages/Login/Login';
 import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
+import Community from './pages/Community/Community';
+import CommunityWrite from './pages/Community/CommunityWrite/CommunityWrite';
+import CommunityList from './components/Community/CommunityList/CommunityList';
+import CommunityDetail from './pages/Community/CommunityDetail/CommunityDetail';
+import JoinPot from './pages/Community/JoinPot/JoinPot';
+import CommunityPost from './components/Community/CommunityPost/CommunityPost';
 import PotApplicationList from './pages/Pot/PotApplicationList';
 import MyPotList from './pages/Pot/MyPotList';
 import MakePot from './pages/Pot/MakePot';
 import PotDetail from './pages/Pot/PotDetail';
-import PotMember from './pages/Pot/PotMember';
+// import PotMember from './pages/Pot/PotMember';
 
 // import LoadingPage from './pages/Loading/LoadingPage';
 
@@ -57,13 +63,18 @@ const App: React.FC = () => {
         />
         {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
         {/* 로딩 페이지 테스트 용 */}
+        <Route path="/community" element={<Community />} />{' '}
+        <Route path="/community-write" element={<CommunityWrite />} />{' '}
+        <Route path="/detail/:id" element={<CommunityDetail />} />
+        {/* <Route path="/community-post/:id" element={<CommunityPost />} /> */}
+        <Route path="/joinpot" element={<JoinPot />} />
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
         <Route path="/PotDetail" element={<PotDetail />} />
         {/* <Route path="/PotDetail/:potId" element={<PotDetail />} /> */}
         {/* 팟 통신용 경로 */}
-        <Route path="/PotMember" element={<PotMember />} />
+        {/* <Route path="/PotMember" element={<PotMember />} /> */}
       </Routes>
     </>
   );
