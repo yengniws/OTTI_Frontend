@@ -81,7 +81,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './MyPage.Style';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
-import MyPageTopBar from '../../components/TopBar/MyPageTopBar';
+import MyPageTopBar from '../../components/topbar/MyPageTopBar';
 
 interface UserProfile {
   profilePhotoUrl: string;
@@ -114,29 +114,6 @@ const Mypage: React.FC = () => {
     fetchUserProfile();
   }, []);
 
-  // const handleResetProfilePicture = async () => {
-  //   try {
-  //     // 클라이언트 측에서 기본 이미지로 상태 업데이트
-  //     setProfile((prevProfile) => ({
-  //       ...prevProfile,
-  //       profilePhotoUrl: defaultuser_image,
-  //     }));
-
-  //     // 서버에 기본 이미지로 업데이트 요청
-  //     await axiosInstance.put('/api/users/profile/update', {
-  //       profilePhotoUrl: defaultuser_image,
-  //       username: profile.username, // 나머지 데이터 유지
-  //     });
-
-  //     console.log('프로필 이미지가 기본 이미지로 변경되었습니다.');
-  //   } catch (error) {
-  //     console.error(
-  //       '프로필 이미지를 기본 이미지로 변경하는 중 오류 발생:',
-  //       error,
-  //     );
-  //   }
-  // };
-
   const navigateTo = (path: string) => {
     navigate(path);
   };
@@ -152,14 +129,12 @@ const Mypage: React.FC = () => {
         <S.EditButton onClick={() => navigateTo('/myPage/editProfile')}>
           프로필 수정
         </S.EditButton>
-        {/* 프로필 이미지를 기본 이미지로 리셋하는 버튼 추가 */}
-        {/* <div onClick={handleResetProfilePicture}>프로필 이미지 초기화</div> */}
       </S.ProfileSection>
       <S.TopMenuList>
         <S.TopMenuItem onClick={() => navigateTo('/main')}>
           내가 쓴 글
         </S.TopMenuItem>
-        <S.TopMenuItem onClick={() => navigateTo('/main')}>
+        <S.TopMenuItem onClick={() => navigateTo('/PotApplicationList')}>
           팟 신청 리스트
         </S.TopMenuItem>
       </S.TopMenuList>
@@ -167,6 +142,8 @@ const Mypage: React.FC = () => {
         <S.MenuItem onClick={() => navigateTo('/main')}>공지사항</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>고객센터</S.MenuItem>
         <S.MenuItem onClick={() => navigateTo('/main')}>도움말</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>로그아웃</S.MenuItem>
+        <S.MenuItem onClick={() => navigateTo('/main')}>계정 탈퇴</S.MenuItem>
       </S.Menu>
       <S.BottomNavBarWrapper>
         <BottomNavBar />

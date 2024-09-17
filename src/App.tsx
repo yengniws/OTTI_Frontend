@@ -16,12 +16,12 @@ import Login from './pages/Login/Login';
 import SubscriptionDetail from './pages/SubscriptionDetail/SubscriptionDetail';
 import 'react-toastify/dist/ReactToastify.css';
 import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
-import Community from './pages/Community/Community';
-import CommunityWrite from './pages/Community/CommunityWrite/CommunityWrite';
-import CommunityList from './components/Community/CommunityList/CommunityList';
-import CommunityDetail from './pages/Community/CommunityDetail/CommunityDetail';
-import JoinPot from './pages/Community/JoinPot/JoinPot';
-import CommunityPost from './components/Community/CommunityPost/CommunityPost';
+import PotApplicationList from './pages/Pot/PotApplicationList';
+import MyPotList from './pages/Pot/MyPotList';
+import MakePot from './pages/Pot/MakePot';
+import PotDetail from './pages/Pot/PotDetail';
+import PotMember from './pages/Pot/PotMember';
+
 // import LoadingPage from './pages/Loading/LoadingPage';
 
 // import { GlobalStyle } from './styles/Globalstyled';
@@ -47,7 +47,6 @@ const App: React.FC = () => {
         <Route path="/community" element={<Community />} />
         <Route path="/pot" element={<Pot />} /> */}
         {/* <Route path="/profile" element={<MyPage />} /> */}
-        <Route path="/main" element={<Main />} />
         <Route
           path="/main/subscriptionDetail/:id"
           element={<SubscriptionDetail />}
@@ -56,11 +55,15 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
-        <Route path="/community" element={<Community />} />{' '}
-        <Route path="/community-write" element={<CommunityWrite />} />{' '}
-        {/* <Route path="/communitydetail/:postId" element={<CommunityDetail />} /> */}
-        <Route path="/detail/:id" element={<CommunityDetail />} />
-        <Route path="/joinpot" element={<JoinPot />} />
+        {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
+        {/* 로딩 페이지 테스트 용 */}
+        <Route path="/PotApplicationList" element={<PotApplicationList />} />
+        <Route path="/MyPotList" element={<MyPotList />} />
+        <Route path="/MakePot" element={<MakePot />} />
+        <Route path="/PotDetail" element={<PotDetail />} />
+        {/* <Route path="/PotDetail/:potId" element={<PotDetail />} /> */}
+        {/* 팟 통신용 경로 */}
+        <Route path="/PotMember" element={<PotMember />} />
       </Routes>
     </>
   );

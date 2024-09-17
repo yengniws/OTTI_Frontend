@@ -28,8 +28,10 @@ export const TitleWrapper = styled.header`
 `;
 
 export const ProfilePictureSection = styled.div`
+  display: flex;
+  align-items: center;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 `;
 
 export const ProfilePicture = styled.img`
@@ -109,4 +111,15 @@ export const SaveButton = styled.button`
   border-radius: 12px;
   cursor: pointer;
   font-size: 15px;
+`;
+
+export const ResetButton = styled.button`
+  padding: 5px 10px;
+  border: 0.5px solid #000;
+  background-color: transparent;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 10px;
+  height: 25px;
+  margin-bottom: 50px;
 `;

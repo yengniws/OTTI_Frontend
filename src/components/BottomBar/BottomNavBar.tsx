@@ -26,7 +26,7 @@ const BottomNavBar: React.FC = () => {
           </S.NavLink>
         </S.BottomItem>
         <S.BottomItem>
-          <S.NavLink to="/pot">
+          <S.NavLink to="/MyPotList">
             <S.BottomIcon>
               <PiPottedPlant size={33} />
             </S.BottomIcon>
