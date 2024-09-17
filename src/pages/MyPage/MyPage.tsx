@@ -152,8 +152,6 @@ const Mypage: React.FC = () => {
         <S.EditButton onClick={() => navigateTo('/myPage/editProfile')}>
           프로필 수정
         </S.EditButton>
-        {/* 프로필 이미지를 기본 이미지로 리셋하는 버튼 추가 */}
-        {/* <div onClick={handleResetProfilePicture}>프로필 이미지 초기화</div> */}
       </S.ProfileSection>
       <S.TopMenuList>
         <S.TopMenuItem onClick={() => navigateTo('/main')}>

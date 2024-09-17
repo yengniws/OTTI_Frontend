@@ -63,6 +63,13 @@ const EditProfile: React.FC = () => {
     }
   };
 
+  const handleResetImage = () => {
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      profilePhotoUrl: defaultuser_image,
+    }));
+  };
+
   const handleSave = async () => {
     try {
       await axiosInstance.put('/api/users/profile/update', profile);
@@ -94,6 +101,10 @@ const EditProfile: React.FC = () => {
             />
           </S.EditIcon>
         </S.ProfilePictureSection>
+        <S.ResetButton onClick={handleResetImage}>
+          기본 이미지 적용
+        </S.ResetButton>
+
         <S.ProfileInput>
           <S.InputLabel>닉네임</S.InputLabel>
           <S.Input
@@ -113,6 +124,8 @@ const EditProfile: React.FC = () => {
             disabled
           /> */}
         {/* </S.ProfileInput> */}
+
+        {/* 프로필 이미지를 기본 이미지로 초기화하는 버튼 추가 */}
 
         <S.SaveButton onClick={handleSave}>저장하기</S.SaveButton>
       </S.EditProfileContainer>
