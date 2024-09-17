@@ -155,9 +155,9 @@ import React from 'react';
 import * as S from './PotSelect.Style';
 
 interface PotSelectProps {
-  options: { id: number; potName: string }[]; // id와 potName을 포함한 구조
-  selected: string; // 선택된 팟 이름
-  onSelect: (value: string) => void; // 선택된 값을 상위 컴포넌트로 전달
+  options: { id: number; potName: string }[];
+  selected: string;
+  onSelect: (value: string) => void;
 }
 
 const PotSelect: React.FC<PotSelectProps> = ({

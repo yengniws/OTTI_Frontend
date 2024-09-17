@@ -1103,9 +1103,10 @@ const CommunityWrite: React.FC = () => {
         if (Array.isArray(response.data)) {
           const options = response.data.map((pot: PotMembership) => ({
             id: pot.id,
-            potName: pot.potName, // Ensure the potName field contains the potName
+            potName: pot.potName,
           }));
           setOttOptions(options);
+          console.log(response.data);
         } else {
           setOttOptions([]);
         }
