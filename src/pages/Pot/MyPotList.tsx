@@ -8,6 +8,12 @@ import { useNavigate } from 'react-router-dom';
 const MyPotList = () => {
   const navigate = useNavigate();
 
+  // 더미 데이터 배열
+  const potListData = [
+    { id: 1, name: '넷플릭스', icon: '/path-to-netflix-icon.png' },
+    { id: 2, name: '티빙', icon: '/path-to-tving-icon.png' },
+  ];
+
   return (
     <S.MyPotListContainer>
       <S.TitleWrapper>
@@ -15,24 +21,18 @@ const MyPotList = () => {
       </S.TitleWrapper>
 
       <S.PotList>
-        <S.PotItem>
-          <S.IconWrapper>
-            <S.Icon src="/path-to-netflix-icon.png" alt="넷플릭스" />
-          </S.IconWrapper>
-          <S.PotName>넷플릭스</S.PotName>
-          <S.Arrow> &gt; </S.Arrow>
-        </S.PotItem>
-
-        <S.PotItem>
-          <S.IconWrapper>
-            <S.Icon src="/path-to-tving-icon.png" alt="티빙" />
-          </S.IconWrapper>
-          <S.PotName>티빙</S.PotName>
-          <S.Arrow> &gt; </S.Arrow>
-        </S.PotItem>
+        {potListData.map((pot) => (
+          <S.PotItem key={pot.id}>
+            <S.IconWrapper>
+              <S.Icon src={pot.icon} alt={pot.name} />
+            </S.IconWrapper>
+            <S.PotName>{pot.name}</S.PotName>
+            <S.Arrow> &gt; </S.Arrow>
+          </S.PotItem>
+        ))}
       </S.PotList>
 
-      <ActionButton text="팟 만들기" onClick={() => navigate('/main')} />
+      <ActionButton text="팟 만들기" onClick={() => navigate('/MakePot')} />
 
       <S.BottomNavBarWrapper>
         <BottomNavBar />

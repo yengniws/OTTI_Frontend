@@ -37,13 +37,13 @@ export const PotItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 18px 0;
   border-bottom: 1px solid #e0e0e0;
 `;
 
 export const IconWrapper = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background-color: #f0f0f0;
   display: flex;
@@ -52,14 +52,14 @@ export const IconWrapper = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 `;
 
 export const PotName = styled.div`
   flex: 1;
-  margin-left: 16px;
-  font-size: 18px;
+  margin-left: 20px;
+  font-size: 20px;
 `;
 
 export const Arrow = styled.div`
