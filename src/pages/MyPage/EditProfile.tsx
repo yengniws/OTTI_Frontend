@@ -142,7 +142,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaCamera } from 'react-icons/fa';
 import * as S from './EditProfile.Style';
-import NewTopBar from '../../components/topbar/NewTopBar';
+import NewTopBar from '../../components/TopBar/NewTopBar';
 
 interface UserProfile {
   profilePhotoUrl: string;
@@ -218,7 +218,7 @@ const EditProfile: React.FC = () => {
 
     // 이미지 파일이 있을 경우에만 FormData에 추가
     if (profileImageFile) {
-      formData.append('profilePhoto', profileImageFile); // 실제 파일을 추가
+      formData.append('image', profileImageFile); // 실제 파일을 추가
     }
 
     try {

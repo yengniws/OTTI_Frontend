@@ -19,6 +19,7 @@ import SubscriptionFeeDetail from './pages/Main/SubscriptionFeeDetail';
 import PotApplicationList from './pages/Pot/PotApplicationList';
 import MyPotList from './pages/Pot/MyPotList';
 import MakePot from './pages/Pot/MakePot';
+
 // import LoadingPage from './pages/Loading/LoadingPage';
 
 // import { GlobalStyle } from './styles/Globalstyled';

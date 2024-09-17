@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ottOptions, dateOptions } from '../../constants/constants';
 import axiosInstance from '../../libs/AxiosInstance';
 import LoadingPage from '../Loading/LoadingPage';
-import NewTopBar from '../../components/topbar/NewTopBar';
+import NewTopBar from '../../components/TopBar/NewTopBar';
 
 interface Ott {
   id: number;
