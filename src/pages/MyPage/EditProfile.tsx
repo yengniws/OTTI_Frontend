@@ -231,7 +231,7 @@ const EditProfile: React.FC = () => {
       toast.success('프로필이 저장되었습니다.');
       setTimeout(() => {
         navigate('/myPage');
-      }, 1500);
+      }, 500);
     } catch (error) {
       console.error('프로필 저장 중 오류 발생:', error);
       toast.error('프로필 수정에 실패했어요.');
