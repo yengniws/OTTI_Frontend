@@ -222,67 +222,273 @@
 
 // export default RegisterBtn;
 
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../../libs/AxiosInstance';
-import * as S from './RegisterBtn.Style';
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import * as S from './RegisterBtn.Style';
 
-interface RegisterBtnProps {
+// interface RegisterBtnProps {
+//   getPostData: () => {
+//     title: string;
+//     content: string;
+//     images: FormData | null;
+//     potId: number;
+//   } | null;
+// }
+
+// const RegisterBtn: React.FC<RegisterBtnProps> = ({ getPostData }) => {
+//   const navigate = useNavigate();
+
+//   const handleClick = async () => {
+//     const postData = getPostData();
+//     if (!postData) return;
+
+//     const { title, content, images, potId } = postData;
+
+//     try {
+//       let imageUrls: number[] = [];
+
+//       if (images) {
+//         // Try uploading images
+//         try {
+//           const imageResponse = await axiosInstance.post(
+//             '/api/post/image',
+//             images,
+//             {
+//               headers: { 'Content-Type': 'multipart/form-data' },
+//             },
+//           );
+//           imageUrls = imageResponse.data;
+//         } catch (imageError) {
+//           console.error('이미지 업로드 실패:', imageError);
+//           alert('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
+//           return;
+//         }
+//       }
+
+//       // Try posting the data
+//       try {
+//         await axiosInstance.post('/api/post', {
+//           title,
+//           content,
+//           images,
+//           potId,
+//         });
+//         alert('게시글이 성공적으로 저장되었습니다.');
+//         navigate('/community');
+//       } catch (postError) {
+//         console.error('게시글 저장에 실패했습니다.', postError);
+//         alert('게시글 저장에 실패했습니다. 다시 시도해주세요.');
+//       }
+//     } catch (error) {
+//       console.error('An unexpected error occurred:', error);
+//       alert('예기치 않은 오류가 발생했습니다. 다시 시도해주세요.');
+//     }
+//   };
+
+//   return <S.RegisterBtn onClick={handleClick}>등록</S.RegisterBtn>;
+// };
+
+// export default RegisterBtn;
+
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import * as S from './RegisterBtn.Style';
+
+// interface RegisterBtnProps {
+//   getPostData: () => {
+//     title: string;
+//     content: string;
+//     images: number[]; // 이미지 ID 배열
+//     potId: number;
+//   } | null;
+// }
+
+// const RegisterBtn: React.FC<RegisterBtnProps> = ({ getPostData }) => {
+//   const navigate = useNavigate();
+
+//   const handleClick = async () => {
+//     const postData = getPostData();
+//     if (!postData) return;
+
+//     const { title, content, images, potId } = postData;
+
+//     try {
+//       // 게시물 저장 요청
+//       try {
+//         await axiosInstance.post('/api/post', {
+//           title,
+//           content,
+//           images, // 이미지 ID 배열
+//           potId,
+//         });
+//         alert('게시글이 성공적으로 저장되었습니다.');
+//         navigate('/community');
+//       } catch (postError) {
+//         console.error('게시글 저장에 실패했습니다.', postError);
+//         alert('게시글 저장에 실패했습니다. 다시 시도해주세요.');
+//       }
+//     } catch (error) {
+//       console.error('An unexpected error occurred:', error);
+//       alert('예기치 않은 오류가 발생했습니다. 다시 시도해주세요.');
+//     }
+//   };
+
+//   return <S.RegisterBtn onClick={handleClick}>등록</S.RegisterBtn>;
+// };
+
+// export default RegisterBtn;
+
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import { useNavigate } from 'react-router-dom';
+// import * as S from './RegisterBtn.Style';
+
+// interface PostRequestDto {
+//   title: string;
+//   content?: string;
+//   images?: number[];
+//   potId: number;
+// }
+
+// const RegisterBtn = ({
+//   title,
+//   content,
+//   potId,
+// }: {
+//   title: string;
+//   content?: string;
+//   potId: number;
+// }) => {
+//   const navigate = useNavigate();
+
+//   const handleClick = async () => {
+//     // content가 없을 경우 빈 문자열로 기본값 설정
+//     const postData: PostRequestDto = {
+//       title: title,
+//       content: content || '', // content가 없으면 빈 문자열
+//       images: [], // 이미지를 보내지 않으므로 빈 배열
+//       potId: potId,
+//     };
+
+//     try {
+//       const response = await axiosInstance.post('/api/post', postData);
+//       if (response.status === 200) {
+//         console.log('게시글이 성공적으로 저장되었습니다.');
+//         navigate('/community'); // 성공 시 커뮤니티 페이지로 이동
+//       } else {
+//         console.log('게시글 저장에 실패했습니다.');
+//       }
+//     } catch (error) {
+//       console.error('게시글 저장에 실패했습니다.', error);
+//     }
+//   };
+
+//   return <S.RegisterBtn onClick={handleClick}>등록</S.RegisterBtn>;
+// };
+
+// export default RegisterBtn;
+
+// import React from 'react';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import { useNavigate } from 'react-router-dom';
+// import * as S from './RegisterBtn.Style';
+// import { WritePostHandle } from '../../../components/Community/WritePost/WritePost';
+
+// interface PostRequestDto {
+//   title: string;
+//   content?: string;
+//   images?: number[];
+//   potId: number;
+// }
+
+// const RegisterBtn = ({
+//   getPostData,
+// }: {
+//   getPostData: () => {
+//     title: string;
+//     content: string;
+//     images: number[];
+//     potId: number;
+//   };
+// }) => {
+//   const navigate = useNavigate();
+
+//   const handleClick = async () => {
+//     const postData: PostRequestDto = getPostData();
+
+//     if (!postData) return;
+
+//     try {
+//       const response = await axiosInstance.post('/api/post', postData);
+//       if (response.status === 200) {
+//         console.log('게시글이 성공적으로 저장되었습니다.');
+//         navigate('/community'); // 성공 시 커뮤니티 페이지로 이동
+//       } else {
+//         console.log('게시글 저장에 실패했습니다.');
+//       }
+//     } catch (error) {
+//       console.error('게시글 저장에 실패했습니다.', error);
+//     }
+//   };
+
+//   return <S.RegisterBtn onClick={handleClick}>등록</S.RegisterBtn>;
+// };
+
+// export default RegisterBtn;
+
+import React from 'react';
+import axiosInstance from '../../../libs/AxiosInstance';
+import { useNavigate } from 'react-router-dom';
+import * as S from './RegisterBtn.Style';
+import { AxiosError } from 'axios'; // AxiosError를 axios 모듈에서 가져옵니다.
+
+interface PostRequestDto {
+  title: string;
+  content?: string;
+  images?: number[];
+  potId: number;
+}
+
+const RegisterBtn = ({
+  getPostData,
+}: {
   getPostData: () => {
     title: string;
     content: string;
-    images: FormData | null;
+    images: number[];
     potId: number;
-  } | null;
-}
-
-const RegisterBtn: React.FC<RegisterBtnProps> = ({ getPostData }) => {
+  };
+}) => {
   const navigate = useNavigate();
 
   const handleClick = async () => {
-    const postData = getPostData();
+    const postData: PostRequestDto = getPostData();
+
     if (!postData) return;
 
-    const { title, content, images, potId } = postData;
+    console.log('Post Data:', postData); // 로그 추가
 
     try {
-      let imageUrls: number[] = [];
+      const response = await axiosInstance.post('/api/post', postData);
+      console.log('Response Status:', response.status); // 로그 추가
+      console.log('Response Data:', response.data); // 로그 추가
 
-      if (images) {
-        // Try uploading images
-        try {
-          const imageResponse = await axiosInstance.post(
-            '/api/post/image',
-            images,
-            {
-              headers: { 'Content-Type': 'multipart/form-data' },
-            },
-          );
-          imageUrls = imageResponse.data;
-        } catch (imageError) {
-          console.error('이미지 업로드 실패:', imageError);
-          alert('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
-          return;
-        }
-      }
-
-      // Try posting the data
-      try {
-        await axiosInstance.post('/api/post', {
-          title,
-          content,
-          images,
-          potId,
-        });
-        alert('게시글이 성공적으로 저장되었습니다.');
-        navigate('/community');
-      } catch (postError) {
-        console.error('게시글 저장에 실패했습니다.', postError);
-        alert('게시글 저장에 실패했습니다. 다시 시도해주세요.');
+      if (response.status === 200) {
+        console.log('게시글이 성공적으로 저장되었습니다.');
+        navigate('/community'); // 성공 시 커뮤니티 페이지로 이동
+      } else {
+        console.log('게시글 저장에 실패했습니다.');
       }
     } catch (error) {
-      console.error('An unexpected error occurred:', error);
-      alert('예기치 않은 오류가 발생했습니다. 다시 시도해주세요.');
+      console.error('게시글 저장에 실패했습니다.', error);
+
+      if (error instanceof AxiosError) {
+        console.error('Axios Error Response:', error.response); // 로그 추가
+        console.error('Axios Error Message:', error.message); // 로그 추가
+      } else {
+        console.error('Unknown Error:', error);
+      }
     }
   };
 
