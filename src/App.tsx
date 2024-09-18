@@ -21,6 +21,7 @@ import CommunityWrite from './pages/Community/CommunityWrite/CommunityWrite';
 import CommunitySearch from './pages/Community/Search/CommunitySearch';
 import CommunityList from './components/Community/CommunityList/CommunityList';
 import CommunityDetail from './pages/Community/CommunityDetail/CommunityDetail';
+import MyPosts from './pages/Community/MyPosts/MyPosts';
 import JoinPot from './pages/Community/JoinPot/JoinPot';
 import CommunityPost from './components/Community/CommunityPost/CommunityPost';
 import PotApplicationList from './pages/Pot/PotApplicationList';
@@ -65,9 +66,10 @@ const App: React.FC = () => {
         {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
         {/* 로딩 페이지 테스트 용 */}
         <Route path="/community" element={<Community />} />{' '}
-        <Route path="/community-search" element={<CommunitySearch />} />
+        {/* <Route path="/community-search" element={<CommunitySearch />} /> */}
         <Route path="/community-write" element={<CommunityWrite />} />{' '}
         <Route path="/detail/:id" element={<CommunityDetail />} />
+        <Route path="/MyPosts" element={<MyPosts />} />
         {/* <Route path="/community-post/:id" element={<CommunityPost />} /> */}
         <Route path="/joinpot" element={<JoinPot />} />
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
