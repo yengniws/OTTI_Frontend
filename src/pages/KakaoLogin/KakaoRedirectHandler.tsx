@@ -112,6 +112,7 @@ const RedirectHandler: React.FC = () => {
 
           // 서버로부터 받은 액세스 토큰을 로컬 스토리지에 저장
           localStorage.setItem('access_token', data.access_token); // 백엔드 서버 액세스 토큰
+          // console.log(response.data);
           // localStorage.setItem('refresh_token', data.refreshToken);
           // console.log('성공');
           // console.log(response.data);
