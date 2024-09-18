@@ -52,6 +52,8 @@ const MakePot: React.FC = () => {
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('1');
   const [account, setAccount] = useState('');
+  const [id, setId] = useState(''); // ID state 추가
+  const [password, setPassword] = useState(''); // Password state 추가
 
   const handleOttChange = (selectedOttName: string) => {
     const selectedOtt =
@@ -69,7 +71,7 @@ const MakePot: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    if (!name || !amount || !account) {
+    if (!name || !amount || !account || !id || !password) {
       toast.error('모든 값을 입력해주세요!');
       return;
     }
@@ -84,6 +86,8 @@ const MakePot: React.FC = () => {
         ottName: ott.ott_name,
         ottRatePlan: plan,
         account: account, // 입금 계좌 정보 추가
+        id: id, // 아이디 추가
+        password: password, // 비밀번호 추가
       });
       */
 
@@ -142,10 +146,16 @@ const MakePot: React.FC = () => {
         </S.Section>
         <S.Divider />
         <S.Section>
-          <S.Label>입금 계좌</S.Label>
+          <S.Label>아이디</S.Label>
+          <S.Input value={id} onChange={(e) => setId(e.target.value)} />
+        </S.Section>
+        <S.Divider />
+        <S.Section>
+          <S.Label>비밀번호</S.Label>
           <S.Input
-            value={account}
-            onChange={(e) => setAccount(e.target.value)}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </S.Section>
         <S.Divider />
@@ -158,6 +168,15 @@ const MakePot: React.FC = () => {
               </option>
             ))}
           </S.Select>
+        </S.Section>
+
+        <S.Divider />
+        <S.Section>
+          <S.Label>입금 계좌</S.Label>
+          <S.Input
+            value={account}
+            onChange={(e) => setAccount(e.target.value)}
+          />
         </S.Section>
       </S.Container>
       <S.ButtonWrapper>

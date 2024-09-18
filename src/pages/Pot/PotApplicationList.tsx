@@ -5,9 +5,9 @@ import NewTopBar from '../../components/topbar/NewTopBar.tsx';
 const PotApplicationList: React.FC = () => {
   //더미데이터
   const applications = [
-    { id: 1, nickname: '닉네임1', message: '신청 합니다!' },
-    { id: 2, nickname: '닉네임2', message: '신청 합니다!' },
-    { id: 3, nickname: '닉네임3', message: '신청 합니다!' },
+    { id: 1, potName: '넷플', nickname: '닉네임1', message: '신청 합니다!' },
+    { id: 2, potName: '티빙잉', nickname: '닉네임2', message: '신청 합니다!' },
+    { id: 3, potName: '디플', nickname: '닉네임3', message: '신청 합니다!' },
   ];
 
   return (
@@ -28,6 +28,7 @@ const PotApplicationList: React.FC = () => {
               />
               <S.TextSection>
                 <S.Nickname>{app.nickname}</S.Nickname>
+                <S.PotName>{app.potName}</S.PotName>
                 <S.Message>{app.message}</S.Message>
               </S.TextSection>
             </S.ProfileSection>
