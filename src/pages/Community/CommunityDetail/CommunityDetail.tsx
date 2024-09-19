@@ -85,7 +85,7 @@ const CommunityDetail: React.FC = () => {
         <S.CommunityPostWrapper>
           <CommunityPost
             postId={postId}
-            username={post.username}
+            userName={post.username}
             createdAt={post.createdAt}
             title={post.title}
             content={post.content}
