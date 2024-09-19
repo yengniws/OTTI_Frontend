@@ -25,11 +25,10 @@ export const SearchResults = styled.div`
   width: 100%;
   max-width: 375px;
   height: 100vh;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box;
   margin-top: 10px;
   overflow: hidden;
   overflow-y: auto;
-  margin-bottom: 85px;
   z-index: 50;
 `;

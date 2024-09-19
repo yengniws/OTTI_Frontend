@@ -64,12 +64,11 @@ export const ContentWrapper = styled.div`
   flex: 1;
   min-width: 0;
   text-align: left;
+  margin-top: 3px;
 `;
 
 export const Title = styled.h3`
-  // margin: 0 0 4px 0;
-  margin-top: 3px;
-  margin-bottom: 0px;
+  margin: 0 0 4px 0;
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
@@ -80,8 +79,7 @@ export const Title = styled.h3`
 export const MetaInfo = styled.div`
   display: flex;
   align-items: center;
-  // margin-bottom: 4px;
-  margin-top: 4px;
+  margin-bottom: 4px;
 `;
 
 export const Author = styled.span`
@@ -103,7 +101,7 @@ export const CreatedAt = styled.span`
 
 export const Description = styled.p`
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   color: #545454;
   white-space: nowrap;
   overflow: hidden;
@@ -114,7 +112,6 @@ export const Description = styled.p`
 export const CommentWrapper = styled.div`
   display: flex;
   margin-left: 200px;
-  // padding-top: 5px;
   flex-shrink: 0;
 `;
 

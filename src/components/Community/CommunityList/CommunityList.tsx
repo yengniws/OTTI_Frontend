@@ -49,8 +49,6 @@ const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
               </S.ImgWrapper>
               <S.ContentWrapper>
                 <S.Title>{post.title}</S.Title>
-
-                <S.Description>{post.content}</S.Description>
                 <S.MetaInfo>
                   <S.Author>{post.userName}</S.Author>
                   <S.CreatedAt>
@@ -60,6 +58,7 @@ const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
                     )}
                   </S.CreatedAt>
                 </S.MetaInfo>
+                <S.Description>{post.content}</S.Description>
               </S.ContentWrapper>
             </S.FlexWrap>
             <S.CommentWrapper>
