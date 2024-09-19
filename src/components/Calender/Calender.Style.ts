@@ -107,5 +107,6 @@ export const CalendarWrap = styled.div`
     height: 100%;
     text-align: center;
     overflow: hidden;
+    background-color: #333;
   }
 `;

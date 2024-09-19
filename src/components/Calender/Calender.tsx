@@ -63,7 +63,7 @@ const Calendar: React.FC = () => {
           createRecurringEvents(
             subscription.paymentDate,
             subscription.ott.name,
-            '#3174ad',
+            '#333',
             subscription.id,
           ),
         );
@@ -152,7 +152,7 @@ const Calendar: React.FC = () => {
         justifyContent: 'center',
       }}
     >
-      <span style={{ marginRight: '3px', padding: '1px' }}>
+      <span style={{ marginRight: '2px', padding: '1px', fontWeight: '300' }}>
         {event.ottName}
       </span>
     </div>
