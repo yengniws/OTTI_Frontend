@@ -109,25 +109,25 @@ export const Description = styled.p`
 
 export const CommentWrapper = styled.div`
   display: flex;
-  // align-items: center;
-  margin-left: 218px;
+  margin-left: 200px;
   padding-top: 5px;
   flex-shrink: 0;
 `;
 
 export const CountWrapper = styled.div`
-  margin-right: 10px;
-  // align-items: center;
+  padding-right: 10px;
 `;
 
 export const CommentCount = styled.span`
-  margin-left: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
   font-size: 14px;
   color: #757575;
 `;
 
 export const ViewCount = styled.span`
-  margin-left: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
   font-size: 14px;
   color: #757575;
 `;
