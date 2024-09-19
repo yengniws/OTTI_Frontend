@@ -80,7 +80,7 @@ export const Title = styled.h3`
 export const MetaInfo = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
+  // margin-bottom: 4px;
   margin-top: 4px;
 `;
 
@@ -108,7 +108,7 @@ export const Description = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 2px;
+  margin-top: 4px;
 `;
 
 export const CommentWrapper = styled.div`
