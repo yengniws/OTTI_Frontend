@@ -39,6 +39,7 @@ export const Nickname = styled.div`
   font-size: 14px;
   color: #333;
   margin-bottom: 4px;
+  margin-top: 3px;
 `;
 
 export const CommentWrapper = styled.div`
