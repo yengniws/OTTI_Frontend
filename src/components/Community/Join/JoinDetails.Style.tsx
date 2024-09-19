@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const JoinDetailsWrap = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   padding: 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -25,7 +25,6 @@ export const NameWrap = styled.div`
 
 export const Label = styled.label`
   font-size: 14px;
-  //   color: #666;
   color: #333;
   margin-bottom: 5px;
   flex: 1;
