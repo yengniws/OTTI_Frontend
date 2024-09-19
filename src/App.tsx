@@ -71,7 +71,7 @@ const App: React.FC = () => {
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/MyPosts" element={<MyPosts />} />
         {/* <Route path="/community-post/:id" element={<CommunityPost />} /> */}
-        <Route path="/joinpot" element={<JoinPot />} />
+        <Route path="/joinpot/:potId" element={<JoinPot />} />
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
