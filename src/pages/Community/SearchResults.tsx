@@ -1,11 +1,11 @@
-// src/pages/SearchResultsPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
-import * as S from './SearchResultsPage.Style';
+import * as S from './SearchResults.Style';
 import CommunityList, {
   Post,
 } from '../../components/Community/CommunityList/CommunityList';
+import NewTopBar from '../../components/TopBar/NewTopBar';
 
 const SearchResultsPage: React.FC = () => {
   const location = useLocation();
@@ -56,13 +56,16 @@ const SearchResultsPage: React.FC = () => {
 
   return (
     <S.Container>
+      <S.TitleWrapper>
+        <NewTopBar title="검색 결과" />
+      </S.TitleWrapper>
+
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
         <div>{error}</div>
       ) : (
         <S.SearchResults>
-          <p>검색 결과</p>
           <CommunityList posts={posts} />
         </S.SearchResults>
       )}

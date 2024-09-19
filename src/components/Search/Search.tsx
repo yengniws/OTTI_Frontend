@@ -91,14 +91,14 @@
 
 // src/pages/Search.tsx
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
 import { IoIosSearch } from 'react-icons/io';
 import * as S from './Search.Style';
 
 const Search: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const history = useHistory();
+  const navigate = useNavigate(); // useNavigate instead of useHistory
 
   // 검색어 입력 시 상태 업데이트
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,7 +108,7 @@ const Search: React.FC = () => {
   // 검색 버튼 클릭 시 동작
   const handleSearch = () => {
     if (searchQuery.trim() !== '') {
-      history.push(`/search-results?query=${encodeURIComponent(searchQuery)}`);
+      navigate(`/search-results?query=${encodeURIComponent(searchQuery)}`); // replace history.push with navigate
     } else {
       alert('검색어를 입력해주세요.');
     }

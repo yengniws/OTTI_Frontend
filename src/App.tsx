@@ -19,7 +19,7 @@ import Community from './pages/Community/Community';
 import CommunityWrite from './pages/Community/CommunityWrite/CommunityWrite';
 import CommunityList from './components/Community/CommunityList/CommunityList';
 import CommunityDetail from './pages/Community/CommunityDetail/CommunityDetail';
-import SearchResults from './pages/Community/SearchResultsPage';
+import SearchResults from './pages/Community/SearchResults';
 import MyPosts from './pages/Community/MyPosts/MyPosts';
 import JoinPot from './pages/Community/JoinPot/JoinPot';
 import CommunityPost from './components/Community/CommunityPost/CommunityPost';
@@ -68,7 +68,7 @@ const App: React.FC = () => {
         {/* <Route path="/community-search" element={<CommunitySearch />} /> */}
         <Route path="/community-write" element={<CommunityWrite />} />{' '}
         <Route path="/detail/:id" element={<CommunityDetail />} />
-        <Route path="/search-results" element={<SearchResultsPage />} />
+        <Route path="/search-results" element={<SearchResults />} />
         <Route path="/MyPosts" element={<MyPosts />} />
         {/* <Route path="/community-post/:id" element={<CommunityPost />} /> */}
         <Route path="/joinpot" element={<JoinPot />} />
