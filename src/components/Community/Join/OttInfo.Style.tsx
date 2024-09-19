@@ -17,6 +17,7 @@ export const OttImage = styled.img`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  margin-left: 10px;
 `;
 
 export const OttName = styled.p`
@@ -24,12 +25,15 @@ export const OttName = styled.p`
   margin: 0;
   width: 35%;
   //   padding-right: 25px;
+  margin-right: 15px;
+  font-weight: bold;
 `;
 
 export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 export const Label = styled.label`

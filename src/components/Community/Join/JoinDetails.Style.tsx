@@ -43,7 +43,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   padding: 10px;
   border: none;
-  //   border-radius: 5px;
+  border-radius: 5px;
   font-size: 14px;
   color: #666;
   resize: none;
