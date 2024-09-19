@@ -90,7 +90,7 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
               key={index}
               src={URL.createObjectURL(image)}
               alt={`preview ${index}`}
-              style={{ width: '100px', height: '100px', margin: '5px' }}
+              style={{ width: '100px', height: '150px', margin: '5px' }}
             />
           ))}
         </S.ImagePreview>

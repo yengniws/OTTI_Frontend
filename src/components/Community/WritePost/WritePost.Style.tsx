@@ -26,7 +26,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   padding: 12px;
   padding-left: 20px;
-  height: 370px;
+  height: 250px;
   font-size: 14px;
   border: none;
   resize: none;
@@ -48,11 +48,10 @@ export const ImageWrapper = styled.div`
 export const ImagePreview = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
-
+  margin: 10px;
   img {
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-right: 10px;
   }
 `;
