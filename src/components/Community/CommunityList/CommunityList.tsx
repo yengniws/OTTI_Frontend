@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as S from './Community.Style';
+import * as S from './CommunityList.Style';
 import { FaRegComment } from 'react-icons/fa';
 import { PiEyesFill } from 'react-icons/pi';
 
