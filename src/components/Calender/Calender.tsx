@@ -152,7 +152,13 @@ const Calendar: React.FC = () => {
         justifyContent: 'center',
       }}
     >
-      <span style={{ marginRight: '2px', padding: '1px', fontWeight: '300' }}>
+      <span
+        style={{
+          padding: '1px',
+          fontWeight: '400',
+          fontSize: '8px',
+        }}
+      >
         {event.ottName}
       </span>
     </div>
@@ -167,7 +173,7 @@ const Calendar: React.FC = () => {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 'auto', minHeight: '300px' }}
+          style={{ minHeight: '330px', maxHeight: 'auto' }}
           views={['month']}
           toolbar={false}
           onNavigate={handleNavigate}
