@@ -1,17 +1,5 @@
 import styled from 'styled-components';
 
-// export const MainContainer = styled.div`
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   max-width: 375px;
-//   height: 100vh;
-//   padding: 0 20px;
-//   box-sizing: border-box;
-//   margin-top: 10px;
-// `;
-
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
