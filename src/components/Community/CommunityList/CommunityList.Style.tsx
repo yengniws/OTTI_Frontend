@@ -33,7 +33,7 @@ export const ListItem = styled.li`
   justify-content: space-between;
   background-color: #ffffff;
   border-radius: 12px;
-  padding-top: 17px;
+  padding-top: 15px;
   padding-left: 17px;
   padding-right: 17px;
   padding-bottom: 10px;
