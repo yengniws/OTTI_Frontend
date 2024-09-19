@@ -53,7 +53,7 @@ const Calendar: React.FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // 모든 구독 정보를 한번에 가져옵니다.
+        // 모든 구독 정보 가져오기
         const response = await axiosInstance.get<Subscription[]>(
           '/api/subscription/user',
         );
@@ -69,7 +69,7 @@ const Calendar: React.FC = () => {
         );
         setEvents(eventList);
       } catch (error) {
-        console.error('Error fetching subscription data:', error);
+        console.error('구독 정보 가져오기 오류:', error);
       }
     };
 
@@ -104,7 +104,7 @@ const Calendar: React.FC = () => {
     return dates.map((date) => ({
       start: new Date(moment(date).startOf('day').toDate()),
       end: new Date(moment(date).endOf('day').toDate()),
-      title: ottName, // OTT의 이름을 이벤트 제목으로 설정
+      title: ottName, // OTT 이름을 이벤트 제목으로 설정
       color,
       id,
       ottName,

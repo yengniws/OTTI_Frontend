@@ -15,17 +15,22 @@ export const PopupCont = styled.div`
 
 export const PopupContent = styled.div`
   background-color: white;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 30px;
+  padding: 20px;
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
+`;
+
+export const Title = styled.div`
+  padding-top: 11px;
+  padding-left: 5px;
 `;
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 20px;
-  right: 15px;
+  top: 30px;
+  right: 30px;
   background: none;
   border: none;
   font-size: 1.1em;
@@ -35,14 +40,16 @@ export const CloseBtn = styled.button`
 export const EventDate = styled.h3`
   margin: 0;
   padding-left: 10px;
-  padding-top: 2px;
-  font-weight: 500;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
 `;
 
 export const EventTit = styled.div`
   display: flex;
   padding-left: 5px;
-  font-size: 0.9em;
+  font-size: 16px;
+  padding-top: 1.2px;
   text-align: center;
   align-items: center;
   font-weight: 500;
@@ -52,12 +59,12 @@ export const EventTitWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-  padding-left: 11px;
+  padding-left: 16px;
 `;
 
 export const ColorDot = styled.span`
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 `;
 

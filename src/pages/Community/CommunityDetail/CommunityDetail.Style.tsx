@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
   width: 100%;
   max-width: 375px;
   height: 100vh;
@@ -18,7 +17,6 @@ export const TitleWrapper = styled.header`
 `;
 
 export const CommunityPostWrapper = styled.div`
-  // padding: 0px 20px;
   border-bottom: 1px solid #ddd;
 `;
 
@@ -29,5 +27,4 @@ export const PageWrapper = styled.div`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  // align-items: center;
 `;

@@ -22,12 +22,12 @@ export const CalendarWrap = styled.div`
     font-size: 0.1em;
     color: #555;
     opacity: 1;
-    border: none; /* 전체 캘린더의 테두리 제거 */
+    border: none;
   }
 
   .rbc-header {
     background-color: transparent;
-    border: none; /* 헤더의 테두리 제거 */
+    border: none;
     padding: 5px 3px;
     font-size: 0.9em;
   }
@@ -35,46 +35,46 @@ export const CalendarWrap = styled.div`
   .rbc-month-view,
   .rbc-month-row,
   .rbc-day-bg {
-    border: none; /* 월별 보기, 월별 행, 일 배경의 테두리 제거 */
+    border: none;
   }
 
   .rbc-off-range-bg {
     background-color: transparent;
-    border: none; /* 범위 밖 날짜의 테두리 제거 */
+    border: none;
   }
 
   .rbc-today {
     background-color: transparent;
-    border: none; /* 오늘 날짜 셀의 테두리 제거 */
+    border: none;
   }
 
   .rbc-button-link {
     color: #555;
     font-size: 1.1em;
-    border: none; /* 버튼 링크의 테두리 제거 */
+    border: none;
   }
 
   .rbc-date-cell {
     text-align: center;
     padding: 2px 0;
     font-size: 0.8em;
-    border: none; /* 날짜 셀의 테두리 제거 */
+    border: none;
   }
 
   .rbc-month-header {
     .rbc-header {
       &:nth-child(7) {
-        color: #17a1fa; /* 토요일 파랑 */
+        color: #17a1fa;
       }
       &:first-child {
-        color: #ea4335; /* 일요일 빨강 */
+        color: #ea4335;
       }
-      border: none; /* 월 헤더의 테두리 제거 */
+      border: none;
     }
   }
 
   .rbc-row-content {
-    border: none; /* 행 내용의 테두리 제거 */
+    border: none;
     .rbc-row {
       .rbc-date-cell {
         &:nth-child(7) .rbc-button-link {
@@ -83,14 +83,14 @@ export const CalendarWrap = styled.div`
         &:first-child .rbc-button-link {
           color: #ea4335;
         }
-        border: none; /* 날짜 셀의 테두리 제거 */
+        border: none;
       }
     }
   }
 
   .rbc-row {
     margin-bottom: 4px;
-    border: none; /* 각 행의 테두리 제거 */
+    border: none;
   }
 
   .rbc-event,

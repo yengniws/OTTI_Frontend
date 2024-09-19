@@ -37,7 +37,7 @@ const CommunityWrite: React.FC = () => {
           setOttOptions([]);
         }
       } catch (error) {
-        setError('OTT options을 가져오는 데 실패했습니다.');
+        setError('OTT options 로딩 실패');
       } finally {
         setLoading(false);
       }
@@ -66,8 +66,6 @@ const CommunityWrite: React.FC = () => {
       images: images || [], // 이미지가 없을 경우 빈 배열로 전송
       potId,
     };
-
-    console.log('Post Data from getPostData:', postData); // 로그 추가
 
     return postData;
   };

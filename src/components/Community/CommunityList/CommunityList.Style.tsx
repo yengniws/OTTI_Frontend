@@ -111,12 +111,14 @@ export const Description = styled.p`
 
 export const CommentWrapper = styled.div`
   display: flex;
-  margin-left: 200px;
+  justify-content: flex-end;
   flex-shrink: 0;
+  text-align: right;
 `;
 
 export const CountWrapper = styled.div`
   padding-left: 10px;
+  // text-align: right;
 `;
 
 export const CommentCount = styled.span`
