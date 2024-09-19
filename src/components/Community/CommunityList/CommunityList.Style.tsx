@@ -57,6 +57,7 @@ export const PlatformImg = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 50px;
+  margin-top: 6px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -79,7 +80,7 @@ export const Title = styled.h3`
 export const MetaInfo = styled.div`
   display: flex;
   align-items: center;
-  // margin-bottom: 4px;
+  margin-bottom: 4px;
   margin-top: 4px;
 `;
 
