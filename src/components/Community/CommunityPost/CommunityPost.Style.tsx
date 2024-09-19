@@ -14,8 +14,8 @@ export const Header = styled.div`
 `;
 
 export const ProfileImg = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin-right: 12px;
 `;
@@ -27,30 +27,30 @@ export const AuthorInfo = styled.div`
 
 export const Author = styled.div`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
+  margin-bottom: 4px;
 `;
 
 export const CreatedAt = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   color: #888;
 `;
 
 export const Body = styled.div`
-  margin-top: 8px;
+  margin-top: 18px;
 `;
 
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: bold;
   color: #222;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 `;
 
 export const Content = styled.p`
   font-size: 14px;
   color: #555;
-  line-height: 1.6;
 `;
 
 export const ImagesWrapper = styled.div`
