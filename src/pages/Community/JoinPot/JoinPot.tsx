@@ -60,11 +60,12 @@ import JoinDetails from '../../../components/Community/Join/JoinDetails';
 import SendBtn from '../../../components/common/JoinBtn/SendBtn';
 import * as S from './JoinPot.Style';
 
-const JoinPot = () => {
+const JoinPot: React.FC = () => {
   const { potId } = useParams<{ potId: string }>(); // URL에서 potId 받기
   const [joinContent, setJoinContent] = useState('');
   const [ottInfo, setOttInfo] = useState<any>(null); // ottInfo 상태로 데이터를 관리
   const [loading, setLoading] = useState(true); // 로딩 상태 추가
+  const [username, setUsername] = useState<string>(''); // 사용자명 상태 추가
 
   useEffect(() => {
     const fetchPotDetails = async () => {
@@ -84,8 +85,19 @@ const JoinPot = () => {
       }
     };
 
+    const fetchUsername = async () => {
+      try {
+        // 사용자명 가져오기
+        const response = await axiosInstance.get('/api/users/profile/user');
+        setUsername(response.data.username); // 사용자명 설정
+      } catch (error) {
+        console.error('Failed to fetch username', error);
+      }
+    };
+
     if (potId) {
       fetchPotDetails();
+      fetchUsername(); // 사용자명도 함께 가져오기
     } else {
       console.error('No potId found in URL');
       setLoading(false);
@@ -123,29 +135,27 @@ const JoinPot = () => {
       <S.TitleWrapper>
         <NewTopBar title="가입하기" />
       </S.TitleWrapper>
-      {ottInfo && (
-        <S.PageContainer>
-          <S.OttWrapper>
-            <OttInfo
-              imageUrl={ottInfo.ott.image}
-              ottname={ottInfo.ott.name}
-              plan={ottInfo.ott.ratePlan}
-              price={`${ottInfo.ott.price}원`}
-              paymentDate={ottInfo.ratePlan}
-              currentMembers={`${ottInfo.memberCount}명`}
-            />
-          </S.OttWrapper>
-          <S.JoinWrapper>
-            <S.Title>신청 내용</S.Title>
-            <JoinDetails
-              username="사용자명"
-              joinContent={joinContent}
-              onJoinContentChange={handleJoinContentChange}
-            />
-          </S.JoinWrapper>
-          <SendBtn onClick={handleSendClick} />
-        </S.PageContainer>
-      )}
+      <S.PageContainer>
+        <S.OttWrapper>
+          <OttInfo
+            image={ottInfo.ott.image}
+            name={ottInfo.ott.name}
+            ratePlan={ottInfo.ott.ratePlan}
+            price={`${ottInfo.ott.price}`}
+            paymentDate={ottInfo.ratePlan}
+            memberCount={`${ottInfo.memberCount}`}
+          />
+        </S.OttWrapper>
+        <S.JoinWrapper>
+          <S.Title>신청 내용</S.Title>
+          <JoinDetails
+            username={username} // 가져온 사용자명 사용
+            joinContent={joinContent}
+            onJoinContentChange={handleJoinContentChange}
+          />
+        </S.JoinWrapper>
+        <SendBtn onClick={handleSendClick} />
+      </S.PageContainer>
     </S.JoinPotWrap>
   );
 };
