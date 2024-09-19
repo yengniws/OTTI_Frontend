@@ -26,7 +26,7 @@ const AddComment: React.FC<AddCommentProps> = ({ postId, onAddComment }) => {
         type="text"
         value={content}
         onChange={handleInputChange}
-        placeholder="댓글 추가"
+        placeholder="댓글을 작성해보세요."
       />
       <S.AddBtn onClick={handleAddComment}>댓글 추가</S.AddBtn>
     </S.Container>
