@@ -33,11 +33,10 @@ export const ListItem = styled.li`
   justify-content: space-between;
   background-color: #ffffff;
   border-radius: 12px;
-  padding-top: 18px;
+  padding-top: 17px;
   padding-left: 17px;
   padding-right: 17px;
   padding-bottom: 10px;
-  // box-shadow: 2px 2px 4px 0px rgba(0.4, 0.4, 0.4, 0.1);
   box-shadow: 0px 0px 3px 2px #ddd;
   border: 1px solid #ddd;
   width: 100%;
@@ -67,7 +66,9 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.h3`
-  margin: 0 0 4px 0;
+  // margin: 0 0 4px 0;
+  margin-top: 3px;
+  margin-bottom: 0px;
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
@@ -78,7 +79,8 @@ export const Title = styled.h3`
 export const MetaInfo = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
+  // margin-bottom: 4px;
+  margin-top: 4px;
 `;
 
 export const Author = styled.span`
@@ -100,22 +102,23 @@ export const CreatedAt = styled.span`
 
 export const Description = styled.p`
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #545454;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 2px;
 `;
 
 export const CommentWrapper = styled.div`
   display: flex;
   margin-left: 200px;
-  padding-top: 5px;
+  // padding-top: 5px;
   flex-shrink: 0;
 `;
 
 export const CountWrapper = styled.div`
-  padding-right: 10px;
+  padding-left: 10px;
 `;
 
 export const CommentCount = styled.span`
