@@ -24,3 +24,8 @@ export const SearchBtn = styled.button`
   background: none;
   cursor: pointer;
 `;
+
+export const SearchResults = styled.div`
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+`;
