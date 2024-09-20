@@ -14,8 +14,11 @@ import Popup from './Popup';
 
 moment.tz.setDefault('America/Los_Angeles');
 moment.locale('ko');
+
+// 로컬라이저 moment로 초기화
 const localizer = momentLocalizer(moment);
 
+// Subscription 데이터 구조 정의
 interface Subscription {
   id: number;
   name: string;
@@ -36,6 +39,7 @@ interface Subscription {
   modifiedDate: string;
 }
 
+// 이벤트 구조 정의
 interface IEvent {
   start: Date;
   end: Date;
@@ -45,20 +49,27 @@ interface IEvent {
   ottName: string;
 }
 
-const Calendar: React.FC = () => {
+// Calendar 컴포넌트 정의
+const Calendar = () => {
+  // 현재 표시되는 달 상태 관리
   const [currentMonth, setCurrentMonth] = useState(moment().format('M월'));
+
+  // 선택된 이벤트 상태 관리
   const [selectedEvent, setSelectedEvent] = useState<IEvent | null>(null);
+
+  // 캘린더에 표시될 이벤트 목록 상태 관리
   const [events, setEvents] = useState<IEvent[]>([]);
 
+  // 컴포넌트 마운트시, 구독 정보를 가져와 이벤트 목록 설정
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // 모든 구독 정보 가져오기
         const response = await axiosInstance.get<Subscription[]>(
           '/api/subscription/user',
         );
         const subscriptions = response.data;
 
+        // 구독 이벤트 생성
         const eventList = subscriptions.flatMap((subscription) =>
           createRecurringEvents(
             subscription.paymentDate,
@@ -69,22 +80,25 @@ const Calendar: React.FC = () => {
         );
         setEvents(eventList);
       } catch (error) {
-        console.error('구독 정보 가져오기 오류:', error);
+        console.error('구독 정보 불러오기 실패:', error);
       }
     };
 
     fetchEvents();
   }, []);
 
+  // 매월 반복되는 이벤트 생성 함수
   const createRecurringEvents = (
     dayOfMonth: number,
     ottName: string,
     color: string,
     id: number,
   ): IEvent[] => {
+    // 현재 월 시작과 끝
     const startOfMonth = moment().startOf('month').tz('America/Los_Angeles');
     const endOfMonth = moment().endOf('month').tz('America/Los_Angeles');
 
+    // 반복 규칙 적용한 이벤트 생성
     const rule = new RRule({
       freq: RRule.MONTHLY,
       dtstart: startOfMonth
@@ -99,22 +113,26 @@ const Calendar: React.FC = () => {
         .toDate(),
     });
 
+    // 모든 날짜 가져오기
     const dates = rule.all();
 
+    // 각 날짜에 대한 이벤트 객체 생성
     return dates.map((date) => ({
       start: new Date(moment(date).startOf('day').toDate()),
       end: new Date(moment(date).endOf('day').toDate()),
-      title: ottName, // OTT 이름을 이벤트 제목으로 설정
+      title: ottName, // OTT 이름 -> 이벤트 제목
       color,
       id,
       ottName,
     }));
   };
 
+  // 날짜 셀 래퍼 컴포넌트
   const DateCellWrapper: Components['dateCellWrapper'] = ({
     children,
     value,
   }) => {
+    // 현재 날짜에 해당하는 이벤트를 필터링
     const dayEvents = events.filter((evt) =>
       moment(evt.start).isSame(value, 'day'),
     );
@@ -125,20 +143,23 @@ const Calendar: React.FC = () => {
         style: {
           ...((children as React.ReactElement).props.style || {}),
           position: 'relative',
-          height: `${Math.max(80, 80 + (dayEvents.length - 1) * 20)}px`,
+          height: `${Math.max(80, 80 + (dayEvents.length - 1) * 20)}px`, // 이벤트 개수에 따라 셀 높이 조정
         },
       },
     );
   };
 
+  // 날짜 변경 시 현재 월을 업데이트
   const handleNavigate = (newDate: Date) => {
     setCurrentMonth(moment(newDate).format('M월'));
   };
 
+  // 이벤트 선택 시 선택된 이벤트를 상태로 설정
   const handleSelectEvent = (event: IEvent) => {
     setSelectedEvent(event);
   };
 
+  // 이벤트 컴포넌트 렌더링
   const EventComponent = ({ event }: { event: IEvent }) => (
     <div
       style={{
@@ -189,6 +210,7 @@ const Calendar: React.FC = () => {
           }}
         />
       </S.CalendarWrap>
+      {/* 선택된 이벤트가 있을 경우 팝업 표시 */}
       {selectedEvent && (
         <Popup event={selectedEvent} onClose={() => setSelectedEvent(null)} />
       )}
