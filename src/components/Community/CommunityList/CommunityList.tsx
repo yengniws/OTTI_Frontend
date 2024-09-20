@@ -9,7 +9,6 @@ export interface Post {
   id: number;
   title: string;
   content: string;
-  viewCount: number;
   commentCount: number;
   userName: string;
   ottImage: string;
@@ -65,10 +64,6 @@ const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
               <S.CountWrapper>
                 <FaRegComment size={13} color="#757575" />
                 <S.CommentCount>{post.commentCount}</S.CommentCount>
-              </S.CountWrapper>
-              <S.CountWrapper>
-                <PiEyesFill size={13} color="#757575" />
-                <S.ViewCount>{post.viewCount / 2}</S.ViewCount>
               </S.CountWrapper>
             </S.CommentWrapper>
           </S.ListItem>

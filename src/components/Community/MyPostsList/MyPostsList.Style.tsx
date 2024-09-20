@@ -8,7 +8,7 @@ export const ListContainer = styled.ul`
   margin: 0 auto;
   max-width: 600px;
   list-style: none;
-  padding: 0 20px;
+  // padding: 0 20px;
   box-sizing: border-box;
   width: 100%;
 `;
@@ -32,11 +32,8 @@ export const ListItem = styled.li`
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
-  //   border-radius: 12px;
-  padding-top: 18px;
-  padding-left: 17px;
-  padding-right: 17px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
   width: 100%;
 `;
@@ -65,7 +62,8 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.h3`
-  margin: 0 0 4px 0;
+  margin-top: 2px;
+  margin-bottom: 4px;
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
@@ -76,7 +74,8 @@ export const Title = styled.h3`
 export const MetaInfo = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 `;
 
 export const Author = styled.span`
@@ -97,7 +96,8 @@ export const CreatedAt = styled.span`
 `;
 
 export const Description = styled.p`
-  margin: 0;
+  margin-top: 4px;
+  margin-bottom: 0px;
   font-size: 14px;
   color: #545454;
   white-space: nowrap;

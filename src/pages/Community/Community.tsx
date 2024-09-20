@@ -12,7 +12,6 @@ interface Post {
   id: number;
   title: string;
   content: string;
-  viewCount: number;
   commentCount: number;
   userName: string;
   ottImage: string;

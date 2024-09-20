@@ -4,7 +4,7 @@ import { timeAgo } from '../../../utils/timeAgo';
 
 interface CommentUserInfo {
   userName: string;
-  userprofilePhotoUrl: string;
+  userprofilePhotoUrl?: string;
 }
 
 interface Comment {
@@ -28,8 +28,8 @@ const CommentList: React.FC<CommentListProps> = ({ comments }) => {
         <S.CommentItem key={comment.id}>
           <S.ProfileWrapper>
             <S.ProfilePicture
-              src={comment.userName.userprofilePhotoUrl || defaultProfileImage}
-              alt="Profile"
+              src={comment.userName?.userprofilePhotoUrl || defaultProfileImage}
+              alt={comment.userName?.userName || 'User'}
             />
           </S.ProfileWrapper>
           <S.CommentWrapper>
