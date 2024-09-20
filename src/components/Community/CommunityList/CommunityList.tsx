@@ -68,7 +68,7 @@ const CommunityList: React.FC<CommunityListProps> = ({ posts = [] }) => {
               </S.CountWrapper>
               <S.CountWrapper>
                 <PiEyesFill size={13} color="#757575" />
-                <S.ViewCount>{post.viewCount}</S.ViewCount>
+                <S.ViewCount>{post.viewCount / 2}</S.ViewCount>
               </S.CountWrapper>
             </S.CommentWrapper>
           </S.ListItem>
