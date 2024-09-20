@@ -141,9 +141,9 @@ const JoinPot: React.FC = () => {
             image={ottInfo.ott.image}
             name={ottInfo.ott.name}
             ratePlan={ottInfo.ott.ratePlan}
-            price={`${ottInfo.ott.price}`}
+            price={ottInfo.ott.price}
             paymentDate={ottInfo.ratePlan}
-            memberCount={`${ottInfo.memberCount}`}
+            memberCount={ottInfo.memberCount}
           />
         </S.OttWrapper>
         <S.JoinWrapper>
@@ -154,7 +154,7 @@ const JoinPot: React.FC = () => {
             onJoinContentChange={handleJoinContentChange}
           />
         </S.JoinWrapper>
-        <SendBtn onClick={handleSendClick} />
+        <SendBtn text="신청하기" onClick={handleSendClick} />
       </S.PageContainer>
     </S.JoinPotWrap>
   );

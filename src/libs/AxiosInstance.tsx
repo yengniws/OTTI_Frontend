@@ -35,11 +35,10 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('access_token'); // 토큰을 로컬 스토리지에서 가져옴
-
+    // console.log(token);
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
-
     return config;
   },
   (error) => {
