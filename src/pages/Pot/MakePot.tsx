@@ -52,8 +52,6 @@ const MakePot: React.FC = () => {
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('1');
   const [account, setAccount] = useState('');
-  const [id, setId] = useState(''); // ID state 추가
-  const [password, setPassword] = useState(''); // Password state 추가
 
   const handleOttChange = (selectedOttName: string) => {
     const selectedOtt =
@@ -71,31 +69,25 @@ const MakePot: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    if (!name || !amount || !account || !id || !password) {
+    if (!name || !amount || !account) {
       toast.error('모든 값을 입력해주세요!');
       return;
     }
 
     try {
-      /*
-      await axiosInstance.post('/api/subscription', {
+      await axiosInstance.post('/api/pot/create', {
         name: name,
-        payment: Number(amount),
-        memo: memo,
-        paymentDate: Number(date),
         ottName: ott.ott_name,
         ottRatePlan: plan,
-        account: account, // 입금 계좌 정보 추가
-        id: id, // 아이디 추가
-        password: password, // 비밀번호 추가
+        depositAccount: account,
+        ratePlan: plan,
       });
-      */
 
-      toast.success('등록되었어요!', {
+      toast.success('POT이 등록되었어요!', {
         onClose: () => {
           window.location.href = '/MyPotList';
         },
-        autoClose: 500,
+        autoClose: 1500,
       });
     } catch (error) {
       console.error('정보 저장 중 에러 발생', error);
@@ -125,7 +117,7 @@ const MakePot: React.FC = () => {
           </S.SelectOttName>
         </S.Header>
         <S.Section>
-          <S.Label>이름</S.Label>
+          <S.Label>팟 이름</S.Label>
           <S.Input value={name} onChange={(e) => setName(e.target.value)} />
         </S.Section>
         <S.Divider />
@@ -144,20 +136,7 @@ const MakePot: React.FC = () => {
           <S.Label>구독료</S.Label>
           <S.Input value={amount} onChange={handleAmountChange} />
         </S.Section>
-        <S.Divider />
-        <S.Section>
-          <S.Label>아이디</S.Label>
-          <S.Input value={id} onChange={(e) => setId(e.target.value)} />
-        </S.Section>
-        <S.Divider />
-        <S.Section>
-          <S.Label>비밀번호</S.Label>
-          <S.Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </S.Section>
+
         <S.Divider />
         <S.Section>
           <S.Label>정기결제일</S.Label>

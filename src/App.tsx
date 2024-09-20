@@ -60,10 +60,8 @@ const App: React.FC = () => {
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
-        <Route path="/PotDetail" element={<PotDetail />} />
-        {/* <Route path="/PotDetail/:potId" element={<PotDetail />} /> */}
-        {/* 팟 통신용 경로 */}
-        <Route path="/PotMember" element={<PotMember />} />
+        <Route path="/PotDetail/:potId" element={<PotDetail />} />
+        <Route path="/PotMember/:potId" element={<PotMember />} />
       </Routes>
     </>
   );
