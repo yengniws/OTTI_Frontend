@@ -71,11 +71,10 @@ const MyPotList = () => {
             index === self.findIndex((t) => t.potId === item.potId),
         );
 
-        // API에서 받아온 데이터에 포함된 ott.image를 사용하여 아이콘 설정
         const data = uniqueData.map((item) => ({
           id: item.potId,
           name: item.potName,
-          icon: item.ott?.image || '/path-to-default-icon.png', // ott 이미지가 있으면 사용하고, 없으면 기본 아이콘
+          icon: '/path-to-netflix-icon.png', // 임시 아이콘
         }));
 
         setPotListData(data);
