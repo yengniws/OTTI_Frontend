@@ -8,12 +8,16 @@ import CommentList from '../../../components/Community/Comment/CommentList';
 import JoinBtn from '../../../components/common/JoinBtn/JoinBtn';
 import NewTopBar from '../../../components/TopBar/NewTopBar';
 
+interface CommentUserInfo {
+  userName: string;
+  userprofilePhotoUrl: string;
+}
+
 interface Comment {
   id: number;
-  username: string;
-  content: string;
-  createdAt: string;
-  profilePhotoUrl: string;
+  text: string;
+  createdDate: string;
+  userInfo: CommentUserInfo;
 }
 
 interface Post {
@@ -22,7 +26,7 @@ interface Post {
   createdAt: string;
   title: string;
   content: string;
-  potId: number; // potId 추가 -> 해당하는 팟에 대한 정보 가져오기
+  potId: number;
   comments: Comment[];
 }
 
@@ -58,13 +62,15 @@ const CommunityDetail: React.FC = () => {
         post: postId,
       });
 
-      const newComment = {
+      const newComment: Comment = {
         id: response.data.id,
-        username: response.data.userName.userName,
-        content: response.data.text,
-        createdAt: response.data.createdDate,
-        profilePhotoUrl:
-          response.data.userName.userprofilePhotoUrl || defaultProfileImage,
+        text: response.data.text,
+        createdDate: response.data.createdDate,
+        userInfo: {
+          userName: response.data.userName.userName,
+          userprofilePhotoUrl:
+            response.data.userName.userprofilePhotoUrl || defaultProfileImage,
+        },
       };
 
       setComments([...comments, newComment]);
@@ -84,18 +90,11 @@ const CommunityDetail: React.FC = () => {
       </S.TitleWrapper>
       <S.PageWrapper>
         <S.CommunityPostWrapper>
-          <CommunityPost
-            postId={postId}
-            // userName={post.username}
-            // createdAt={post.createdAt}
-            // title={post.title}
-            // content={post.content}
-          />
+          <CommunityPost postId={postId} />
           <JoinBtn potId={post.potId} />
         </S.CommunityPostWrapper>
-        <AddComment postId={postId} onAddComment={handleAddComment} />
-        {/* <CommentList comments={comments} /> */}
         <CommentList comments={comments} />
+        <AddComment postId={postId} onAddComment={handleAddComment} />
       </S.PageWrapper>
     </S.Container>
   );
