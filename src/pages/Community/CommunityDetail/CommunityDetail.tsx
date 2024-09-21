@@ -144,19 +144,19 @@ const CommunityDetail: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const postId = Number(id);
 
+  console.log(comments);
   useEffect(() => {
     const fetchPost = async () => {
       try {
         const response = await axiosInstance.get(`/api/post/${postId}`);
-        console.log('Post data:', response.data);
+        // console.log('Post data:', response.data);
         setPost(response.data);
         setComments(response.data.comments || []);
 
-        // Log each comment to verify the data
         response.data.comments?.forEach((comment: Comment) => {
-          console.log('Comment:', comment);
-          console.log('Username:', comment.userInfo.userName);
-          console.log('Profile URL:', comment.userInfo.userprofilePhotoUrl);
+          // console.log('Comment:', comment);
+          // console.log('Username:', comment.userInfo.userName);
+          // console.log('Profile URL:', comment.userInfo.userprofilePhotoUrl);
         });
       } catch (error) {
         console.error('Failed to fetch post', error);
@@ -180,16 +180,15 @@ const CommunityDetail: React.FC = () => {
         text: response.data.text,
         createdDate: response.data.createdDate,
         userInfo: {
-          userName: response.data.userName.userName,
+          userName: response.data.userInfo.userName,
           userprofilePhotoUrl:
-            response.data.userName.userprofilePhotoUrl || defaultProfileImage,
+            response.data.uuserInfo.userprofilePhotoUrl || defaultProfileImage,
         },
       };
 
       console.log('New Comment:', newComment);
       setComments([...comments, newComment]);
 
-      // Log updated comments array after adding a new comment
       console.log('Updated Comments:', [...comments, newComment]);
     } catch (error) {
       console.error('Failed to add comment', error);
