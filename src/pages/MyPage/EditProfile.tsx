@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaCamera } from 'react-icons/fa';
 import * as S from './EditProfile.Style';
-import NewTopBar from '../../components/TopBar/NewTopBar';
+import NewTopBar from '../../components/Topbar/NewTopBar';
 
 interface UserProfile {
   profilePhotoUrl: string;

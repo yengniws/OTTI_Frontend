@@ -3,7 +3,7 @@ import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './MakePot.style';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import NewTopBar from '../../components/TopBar/NewTopBar';
+import NewTopBar from '../../components/Topbar/NewTopBar';
 import ActionButton from '../../components/common/ActionButton';
 
 const ottOptions = [

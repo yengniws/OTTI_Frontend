@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '../../../libs/AxiosInstance';
-import NewTopBar from '../../../components/TopBar/NewTopBar';
+import NewTopBar from '../../../components/Topbar/NewTopBar';
 import OttInfo from '../../../components/Community/Join/OttInfo';
 import JoinDetails from '../../../components/Community/Join/JoinDetails';
 import SendBtn from '../../../components/common/JoinBtn/SendBtn';

@@ -6,7 +6,7 @@ import CommunityPost from '../../../components/Community/CommunityPost/Community
 import AddComment from '../../../components/Community/Comment/AddComment';
 import CommentList from '../../../components/Community/Comment/CommentList';
 import JoinBtn from '../../../components/common/JoinBtn/JoinBtn';
-import NewTopBar from '../../../components/TopBar/NewTopBar';
+import NewTopBar from '../../../components/Topbar/NewTopBar';
 
 interface CommentUserInfo {
   userName: string;

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
 import * as S from './MyPage.Style';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
-import MyPageTopBar from '../../components/TopBar/MyPageTopBar';
+import MyPageTopBar from '../../components/Topbar/MyPageTopBar';
 import LoadingPage from '../../pages/Loading/LoadingPage'; // 로딩 페이지 임포트
 
 interface UserProfile {

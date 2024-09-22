@@ -95,13 +95,13 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import axiosInstance from '../../../libs/AxiosInstance';
-import NewTopBar from '../../../components/TopBar/NewTopBar';
+import NewTopBar from '../../../components/Topbar/NewTopBar';
 import PotSelect from '../../../components/Community/PotSelect/PotSelect';
 import WritePost, {
   WritePostHandle,
 } from '../../../components/Community/WritePost/WritePost';
 import * as S from './CommunityWrite.Style';
-import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+import RegisterBtn from '../../../components/Topbar/RegisterBtn/RegisterBtn';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

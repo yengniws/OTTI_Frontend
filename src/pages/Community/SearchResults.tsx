@@ -82,7 +82,7 @@ import * as S from './SearchResults.Style';
 import CommunityList, {
   Post,
 } from '../../components/Community/CommunityList/CommunityList';
-import NewTopBar from '../../components/TopBar/NewTopBar';
+import NewTopBar from '../../components/Topbar/NewTopBar';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
