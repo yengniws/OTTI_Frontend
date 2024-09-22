@@ -18,7 +18,6 @@ import MyPotList from './pages/Pot/MyPotList';
 import MakePot from './pages/Pot/MakePot';
 import PotDetail from './pages/Pot/PotDetail';
 import PotMember from './pages/Pot/PotMember';
-// import { GlobalStyle } from './styles/Globalstyled';
 
 const App: React.FC = () => {
   return (
