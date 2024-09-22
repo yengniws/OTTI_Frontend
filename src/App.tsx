@@ -27,9 +27,14 @@ import MakePot from './pages/Pot/MakePot';
 import PotDetail from './pages/Pot/PotDetail';
 import PotMember from './pages/Pot/PotMember';
 
+// import LoadingPage from './pages/Loading/LoadingPage';
+
+// import { GlobalStyle } from './styles/Globalstyled';
+
 const App: React.FC = () => {
   return (
     <>
+      {/* <GlobalStyle /> */}
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Onboarding />} />
