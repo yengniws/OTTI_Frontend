@@ -50,18 +50,14 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
         const uploadedImageIds = Array.isArray(response.data.id)
           ? response.data.id
           : Number(response.data.id);
-
-        setImageIds(uploadedImageIds); // 업로드된 이미지 ID를 저장
-        console.log('Image upload: ', uploadedImageIds);
       } catch (error) {
         if (axios.isAxiosError(error)) {
-          // Use axios for error checking
-          console.error('Error message:', error.message);
+          console.error('에러메시지:', error.message);
           if (error.response) {
-            console.error('Error data:', error.response.data);
+            console.error('에러 데이터:', error.response.data);
           }
         } else {
-          console.error('Unexpected error:', error);
+          console.error('예상 못 한 에러:', error);
         }
       }
     }
