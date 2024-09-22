@@ -6,8 +6,6 @@ import Main from './pages/Main/Main';
 import AddOttSubscription from './pages/AddOttSubscription/AddOttSubscription';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Home from './pages/';
-// import Pot from './pages/';
 import MyPage from './pages/MyPage/MyPage';
 import EditProfile from './pages/MyPage/EditProfile';
 import Onboarding from './pages/Onboarding/OnBoarding';
@@ -27,7 +25,7 @@ import PotApplicationList from './pages/Pot/PotApplicationList';
 import MyPotList from './pages/Pot/MyPotList';
 import MakePot from './pages/Pot/MakePot';
 import PotDetail from './pages/Pot/PotDetail';
-// import PotMember from './pages/Pot/PotMember';
+import PotMember from './pages/Pot/PotMember';
 
 // import LoadingPage from './pages/Loading/LoadingPage';
 
@@ -50,10 +48,6 @@ const App: React.FC = () => {
           path="/main/addOttSubscription"
           element={<AddOttSubscription />}
         />
-        {/* <Route path="/home" element={<Home />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/pot" element={<Pot />} /> */}
-        {/* <Route path="/profile" element={<MyPage />} /> */}
         <Route
           path="/main/subscriptionDetail/:id"
           element={<SubscriptionDetail />}
@@ -64,21 +58,13 @@ const App: React.FC = () => {
         />
         {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
         {/* 로딩 페이지 테스트 용 */}
-        <Route path="/community" element={<Community />} />{' '}
-        {/* <Route path="/community-search" element={<CommunitySearch />} /> */}
-        <Route path="/community-write" element={<CommunityWrite />} />{' '}
-        <Route path="/detail/:id" element={<CommunityDetail />} />
-        <Route path="/search-results" element={<SearchResults />} />
-        <Route path="/MyPosts" element={<MyPosts />} />
-        {/* <Route path="/community-post/:id" element={<CommunityPost />} /> */}
-        <Route path="/joinpot/:potId" element={<JoinPot />} />
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
         <Route path="/PotDetail" element={<PotDetail />} />
         {/* <Route path="/PotDetail/:potId" element={<PotDetail />} /> */}
         {/* 팟 통신용 경로 */}
-        {/* <Route path="/PotMember" element={<PotMember />} /> */}
+        <Route path="/PotMember" element={<PotMember />} />
       </Routes>
     </>
   );

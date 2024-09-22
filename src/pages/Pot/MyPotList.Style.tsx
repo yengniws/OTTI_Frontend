@@ -52,8 +52,9 @@ export const IconWrapper = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
+  border-radius: 20%;
 `;
 
 export const PotName = styled.div`

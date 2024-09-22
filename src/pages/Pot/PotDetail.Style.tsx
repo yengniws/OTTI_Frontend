@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PotDetailContainer = styled.div`
+export const PotDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,8 +8,6 @@ export const PotDetailContainer = styled.div`
   max-width: 375px;
   height: 100vh;
   margin: 0 auto;
-  box-sizing: border-box;
-  position: relative;
 `;
 
 export const TitleWrapper = styled.header`
@@ -54,92 +52,58 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0; // 마진을 줄였습니다.
+  margin: auto;
 `;
 
-export const ServiceInfo = styled.div`
+export const Header = styled.div`
   display: flex;
-  align-items: flex-start; // 상단에 정렬되도록 수정
-`;
-
-export const ServiceLogo = styled.img`
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 16px;
-`;
-
-export const ServiceDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const ServiceName = styled.h2`
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 0 12px;
-`;
-
-export const ServiceInfoRow = styled.div`
-  display: flex;
+  align-items: center;
+  margin: 20px;
+  width: 85%;
   justify-content: space-between;
-  margin-bottom: 8px;
 `;
 
-export const ServiceLabel = styled.span`
-  font-size: 14px;
-  color: #666;
+export const Image = styled.img`
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
 `;
 
-export const ServiceValue = styled.span`
+export const OttName = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 15%;
+`;
+
+export const Text = styled.p`
   font-size: 14px;
   font-weight: bold;
+  margin: 0 10px;
+  flex: 1;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
-export const NoticeSection = styled.div`
-  width: 90%;
-  max-width: 375px;
-  box-sizing: border-box;
+export const Label = styled.label`
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px 0;
+  display: block;
+  width: 24%;
+  text-align: left;
+`;
+
+export const Section = styled.div`
   display: flex;
-  align-items: center; // 텍스트와 아이콘이 수평으로 정렬
-  margin-bottom: 12px;
+  align-items: center;
+  width: 85%;
 `;
 
-export const NoticeIcon = styled.span`
-  font-size: 20px;
-  margin-right: 10px;
-`;
-
-export const NoticeText = styled.p`
-  font-size: 14px;
-  color: #333;
-  margin: 0;
-`;
-
-export const ActionButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 375px;
-  z-index: 99;
-`;
-
-export const AddButton = styled.button`
-  width: 90%;
-  padding: 14px;
-  background-color: #222;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #333;
-  }
+export const Divider = styled.hr`
+  width: 85%;
+  border: 0;
+  border-top: 0.5px solid #000;
+  margin: 10px 0;
 `;

@@ -55,9 +55,14 @@ export const TextSection = styled.div`
   flex-direction: column;
 `;
 
+export const PotName = styled.div`
+  font-size: 12px;
+  margin-bottom: 2px;
+`;
+
 export const Nickname = styled.div`
   font-size: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 `;
 
 export const Message = styled.div`
