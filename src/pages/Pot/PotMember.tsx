@@ -194,22 +194,41 @@ const PotMember: React.FC = () => {
   };
 
   const handleConfirmPotOut = async () => {
-    if (selectedUserId !== null) {
+    if (selectedUserId !== null && potId !== undefined) {
+      // potId 유효성도 함께 체크
       try {
-        await axiosInstance.delete(
-          `/api/pot/user/${selectedUserId}?potId=${potId}`,
-        );
+        // delete 요청을 보낼 때, userId는 path parameter로, potId는 query parameter로 전달
+        await axiosInstance.delete(`/api/pot/user/${selectedUserId}`, {
+          params: { potId }, // axios의 params 옵션으로 query parameter 전달
+        });
         toast.success('방출되었습니다.');
+
+        // 성공적으로 방출된 유저를 멤버 목록에서 제거
         setMembers((prevMembers) =>
           prevMembers.filter((member) => member.user.id !== selectedUserId),
-        ); // 방출된 유저를 리스트에서 제거
+        );
       } catch (error) {
-        toast.error('방출에 실패했습니다.');
+        // 에러 발생 시 toast로 에러 메시지 출력
+        toast.error(
+          `방출에 실패했습니다: ${error.response?.data?.message || error.message}`,
+        );
         console.error('방출 에러:', error);
       }
       setIsModalOpen(false);
-      setSelectedUserId(null); // 성공적으로 방출 후 ID 초기화
+      setSelectedUserId(null); // 성공적으로 방출 후 선택된 ID 초기화
+    } else {
+      // userId 또는 potId가 유효하지 않은 경우
+      toast.error('유효하지 않은 요청입니다.');
     }
+  };
+
+  // 중복 유저 제거 함수
+  const removeDuplicateMembers = (members: any[]) => {
+    const uniqueMembers = members.filter(
+      (member, index, self) =>
+        index === self.findIndex((m) => m.user.id === member.user.id),
+    );
+    return uniqueMembers;
   };
 
   // API 호출하여 멤버 리스트 가져오기
@@ -219,8 +238,9 @@ const PotMember: React.FC = () => {
         const response = await axiosInstance.get(
           `/api/pot/application/pot/${potId}/users/approve`,
         );
-        setMembers(response.data);
-        console.log(response.data);
+        const uniqueMembers = removeDuplicateMembers(response.data);
+        setMembers(uniqueMembers);
+        console.log(uniqueMembers);
       } catch (error) {
         console.error('멤버 목록 불러오기 에러:', error);
       }
