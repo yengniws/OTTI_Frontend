@@ -20,7 +20,6 @@ interface Post {
   id: number;
   title: string;
   content: string;
-  viewCount: number;
   images: PostImage[];
   comments: any[]; // 댓글 타입은 추후 정의 가능
   userInfo: UserInfo;
