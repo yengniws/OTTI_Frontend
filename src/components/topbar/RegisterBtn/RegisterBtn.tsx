@@ -94,16 +94,17 @@ const RegisterBtn = ({
       const response = await axiosInstance.post('/api/post', postData);
 
       if (response.status === 201) {
-        toast.success('게시글이 성공적으로 저장되었습니다.'); // 성공 메시지
+        toast.success('게시글이 성공적으로 저장되었습니다.');
         navigate('/community');
       } else {
-        toast.error('게시글 저장에 실패했습니다.'); // 실패 메시지
+        toast.error('게시글 저장에 실패했습니다.');
+        console.error('Response Status:', response.status);
       }
     } catch (error) {
       if (error instanceof AxiosError) {
-        toast.error('게시글 저장에 실패했습니다.'); // 오류 메시지
+        toast.error('게시글 저장에 실패했습니다.');
       } else {
-        toast.error('알 수 없는 오류가 발생했습니다.'); // 알 수 없는 오류 메시지
+        toast.error('알 수 없는 오류가 발생했습니다.');
       }
     }
   };
