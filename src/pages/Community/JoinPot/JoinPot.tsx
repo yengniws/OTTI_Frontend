@@ -1,56 +1,3 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import NewTopBar from '../../../components/TopBar/NewTopBar';
-// import OttInfo from '../../../components/Community/Join/OttInfo';
-// import JoinDetails from '../../../components/Community/Join/JoinDetails';
-// import SendBtn from '../../../components/common/JoinBtn/SendBtn';
-// import * as S from './JoinPot.Style';
-
-// const JoinPot = () => {
-//   const [joinContent, setJoinContent] = useState(''); // 상태 초기화
-//   const navigate = useNavigate();
-
-//   const handleJoinContentChange = (newContent: string) => {
-//     setJoinContent(newContent); // 상태 업데이트
-//   };
-
-//   const handleSendClick = () => {
-//     console.log('신청 내용:', joinContent);
-//     navigate('/community');
-//   };
-
-//   return (
-//     <S.JoinPotWrap>
-//       <S.TitleWrapper>
-//         <NewTopBar title="가입하기" />
-//       </S.TitleWrapper>
-//       <S.PageContainer>
-//         <S.OttWrapper>
-//           <OttInfo
-//             imageUrl="/path/to/netflix-logo.png"
-//             ottname="넷플릭스"
-//             plan="프리미엄"
-//             price="5000원"
-//             paymentDate="매월 2일"
-//             currentMembers="3명"
-//           />
-//         </S.OttWrapper>
-//         <S.JoinWrapper>
-//           <S.Title>신청 내용</S.Title>
-//           <JoinDetails
-//             username="김이박"
-//             joinContent={joinContent}
-//             onJoinContentChange={handleJoinContentChange}
-//           />
-//         </S.JoinWrapper>
-//         <SendBtn onClick={handleSendClick} />
-//       </S.PageContainer>
-//     </S.JoinPotWrap>
-//   );
-// };
-
-// export default JoinPot;
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '../../../libs/AxiosInstance';
@@ -161,3 +108,107 @@ const JoinPot: React.FC = () => {
 };
 
 export default JoinPot;
+
+// import React, { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
+// import axiosInstance from '../../../libs/AxiosInstance';
+// import NewTopBar from '../../../components/TopBar/NewTopBar';
+// import OttInfo from '../../../components/Community/Join/OttInfo';
+// import JoinDetails from '../../../components/Community/Join/JoinDetails';
+// import SendBtn from '../../../components/common/JoinBtn/SendBtn';
+// import * as S from './JoinPot.Style';
+
+// const JoinPot: React.FC = () => {
+//   const { potId } = useParams<{ potId: string }>(); // URL에서 potId 받기
+//   const [joinContent, setJoinContent] = useState('');
+//   const [ottInfo, setOttInfo] = useState<any>(null); // ottInfo 상태로 데이터를 관리
+//   const [loading, setLoading] = useState(true); // 로딩 상태 추가
+//   const [username, setUsername] = useState<string>(''); // 사용자명 상태 추가
+
+//   useEffect(() => {
+//     const fetchPotDetails = async () => {
+//       try {
+//         const response = await axiosInstance.get(`/api/pot/create/${potId}`);
+//         setOttInfo(response.data); // 받아온 데이터 설정
+//       } catch (error) {
+//         console.error('Failed to fetch pot details', error);
+//       } finally {
+//         setLoading(false); // 로딩 완료
+//       }
+//     };
+
+//     const fetchUsername = async () => {
+//       try {
+//         const response = await axiosInstance.get('/api/users/profile/user');
+//         setUsername(response.data.username); // 사용자명 설정
+//       } catch (error) {
+//         console.error('Failed to fetch username', error);
+//       }
+//     };
+
+//     if (potId) {
+//       fetchPotDetails();
+//       fetchUsername(); // 사용자명도 함께 가져오기
+//     } else {
+//       console.error('No potId found in URL');
+//       setLoading(false);
+//     }
+//   }, [potId]);
+
+//   const handleJoinContentChange = (newContent: string) => {
+//     setJoinContent(newContent);
+//   };
+
+//   const handleSendClick = async () => {
+//     try {
+//       await axiosInstance.post('/api/pot/application/joinrequest', {
+//         joinrequestDescription: joinContent,
+//       });
+//       console.log('Join request sent');
+//       // 추가적인 성공 메시지나 리다이렉션을 원할 경우 여기에서 처리 가능
+//     } catch (error) {
+//       console.error('Failed to send join request', error);
+//     }
+//   };
+
+//   // 데이터가 로딩 중일 때 로딩 메시지 표시
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
+
+//   // ottInfo가 없는 경우 에러 메시지 표시
+//   if (!ottInfo) {
+//     return <div>No data available for the selected pot.</div>;
+//   }
+
+//   return (
+//     <S.JoinPotWrap>
+//       <S.TitleWrapper>
+//         <NewTopBar title="가입하기" />
+//       </S.TitleWrapper>
+//       <S.PageContainer>
+//         <S.OttWrapper>
+//           <OttInfo
+//             image={ottInfo.ott.image}
+//             name={ottInfo.ott.name}
+//             ratePlan={ottInfo.ott.ratePlan}
+//             price={ottInfo.ott.price}
+//             paymentDate={ottInfo.ratePlan}
+//             memberCount={ottInfo.memberCount}
+//           />
+//         </S.OttWrapper>
+//         <S.JoinWrapper>
+//           <S.Title>신청 내용</S.Title>
+//           <JoinDetails
+//             username={username} // 가져온 사용자명 사용
+//             joinContent={joinContent}
+//             onJoinContentChange={handleJoinContentChange}
+//           />
+//         </S.JoinWrapper>
+//         <SendBtn text="신청하기" onClick={handleSendClick} />
+//       </S.PageContainer>
+//     </S.JoinPotWrap>
+//   );
+// };
+
+// export default JoinPot;
