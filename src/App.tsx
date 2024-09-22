@@ -27,10 +27,6 @@ import MakePot from './pages/Pot/MakePot';
 import PotDetail from './pages/Pot/PotDetail';
 import PotMember from './pages/Pot/PotMember';
 
-// import LoadingPage from './pages/Loading/LoadingPage';
-
-// import { GlobalStyle } from './styles/Globalstyled';
-
 const App: React.FC = () => {
   return (
     <>
@@ -56,8 +52,6 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
-        {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
-        {/* 로딩 페이지 테스트 용 */}
         <Route path="/community" element={<Community />} />{' '}
         <Route path="/community-write" element={<CommunityWrite />} />{' '}
         <Route path="/detail/:id" element={<CommunityDetail />} />
@@ -68,8 +62,7 @@ const App: React.FC = () => {
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
         <Route path="/PotDetail" element={<PotDetail />} />
-        {/* <Route path="/PotDetail/:potId" element={<PotDetail />} /> */}
-        {/* 팟 통신용 경로 */}
+        <Route path="/PotDetail/:potId" element={<PotDetail />} />
         <Route path="/PotMember" element={<PotMember />} />
       </Routes>
     </>
