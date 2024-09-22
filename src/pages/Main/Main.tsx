@@ -6,6 +6,7 @@ import TotalSubscriptionFee from '../../components/TotalFee/TotalSubscriptionFee
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import SubscriptionList from '../../components/SubscriptionList/SubscriptionList';
 import Calendar from '../../components/Calender/Calender';
+import mainLogo from '../../assets/img/OTTi_Main_logo.png';
 
 // 구독 정보 인터페이스 정의
 interface Subscription {
