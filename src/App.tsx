@@ -58,6 +58,12 @@ const App: React.FC = () => {
         />
         {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
         {/* 로딩 페이지 테스트 용 */}
+        <Route path="/community" element={<Community />} />{' '}
+        <Route path="/community-write" element={<CommunityWrite />} />{' '}
+        <Route path="/detail/:id" element={<CommunityDetail />} />
+        <Route path="/search-results" element={<SearchResults />} />
+        <Route path="/MyPosts" element={<MyPosts />} />
+        <Route path="/joinpot/:potId" element={<JoinPot />} />
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
