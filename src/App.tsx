@@ -22,6 +22,7 @@ import PotMember from './pages/Pot/PotMember';
 const App: React.FC = () => {
   return (
     <>
+      {/* <GlobalStyle /> */}
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Onboarding />} />
