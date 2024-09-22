@@ -6,9 +6,6 @@ import Main from './pages/Main/Main';
 import AddOttSubscription from './pages/AddOttSubscription/AddOttSubscription';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Home from './pages/';
-// import Community from './pages/';
-// import Pot from './pages/';
 import MyPage from './pages/MyPage/MyPage';
 import EditProfile from './pages/MyPage/EditProfile';
 import Onboarding from './pages/Onboarding/OnBoarding';
@@ -21,9 +18,6 @@ import MyPotList from './pages/Pot/MyPotList';
 import MakePot from './pages/Pot/MakePot';
 import PotDetail from './pages/Pot/PotDetail';
 import PotMember from './pages/Pot/PotMember';
-
-// import LoadingPage from './pages/Loading/LoadingPage';
-
 // import { GlobalStyle } from './styles/Globalstyled';
 
 const App: React.FC = () => {
@@ -43,10 +37,6 @@ const App: React.FC = () => {
           path="/main/addOttSubscription"
           element={<AddOttSubscription />}
         />
-        {/* <Route path="/home" element={<Home />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/pot" element={<Pot />} /> */}
-        {/* <Route path="/profile" element={<MyPage />} /> */}
         <Route
           path="/main/subscriptionDetail/:id"
           element={<SubscriptionDetail />}
@@ -55,8 +45,6 @@ const App: React.FC = () => {
           path="/subscription-detail"
           element={<SubscriptionFeeDetail />}
         />
-        {/* <Route path="/loading" element={<LoadingPage />} />  */}{' '}
-        {/* 로딩 페이지 테스트 용 */}
         <Route path="/PotApplicationList" element={<PotApplicationList />} />
         <Route path="/MyPotList" element={<MyPotList />} />
         <Route path="/MakePot" element={<MakePot />} />
