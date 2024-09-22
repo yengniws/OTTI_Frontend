@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './MyPotList.Style';
-import MyPageTopBar from '../../components/topbar/MyPageTopBar';
+import MyPageTopBar from '../../components/TopBar/MyPageTopBar';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../libs/AxiosInstance';
