@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import NewTopBar from '../../components/TopBar/NewTopBar';
+import NewTopBar from '../../components/Topbar/NewTopBar';
 import TotalSubscriptionFee from '../../components/TotalFee/TotalSubscriptionFee';
 import PieChart from '../../components/TotalFee/PieChart';
 import * as S from './SubscriptionDetailFeeDetail.Style';

@@ -568,7 +568,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../components/Search/Search';
 import CommunityList from '../../components/Community/CommunityList/CommunityList';
-import DropDown from '../../components/TopBar/DropDown';
+import DropDown from '../../components/Topbar/DropDown';
 import ActionButton from '../../components/common/ActionButton';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import * as S from './Community.Style';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './PotApplicationList.Style'; // 스타일 파일 경로
-import NewTopBar from '../../components/topbar/NewTopBar.tsx';
+import NewTopBar from '../../components/Topbar/NewTopBar.tsx';
 import axiosInstance from '../../libs/AxiosInstance.tsx';
 
 interface Application {

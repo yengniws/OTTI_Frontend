@@ -37,7 +37,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NewTopBar from '../../../components/TopBar/NewTopBar';
+import NewTopBar from '../../../components/Topbar/NewTopBar';
 import OttInfo from '../../../components/Community/Join/OttInfo';
 import JoinDetails from '../../../components/Community/Join/JoinDetails';
 import SendBtn from '../../../components/common/JoinBtn/SendBtn';
