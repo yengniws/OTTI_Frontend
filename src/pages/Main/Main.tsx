@@ -7,7 +7,6 @@ import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import SubscriptionList from '../../components/SubscriptionList/SubscriptionList';
 import Calendar from '../../components/Calender/Calender';
 
-// 구독 정보 인터페이스 정의
 interface Subscription {
   id: string;
   name: string;
