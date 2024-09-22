@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as S from './Main.Style';
-import TotalSubscriptionFee from '../../components/Totalfee/TotalSubscriptionFee';
+import TotalSubscriptionFee from '../../components/TotalFee/TotalSubscriptionFee';
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import SubscriptionList from '../../components/SubscriptionList/SubscriptionList';
 import Calendar from '../../components/Calender/Calender';

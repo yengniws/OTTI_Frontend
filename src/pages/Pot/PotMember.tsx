@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './PotMember.Style';
-import NewTopBar from '../../components/Topbar/NewTopBar';
+import NewTopBar from '../../components/TopBar/NewTopBar';
 import { IoIosLogOut } from 'react-icons/io';
 import { ToastContainer, toast } from 'react-toastify';
 import { useParams } from 'react-router-dom'; // potId 가져오기

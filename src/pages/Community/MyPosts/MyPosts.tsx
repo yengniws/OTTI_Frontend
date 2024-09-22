@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MyPostsList from '../../../components/Community/MyPostsList/MyPostsList';
-import NewTopBar from '../../../components/Topbar/NewTopBar';
+import NewTopBar from '../../../components/TopBar/NewTopBar';
 import * as S from './MyPosts.Style';
 import axiosInstance from '../../../libs/AxiosInstance';
 
