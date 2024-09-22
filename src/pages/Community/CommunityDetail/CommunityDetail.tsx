@@ -38,6 +38,7 @@ const CommunityDetail: React.FC = () => {
   const [post, setPost] = useState<Post | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
   const postId = Number(id);
+  const [lastCommentId, setLastCommentId] = useState(0);
 
   // console.log(comments);
 
@@ -57,7 +58,7 @@ const CommunityDetail: React.FC = () => {
     if (postId) {
       fetchPost();
     }
-  }, [postId]);
+  }, [postId, lastCommentId]);
 
   const handleAddComment = async (content: string) => {
     try {
@@ -65,23 +66,24 @@ const CommunityDetail: React.FC = () => {
         text: content,
         post: postId,
       });
-      console.log(response);
+      // console.log(response);
 
-      const newComment: Comment = {
-        id: response.data.id,
-        text: response.data.text,
-        createdDate: response.data.createdDate,
-        userInfo: {
-          userName: response.data.userInfo.userName,
-          userprofilePhotoUrl:
-            response.data.userInfo.userprofilePhotoUrl || defaultProfileImage,
-        },
-      };
+      // const newComment: Comment = {
+      //   id: response.data.id,
+      //   text: response.data.text,
+      //   createdDate: response.data.createdDate,
+      //   userInfo: {
+      //     userName: response.data.userInfo.userName,
+      //     userprofilePhotoUrl:
+      //       response.data.userInfo.userprofilePhotoUrl || defaultProfileImage,
+      //   },
+      // };
 
-      console.log('New Comment:', newComment);
-      setComments([...comments, newComment]);
+      // console.log('New Comment:', newComment);
+      // setComments([...comments, newComment]);
 
-      console.log('Updated Comments:', [...comments, newComment]);
+      // console.log('Updated Comments:', [...comments, newComment]);
+      setLastCommentId(lastCommentId + 1);
     } catch (error) {
       console.error('Failed to add comment', error);
     }
