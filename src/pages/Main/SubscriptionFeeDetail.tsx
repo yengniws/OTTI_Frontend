@@ -20,7 +20,7 @@ const SubscriptionFeeDetail: React.FC = () => {
         <NewTopBar title="이번 달 총 구독료" />
       </S.TitleWrapper>
       <S.Container>
-        <TotalSubscriptionFee initialTotalAmount={totalAmount} />
+        {/* <TotalSubscriptionFee initialTotalAmount={totalAmount} /> */}
         <S.PieChartTitle>한 눈에 보기</S.PieChartTitle>
         <S.DetailContainer>
           <PieChart />
