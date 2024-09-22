@@ -62,10 +62,11 @@ const CommunityWrite: React.FC = () => {
       return null;
     }
 
+    // images를 1차원 배열로 변경
     const postData = {
       title,
       content: content || '',
-      images: [images] || [],
+      images: images.flat() || [],
       potId,
     };
     console.log('postData:', postData);
