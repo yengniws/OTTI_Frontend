@@ -62,7 +62,7 @@ const PotDetail: React.FC = () => {
 
         <S.Section>
           <S.Label>요금제</S.Label>
-          <S.Text>{potDetail.ratePlan}</S.Text>
+          <S.Text>{potDetail.ott?.ratePlan}</S.Text>
         </S.Section>
         <S.Divider />
 
