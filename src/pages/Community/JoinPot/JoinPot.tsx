@@ -53,10 +53,11 @@ const JoinPot = () => {
 
   const handleSendClick = async () => {
     try {
-      await axiosInstance.post('/api/pot/application/joinrequest', {
-        params: { potId },
-        joinrequestDescription: joinContent,
-      });
+      await axiosInstance.post(
+        '/api/pot/application/joinrequest',
+        { joinrequestDescription: joinContent }, // 본문에 들어갈 데이터
+        { params: { potId } }, // 쿼리 파라미터로 potId 전달
+      );
       console.log('Join request sent');
       toast.success('Join request sent successfully!'); // 성공 메시지
     } catch (error) {
