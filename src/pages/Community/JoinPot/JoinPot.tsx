@@ -78,9 +78,9 @@ const JoinPot = () => {
   const ottData = {
     image: ottInfo.ott.image,
     name: ottInfo.ott.name,
-    ratePlan: ottInfo.ott.ratePlan,
+    ratePlan: ottInfo.ott.ratePlan, // 요금제는 ott 내부의 ratePlan 사용
     price: ottInfo.ott.price,
-    memberCount: ottInfo.ott.memberCount,
+    memberCount: ottInfo.memberCount, // 멤버 수는 ott 외부 값 사용
   };
 
   return (
@@ -91,13 +91,8 @@ const JoinPot = () => {
       <S.PageContainer>
         <S.OttWrapper>
           <OttInfo
-            // image={ott.ott.image}
-            // name={ott.ott.name}
-            // ratePlan={ott.ott.ratePlan}
-            // price={ott.ott.price}
-            // memberCount={ott.memberCount}
             ott={ottData}
-            ratePlan={ottInfo.ratePlan}
+            ratePlan={ottInfo.ratePlan} // 납부일은 ott 외부의 ratePlan 사용
           />
         </S.OttWrapper>
         <S.JoinWrapper>
