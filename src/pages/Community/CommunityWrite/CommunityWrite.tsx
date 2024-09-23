@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axiosInstance from '../../../libs/AxiosInstance';
 import NewTopBar from '../../../components/TopBar/NewTopBar';
 import PotSelect from '../../../components/Community/PotSelect/PotSelect';
 import WritePost, {
@@ -7,6 +6,9 @@ import WritePost, {
 } from '../../../components/Community/WritePost/WritePost';
 import * as S from './CommunityWrite.Style';
 import RegisterBtn from '../../../components/TopBar/RegisterBtn/RegisterBtn';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axiosInstance from '../../../libs/AxiosInstance';
 
 interface PotMembership {
   id: number;
@@ -20,7 +22,6 @@ const CommunityWrite: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const writePostRef = useRef<WritePostHandle>(null);
 
-  // OTT 옵션 로딩
   useEffect(() => {
     const fetchOttOptions = async () => {
       try {
@@ -47,20 +48,17 @@ const CommunityWrite: React.FC = () => {
     fetchOttOptions();
   }, []);
 
-  // Post 데이터를 가져오는 함수
   const getPostData = () => {
     if (!writePostRef.current) return null;
 
     const { title, content, images } = writePostRef.current;
-    console.log('getPostData - images:', images);
-
     const selectedPotObj = ottOptions.find(
       (pot) => pot.potName === selectedPot,
     );
     const potId = selectedPotObj ? selectedPotObj.id : null;
 
     if (!title || potId === null) {
-      alert('제목과 POT을 선택해 주세요.');
+      toast.error('제목과 POT을 선택해 주세요.');
       return null;
     }
 
@@ -70,8 +68,6 @@ const CommunityWrite: React.FC = () => {
       images: images || [],
       potId,
     };
-
-    console.log('postData:', postData); // 최종 postData 확인
 
     return postData;
   };
