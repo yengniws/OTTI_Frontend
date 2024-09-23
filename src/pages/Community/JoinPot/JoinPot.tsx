@@ -88,7 +88,7 @@ const JoinPot = () => {
       </S.TitleWrapper>
       <S.PageContainer>
         <S.OttWrapper>
-          <OttInfo ott={ottData} ratePlan={ottInfo.ratePlan} />
+          <OttInfo ott={ottData} ratePlan={`${ottInfo.ratePlan}일`} />
         </S.OttWrapper>
         <S.JoinWrapper>
           <S.Title>신청 내용</S.Title>
