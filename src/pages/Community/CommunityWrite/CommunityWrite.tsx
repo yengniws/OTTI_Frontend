@@ -65,7 +65,7 @@ const CommunityWrite: React.FC = () => {
     const postData = {
       title,
       content: content || '',
-      images: [images] || [],
+      images: images || [],
 
       potId,
     };
