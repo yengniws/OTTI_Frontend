@@ -54,7 +54,7 @@ const JoinPot = () => {
   const handleSendClick = async () => {
     try {
       await axiosInstance.post('/api/pot/application/joinrequest', {
-        headers: { potId: potId },
+        params: { potId },
         joinrequestDescription: joinContent,
       });
       console.log('Join request sent');
@@ -75,14 +75,6 @@ const JoinPot = () => {
     return <div>No data available for the selected pot.</div>;
   }
 
-  const ottData = {
-    image: ottInfo.ott.image,
-    name: ottInfo.ott.name,
-    ratePlan: ottInfo.ott.ratePlan, // 요금제는 ott 내부의 ratePlan 사용
-    price: ottInfo.ott.price,
-    memberCount: ottInfo.memberCount, // 멤버 수는 ott 외부 값 사용
-  };
-
   return (
     <S.JoinPotWrap>
       <S.TitleWrapper>
@@ -91,8 +83,12 @@ const JoinPot = () => {
       <S.PageContainer>
         <S.OttWrapper>
           <OttInfo
-            ott={ottData}
-            ratePlan={ottInfo.ratePlan} // 납부일은 ott 외부의 ratePlan 사용
+            image={ottInfo.ott.image}
+            name={ottInfo.ott.name}
+            ratePlan={ottInfo.ott.ratePlan}
+            price={ottInfo.ott.price}
+            paymentDate={ottInfo.ratePlan}
+            memberCount={ottInfo.memberCount}
           />
         </S.OttWrapper>
         <S.JoinWrapper>
