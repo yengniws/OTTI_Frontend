@@ -54,7 +54,8 @@ const JoinPot = () => {
   const handleSendClick = async () => {
     try {
       await axiosInstance.post('/api/pot/application/joinrequest', {
-        joinrequestDescription: joinContent, // potId 제거
+        headers: { potId: potId },
+        joinrequestDescription: joinContent,
       });
       console.log('Join request sent');
       toast.success('Join request sent successfully!'); // 성공 메시지
