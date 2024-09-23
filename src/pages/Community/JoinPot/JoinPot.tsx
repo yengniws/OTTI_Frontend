@@ -75,6 +75,14 @@ const JoinPot = () => {
     return <div>No data available for the selected pot.</div>;
   }
 
+  const ottData = {
+    image: ottInfo.ott.image,
+    name: ottInfo.ott.name,
+    ratePlan: ottInfo.ott.ratePlan,
+    price: ottInfo.ott.price,
+    memberCount: ottInfo.ott.memberCount,
+  };
+
   return (
     <S.JoinPotWrap>
       <S.TitleWrapper>
@@ -83,12 +91,13 @@ const JoinPot = () => {
       <S.PageContainer>
         <S.OttWrapper>
           <OttInfo
-            image={ottInfo.ott.image}
-            name={ottInfo.ott.name}
-            ratePlan={ottInfo.ott.ratePlan}
-            price={ottInfo.ott.price}
-            paymentDate={ottInfo.ratePlan}
-            memberCount={ottInfo.memberCount}
+            // image={ott.ott.image}
+            // name={ott.ott.name}
+            // ratePlan={ott.ott.ratePlan}
+            // price={ott.ott.price}
+            // memberCount={ott.memberCount}
+            ott={ottData}
+            ratePlan={ottInfo.ratePlan}
           />
         </S.OttWrapper>
         <S.JoinWrapper>
