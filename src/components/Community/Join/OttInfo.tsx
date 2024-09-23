@@ -32,7 +32,7 @@ const OttInfo = ({ ott, ratePlan }: OttInfoProps) => {
         </S.DetailRow>
         <S.DetailRow>
           <S.Label>납부일</S.Label>
-          <S.OttText>{ratePlan}</S.OttText>
+          <S.OttText>{ott.ratePlan}</S.OttText>
         </S.DetailRow>
         <S.DetailRow>
           <S.Label>현재 팟 인원</S.Label>
