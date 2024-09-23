@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'; // potId 가져오기
 import axiosInstance from '../../../libs/AxiosInstance';
 import NewTopBar from '../../../components/TopBar/NewTopBar';
 import OttInfo from '../../../components/Community/Join/OttInfo';
@@ -53,6 +53,7 @@ const JoinPot = () => {
 
   const handleSendClick = async () => {
     try {
+      // axiosInstance 요청 시, params를 두 번째 인자로 전달
       await axiosInstance.post(
         '/api/pot/application/joinrequest',
         { joinrequestDescription: joinContent }, // 본문에 들어갈 데이터
@@ -75,6 +76,7 @@ const JoinPot = () => {
   if (!ottInfo) {
     return <div>No data available for the selected pot.</div>;
   }
+
   const ottData = {
     image: ottInfo.ott.image,
     name: ottInfo.ott.name,
@@ -82,6 +84,7 @@ const JoinPot = () => {
     price: ottInfo.ott.price,
     memberCount: ottInfo.memberCount,
   };
+
   return (
     <S.JoinPotWrap>
       <S.TitleWrapper>
