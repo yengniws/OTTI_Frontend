@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 interface PostRequestDto {
   title: string;
   content?: string;
-  images: number;
+  images: number[];
   potId: number;
 }
 
@@ -19,7 +19,7 @@ const RegisterBtn = ({
   getPostData: () => {
     title: string;
     content: string;
-    images: number;
+    images: number[];
     potId: number;
   };
 }) => {

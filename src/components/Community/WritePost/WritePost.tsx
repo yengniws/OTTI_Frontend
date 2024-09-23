@@ -14,16 +14,14 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState<File[]>([]);
-  const [imageIds, setImageIds] = useState<number[]>([]); // 이미지 ID 배열
+  const [imageIds, setImageIds] = useState<number[]>([]);
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   // 콘솔로 images 상태를 추적
   console.log('현재 이미지 IDs:', imageIds);
 
   useImperativeHandle(ref, () => {
-    console.log('imperativeHandle - title:', title);
-    console.log('imperativeHandle - content:', content);
-    console.log('imperativeHandle - images:', imageIds); // 외부로 전달되기 전의 이미지 ID 배열
+    console.log('imperativeHandle - images:', imageIds);
     return {
       title,
       content,
@@ -55,11 +53,10 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
         });
         console.log('Image upload response:', response.data);
 
-        // uploadedImageIds가 배열로 들어오므로, 배열로 처리
-        const uploadedImageIds = Array.isArray(response.data.id)
-          ? response.data.id
-          : Number(response.data.id);
-
+        // const uploadedImageIds = Array.isArray(response.data.id)
+        //   ? response.data.id
+        //   : Number(response.data.id);
+        const uploadedImageIds = response.data.id;
         console.log('업로드된 이미지 IDs:', uploadedImageIds);
 
         setImageIds(uploadedImageIds); // 이미지 ID 배열 업데이트
