@@ -57,9 +57,11 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
         //   ? response.data.id
         //   : Number(response.data.id);
         const uploadedImageIds = response.data.id;
+
         console.log('업로드된 이미지 IDs:', uploadedImageIds);
 
         setImageIds(uploadedImageIds); // 이미지 ID 배열 업데이트
+        setImageIds((prevImageIds) => [...prevImageIds, ...uploadedImageIds]);
       } catch (error) {
         if (axios.isAxiosError(error)) {
           console.error('에러메시지:', error.message);

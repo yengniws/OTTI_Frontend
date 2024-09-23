@@ -66,6 +66,7 @@ const CommunityWrite: React.FC = () => {
       title,
       content: content || '',
       images: [images] || [],
+
       potId,
     };
 
