@@ -19,6 +19,7 @@ const PotDetail: React.FC = () => {
       try {
         const response = await axiosInstance.get(`/api/pot/create/${potId}`);
         setPotDetail(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('팟 상세정보 불러오기 에러:', error);
       }

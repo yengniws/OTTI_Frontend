@@ -78,7 +78,7 @@ const MakePot: React.FC = () => {
       await axiosInstance.post('/api/pot/create', {
         name: name,
         ottName: ott.ott_name,
-        ottRatePlan: amount,
+        ottRatePlan: plan,
         depositAccount: account,
         ratePlan: date,
       });
@@ -94,7 +94,7 @@ const MakePot: React.FC = () => {
       toast.error('등록에 실패했어요.');
     }
   };
-
+  console.log(plan);
   const dateOptions = Array.from({ length: 31 }, (_, i) => i + 1);
 
   return (
