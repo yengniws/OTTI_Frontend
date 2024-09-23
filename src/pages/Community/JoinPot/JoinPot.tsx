@@ -172,7 +172,7 @@ const JoinPot: React.FC = () => {
     try {
       await axiosInstance.post('/api/pot/application/joinrequest', {
         joinrequestDescription: joinContent,
-        potId: potId, // potId를 요청 본문에 추가
+        potId: Number(potId), // potId를 요청 본문에 추가
       });
       console.log('Join request sent');
       toast.success('Join request sent successfully!'); // 성공 메시지
