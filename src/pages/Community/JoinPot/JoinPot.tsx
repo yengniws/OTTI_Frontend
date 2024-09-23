@@ -136,7 +136,7 @@ const JoinPot: React.FC = () => {
     const fetchPotDetails = async () => {
       try {
         console.log('Fetched potId:', potId);
-        const response = await axiosInstance.get(/api/pot/create/${potId});
+        const response = await axiosInstance.get(`/api/pot/create/${potId}`);
         console.log('API response:', response.data); // API 응답 로그
         setOttInfo(response.data); // 받아온 데이터 설정
         setLoading(false); // 로딩 완료

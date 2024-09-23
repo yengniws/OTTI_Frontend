@@ -18,10 +18,10 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   // 콘솔로 images 상태를 추적
-  console.log('현재 이미지 IDs:', imageIds);
+  // console.log('현재 이미지 IDs:', imageIds);
 
   useImperativeHandle(ref, () => {
-    console.log('imperativeHandle - images:', imageIds);
+    // console.log('imperativeHandle - images:', imageIds);
     return {
       title,
       content,
@@ -34,7 +34,7 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
       fileInputRef.current.click();
     }
   };
-
+  console.log(imageIds);
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
@@ -51,16 +51,9 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
         const response = await axiosInstance.post('/api/post/image', formData, {
           headers: { 'Content-Type': 'multipart/form-data' }, // 헤더 설정
         });
-        console.log('Image upload response:', response.data);
 
-        // const uploadedImageIds = Array.isArray(response.data.id)
-        //   ? response.data.id
-        //   : Number(response.data.id);
         const uploadedImageIds = response.data.id;
 
-        console.log('업로드된 이미지 IDs:', uploadedImageIds);
-
-        setImageIds(uploadedImageIds); // 이미지 ID 배열 업데이트
         setImageIds((prevImageIds) => [...prevImageIds, ...uploadedImageIds]);
       } catch (error) {
         if (axios.isAxiosError(error)) {

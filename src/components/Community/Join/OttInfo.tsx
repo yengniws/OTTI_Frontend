@@ -55,7 +55,6 @@ interface OttInfoProps {
   price: number;
   memberCount: number;
   paymentDate: string;
-
 }
 
 const OttInfo = ({
@@ -69,7 +68,7 @@ const OttInfo = ({
   return (
     <S.OttInfoWrap>
       <S.Header>
-        <S.OttImage src={image} alt={${name} 로고} />
+        <S.OttImage src={image} alt={`${name} 로고`} />
         <S.OttName>{name}</S.OttName>
       </S.Header>
       <S.OttDetails>
