@@ -6,7 +6,6 @@ import TotalSubscriptionFee from '../../components/TotalFee/TotalSubscriptionFee
 import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import SubscriptionList from '../../components/SubscriptionList/SubscriptionList';
 import Calendar from '../../components/Calender/Calender';
-import mainLogo from '../../assets/img/OTTi_Main_logo.png';
 
 interface Subscription {
   id: string;

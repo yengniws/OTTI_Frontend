@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./", //"."
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "target": "es2020", // Set to esnext or es2015+ as needed
     "module": "es2020", // Using ESNext module system
     // "strict": true,
