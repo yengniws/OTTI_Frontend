@@ -7,6 +7,7 @@ import AddComment from '../../../components/Community/Comment/AddComment';
 import CommentList from '../../../components/Community/Comment/CommentList';
 import JoinBtn from '../../../components/common/JoinBtn/JoinBtn';
 import NewTopBar from '../../../components/TopBar/NewTopBar';
+import LoadingPage from '../../../pages/Loading/LoadingPage';
 
 interface CommentUserInfo {
   userName: string;
@@ -71,7 +72,7 @@ const CommunityDetail: React.FC = () => {
   };
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <LoadingPage />;
   }
 
   return (

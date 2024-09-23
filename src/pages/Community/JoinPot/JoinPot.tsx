@@ -60,7 +60,12 @@ const JoinPot = () => {
         { params: { potId } }, // 쿼리 파라미터로 potId 전달
       );
       console.log('Join request sent');
-      toast.success('Join request sent successfully!'); // 성공 메시지
+      toast.success('POT 신청을 보냈어요!', {
+        onClose: () => {
+          window.location.href = '/community';
+        },
+        autoClose: 1500,
+      }); // 성공 메시지
     } catch (error) {
       console.error('Failed to send join request', error);
       toast.error('Failed to send join request'); // 에러 메시지 표시
