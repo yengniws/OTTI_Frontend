@@ -64,7 +64,7 @@ const Mypage: React.FC = () => {
         </S.EditButton>
       </S.ProfileSection>
       <S.TopMenuList>
-        <S.TopMenuItem onClick={() => navigateTo('/main')}>
+        <S.TopMenuItem onClick={() => navigateTo('/MyPosts')}>
           내가 쓴 글
         </S.TopMenuItem>
         <S.TopMenuItem onClick={() => navigateTo('/PotApplicationList')}>
