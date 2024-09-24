@@ -70,7 +70,6 @@ const PotMember: React.FC = () => {
         );
         const uniqueMembers = removeDuplicateMembers(response.data);
         setMembers(uniqueMembers);
-        console.log(uniqueMembers);
       } catch (error) {
         console.error('멤버 목록 불러오기 에러:', error);
       }

@@ -94,7 +94,6 @@ const MakePot: React.FC = () => {
       toast.error('등록에 실패했어요.');
     }
   };
-  console.log(plan);
   const dateOptions = Array.from({ length: 31 }, (_, i) => i + 1);
 
   return (

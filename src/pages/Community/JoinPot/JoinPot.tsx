@@ -18,7 +18,6 @@ const JoinPot = () => {
   useEffect(() => {
     const fetchPotDetails = async () => {
       try {
-        console.log('Fetched potId:', potId);
         const response = await axiosInstance.get(`/api/pot/create/${potId}`);
         console.log('API response:', response.data); // API 응답 로그
         setOttInfo(response.data); // 받아온 데이터 설정
@@ -59,7 +58,6 @@ const JoinPot = () => {
         { joinrequestDescription: joinContent }, // 본문에 들어갈 데이터
         { params: { potId } }, // 쿼리 파라미터로 potId 전달
       );
-      console.log('Join request sent');
       toast.success('POT 신청을 보냈어요!', {
         onClose: () => {
           window.location.href = '/community';

@@ -18,8 +18,6 @@ const MyPotList = () => {
           '/api/pot/application/user/pots/approve/permission',
         );
 
-        console.log('API 응답 데이터:', response.data); // 전체 데이터를 확인
-
         const data = response.data.map((item) => ({
           id: item.potId,
           name: item.potName,

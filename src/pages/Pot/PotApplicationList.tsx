@@ -27,7 +27,6 @@ const PotApplicationList: React.FC = () => {
           '/api/pot/application/joinrequest/pots/permission',
         );
         setApplications(response.data);
-        console.log('데이터를 성공적으로 가져왔습니다:', response.data);
       } catch (error) {
         console.error('팟 신청 데이터를 가져오는 데 실패했습니다:', error);
       }
@@ -45,9 +44,6 @@ const PotApplicationList: React.FC = () => {
       setApplications((prev) =>
         prev.filter((app) => app.requester.id !== requesterId),
       ); // requesterId로 필터링
-      console.log(
-        `팟 ID ${potId}의 신청자 ID ${requesterId} 신청을 수락했습니다.`,
-      );
     } catch (error) {
       console.error(
         `팟 ID ${potId}의 신청자 ID ${requesterId} 신청 수락에 실패했습니다:`,
@@ -65,9 +61,6 @@ const PotApplicationList: React.FC = () => {
       setApplications((prev) =>
         prev.filter((app) => app.requester.id !== requesterId),
       ); // requesterId로 필터링
-      console.log(
-        `팟 ID ${potId}의 신청자 ID ${requesterId} 신청을 거절했습니다.`,
-      );
     } catch (error) {
       console.error(
         `팟 ID ${potId}의 신청자 ID ${requesterId} 신청 거절에 실패했습니다:`,

@@ -30,12 +30,8 @@ const RegisterBtn = ({
 
     if (!postData) return;
 
-    console.log('Post Data:', postData); // 로그 추가
-
     try {
       const response = await axiosInstance.post('/api/post', postData);
-      console.log('Response Status:', response.status); // 로그 추가
-      console.log('Response Data:', response.data); // 로그 추가
 
       if (response.status === 201) {
         toast.success('게시글이 성공적으로 저장되었습니다.');

@@ -17,11 +17,7 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
   const [imageIds, setImageIds] = useState<number[]>([]);
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
-  // 콘솔로 images 상태를 추적
-  // console.log('현재 이미지 IDs:', imageIds);
-
   useImperativeHandle(ref, () => {
-    // console.log('imperativeHandle - images:', imageIds);
     return {
       title,
       content,
@@ -53,7 +49,6 @@ const WritePost = forwardRef<WritePostHandle>((_, ref) => {
         });
 
         const uploadedImageIds = response.data.id;
-        console.log('업로드된 이미지 IDs:', uploadedImageIds);
         setImageIds((prevImageIds) => [...prevImageIds, uploadedImageIds]);
       } catch (error) {
         if (axios.isAxiosError(error)) {

@@ -73,23 +73,15 @@ const AddOttSubscription: React.FC = () => {
       return;
     }
 
-    // 콘솔로 date 값을 출력
-    console.log('Selected date:', date);
-
     try {
-      // const userId = localStorage.getItem('user_id'); // 유저 ID를 로컬 스토리지에서 가져옴
-
       const response = await axiosInstance.post('/api/subscription', {
         name: name,
         payment: Number(amount),
         memo: memo,
         paymentDate: Number(date),
-        //userId: Number(userId),
         ottName: ott.ott_name,
         ottRatePlan: plan,
       });
-
-      console.log('Response:', response.data); // 응답 데이터 로그
 
       toast.success('등록되었어요!', {
         onClose: () => {

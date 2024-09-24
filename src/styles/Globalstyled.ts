@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
 
   #root {
     display: flex;
-    // margin: 0 auto;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
