@@ -140,7 +140,7 @@ const Community = () => {
 
       const response = await axiosInstance.get<PaginatedPosts>(url, {
         headers: {
-          currentPage: currentPage.toString(), // 페이지 번호를 헤더에 포함
+          currentPage: (currentPage - 1).toString(), // 페이지 번호를 헤더에 포함
           size: size.toString(), // 페이지 크기를 헤더에 포함
         },
       });
