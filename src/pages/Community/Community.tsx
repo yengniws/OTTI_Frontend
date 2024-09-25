@@ -140,7 +140,7 @@ const Community = () => {
 
       const response = await axiosInstance.get<PaginatedPosts>(url, {
         headers: {
-          currentPage: (currentPage - 1).toString(),
+          currentPage: currentPage.toString(),
           size: size.toString(),
         },
       });
