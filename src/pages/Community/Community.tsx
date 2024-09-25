@@ -278,7 +278,7 @@ const Community = () => {
 
       const response = await axiosInstance.get<PaginatedPosts>(url, {
         headers: {
-          currentPage: (currentPage - 1).toString(), // 페이지 번호를 1 감소시켜 전송
+          currentPage: currentPage.toString(),
           size: size.toString(),
         },
       });
