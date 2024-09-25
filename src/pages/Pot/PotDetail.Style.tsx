@@ -91,7 +91,7 @@ export const Label = styled.label`
   font-weight: bold;
   margin: 10px 0;
   display: block;
-  width: 24%;
+  width: 26%;
   text-align: left;
 `;
 
