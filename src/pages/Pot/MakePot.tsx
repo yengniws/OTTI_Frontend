@@ -61,13 +61,6 @@ const MakePot: React.FC = () => {
     setPlan(selectedOtt.rate_plans[0]);
   };
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (/^\d*$/.test(value)) {
-      setAmount(value);
-    }
-  };
-
   const handleSubmit = async () => {
     if (!name || !account) {
       toast.error('모든 값을 입력해주세요!');
@@ -140,7 +133,6 @@ const MakePot: React.FC = () => {
             ))}
           </S.Select>
         </S.Section>
-
         <S.Divider />
         <S.Section>
           <S.Label>입금 계좌</S.Label>
