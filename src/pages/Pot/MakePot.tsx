@@ -69,7 +69,7 @@ const MakePot: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    if (!name || !amount || !account) {
+    if (!name || !account) {
       toast.error('모든 값을 입력해주세요!');
       return;
     }
@@ -130,13 +130,6 @@ const MakePot: React.FC = () => {
             ))}
           </S.Select>
         </S.Section>
-        <S.Divider />
-        <S.Section>
-          <S.Label>구독료</S.Label>
-          <S.Input value={amount} onChange={handleAmountChange} />
-        </S.Section>
-
-        <S.Divider />
         <S.Section>
           <S.Label>정기결제일</S.Label>
           <S.Select value={date} onChange={(e) => setDate(e.target.value)}>
