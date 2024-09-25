@@ -1,5 +1,47 @@
 import styled from 'styled-components';
 
+// 페이지네이션 컨테이너
+export const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+`;
+
+export const PageButton = styled.button<{ disabled: boolean }>`
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  cursor: pointer;
+
+  ${({ disabled }) =>
+    disabled &&
+    `
+    cursor: not-allowed;
+    opacity: 0.5;
+  `}
+`;
+
+export const PageNumber = styled.button<{ isActive: boolean }>`
+  background: none;
+  border: none;
+  font-size: 1rem;
+  margin: 0 5px;
+  cursor: pointer;
+
+  ${({ isActive }) =>
+    isActive
+      ? `
+      font-weight: bold;
+      color: #000;
+    `
+      : `
+      color: #ddd;
+    `}
+`;
+
 export const Wrapper = styled.div`
   width: 375px;
 `;
