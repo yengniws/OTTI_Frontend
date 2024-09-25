@@ -75,7 +75,7 @@ const PotDetail: React.FC = () => {
           <S.Label>정기결제일</S.Label>
           <S.Text>{potDetail.ratePlan}일</S.Text>
         </S.Section>
-
+        <S.Divider />
         <S.Section>
           <S.Label>입금 계좌</S.Label>
           <S.Text>
