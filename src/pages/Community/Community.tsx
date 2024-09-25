@@ -414,7 +414,7 @@ const Community = () => {
 
       const response = await axiosInstance.get<PaginatedPosts>(url, {
         params: {
-          page: currentPage - 1, // 0부터 시작하기 때문에 currentPage - 1
+          page: currentPage, // 0부터 시작하기 때문에 currentPage - 1
           size: size,
         },
       });
