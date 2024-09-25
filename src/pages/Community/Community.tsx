@@ -124,7 +124,7 @@ const Community = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
-  const [size] = useState<number>(10); // 페이지당 글 개수 고정
+  const [size, setSize] = useState<number>(10);
 
   // 글 작성 버튼 클릭 시 CommunityWrite 페이지로 이동
   const handleCreatePost = () => {
@@ -139,7 +139,10 @@ const Community = () => {
         : `/api/post`;
 
       const response = await axiosInstance.get<PaginatedPosts>(url, {
-        params: { page: currentPage + 1, size }, // 페이지 인덱스는 0부터 시작하므로 -1
+        headers: {
+          currentPage: currentPage.toString(), // 페이지 번호를 헤더에 포함
+          size: size.toString(), // 페이지 크기를 헤더에 포함
+        },
       });
 
       const { contents, totalPages } = response.data;
@@ -147,20 +150,50 @@ const Community = () => {
       setTotalPages(totalPages);
     } catch (error) {
       console.error('Failed to fetch posts', error);
-      toast.error('게시글을 가져오는 데 실패했습니다.');
+      toast.error('게시글을 가져오는 데 실패했습니다.'); // 에러 메시지 토스트
     }
   };
 
   // OTT 선택 시 선택된 OTT 업데이트 및 게시글 가져오기
   useEffect(() => {
-    fetchPosts(selectedOtt);
-  }, [selectedOtt, currentPage]);
+    fetchPosts(selectedOtt); // OTT가 변경될 때마다 데이터를 가져옴
+  }, [selectedOtt, currentPage, size]);
 
-  // 페이지 이동 함수
-  const handlePageChange = (newPage: number) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setCurrentPage(newPage);
+  // 페이지네이션을 위한 핸들러
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const renderPagination = () => {
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(
+        <S.PageNumber
+          key={i}
+          onClick={() => setCurrentPage(i)}
+          isCurrent={i === currentPage}
+        >
+          {i}
+        </S.PageNumber>,
+      );
+    }
+    return (
+      <S.PaginationWrapper>
+        <S.PaginationButton onClick={handlePreviousPage}>
+          {'<'}
+        </S.PaginationButton>
+        {pages}
+        <S.PaginationButton onClick={handleNextPage}>{'>'}</S.PaginationButton>
+      </S.PaginationWrapper>
+    );
   };
 
   return (
@@ -172,31 +205,8 @@ const Community = () => {
         </S.TitleWrapper>
         <S.CommuniyContainer>
           <Search />
-          <CommunityList posts={posts} />
-          {/* 페이지네이션 컴포넌트 */}
-          <S.PaginationWrapper>
-            <S.PageButton
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              {'<'}
-            </S.PageButton>
-            {Array.from({ length: totalPages }, (_, i) => (
-              <S.PageNumber
-                key={i + 1}
-                onClick={() => handlePageChange(i + 1)}
-                isActive={currentPage === i + 1}
-              >
-                {i + 1}
-              </S.PageNumber>
-            ))}
-            <S.PageButton
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-            >
-              {'>'}
-            </S.PageButton>
-          </S.PaginationWrapper>
+          <CommunityList posts={posts} /> {/* posts를 CommunityList로 전달 */}
+          {renderPagination()} {/* 페이지네이션 렌더링 */}
           <ActionButton text="글 작성" onClick={handleCreatePost} />
           <S.BottomNavBarWrapper>
             <BottomNavBar />
