@@ -123,6 +123,7 @@ const MakePot: React.FC = () => {
             ))}
           </S.Select>
         </S.Section>
+        <S.Divider />
         <S.Section>
           <S.Label>정기결제일</S.Label>
           <S.Select value={date} onChange={(e) => setDate(e.target.value)}>
