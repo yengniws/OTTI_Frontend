@@ -139,7 +139,7 @@ const Community = () => {
         : `/api/post`;
 
       const response = await axiosInstance.get<PaginatedPosts>(url, {
-        params: { page: currentPage - 1, size }, // 페이지 인덱스는 0부터 시작하므로 -1
+        params: { page: currentPage + 1, size }, // 페이지 인덱스는 0부터 시작하므로 -1
       });
 
       const { contents, totalPages } = response.data;
