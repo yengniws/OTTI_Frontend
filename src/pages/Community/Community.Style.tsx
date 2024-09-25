@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// 페이지네이션 컨테이너
 export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -23,24 +22,6 @@ export const PaginationButton = styled.button<{ disabled: boolean }>`
     opacity: 0.5;
   `}
 `;
-
-// export const PageNumber = styled.button<{ isActive: boolean }>`
-//   background: none;
-//   border: none;
-//   font-size: 1rem;
-//   margin: 0 5px;
-//   cursor: pointer;
-
-//   ${({ isActive }) =>
-//     isActive
-//       ? `
-//       font-weight: bold;
-//       color: #000;
-//     `
-//       : `
-//       color: #ddd;
-//     `}
-// `;
 
 interface PageNumberProps {
   isCurrent?: boolean; // 현재 페이지 여부
