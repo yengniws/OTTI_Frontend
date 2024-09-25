@@ -355,6 +355,7 @@
 
 // export default Community;
 
+// Community.tsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../components/Search/Search';
@@ -446,7 +447,7 @@ const Community = () => {
         <S.PageNumber
           key={i}
           onClick={() => setCurrentPage(i)}
-          isCurrent={i === currentPage}
+          isCurrent={i === currentPage} // 현재 페이지 여부 전달
         >
           {i}
         </S.PageNumber>,
@@ -454,11 +455,19 @@ const Community = () => {
     }
     return (
       <S.PaginationWrapper>
-        <S.PaginationButton onClick={handlePreviousPage}>
+        <S.PaginationButton
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1} // 비활성화 조건 추가
+        >
           {'<'}
         </S.PaginationButton>
         {pages}
-        <S.PaginationButton onClick={handleNextPage}>{'>'}</S.PaginationButton>
+        <S.PaginationButton
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages} // 비활성화 조건 추가
+        >
+          {'>'}
+        </S.PaginationButton>
       </S.PaginationWrapper>
     );
   };

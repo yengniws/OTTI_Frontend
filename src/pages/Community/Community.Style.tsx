@@ -8,7 +8,7 @@ export const PaginationWrapper = styled.div`
   margin: 20px 0;
 `;
 
-export const PageButton = styled.button<{ disabled: boolean }>`
+export const PaginationButton = styled.button<{ disabled: boolean }>`
   background: none;
   border: none;
   color: #333;
@@ -24,22 +24,43 @@ export const PageButton = styled.button<{ disabled: boolean }>`
   `}
 `;
 
-export const PageNumber = styled.button<{ isActive: boolean }>`
+// export const PageNumber = styled.button<{ isActive: boolean }>`
+//   background: none;
+//   border: none;
+//   font-size: 1rem;
+//   margin: 0 5px;
+//   cursor: pointer;
+
+//   ${({ isActive }) =>
+//     isActive
+//       ? `
+//       font-weight: bold;
+//       color: #000;
+//     `
+//       : `
+//       color: #ddd;
+//     `}
+// `;
+
+interface PageNumberProps {
+  isCurrent?: boolean; // 현재 페이지 여부
+}
+
+export const PageNumber = styled.button<PageNumberProps>`
+  color: ${({ isCurrent }) => (isCurrent ? '#000' : '#ddd')};
+  font-weight: ${({ isCurrent }) => (isCurrent ? 'bold' : 'normal')};
   background: none;
   border: none;
-  font-size: 1rem;
-  margin: 0 5px;
   cursor: pointer;
 
-  ${({ isActive }) =>
-    isActive
-      ? `
-      font-weight: bold;
-      color: #000;
-    `
-      : `
-      color: #ddd;
-    `}
+  &:hover {
+    color: #000;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: #ccc;
+  }
 `;
 
 export const Wrapper = styled.div`
