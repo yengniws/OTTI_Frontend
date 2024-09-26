@@ -11,37 +11,37 @@ const ottOptions = [
     ott_name: '넷플릭스',
     ott_image:
       'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/netflix.png',
-    rate_plans: ['광고형', '스탠다드', '프리미엄', '기타'],
+    rate_plans: ['광고형', '스탠다드', '프리미엄'],
   },
   {
     ott_name: '티빙',
     ott_image:
       'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/tving.png',
-    rate_plans: ['광고형', '베이직', '스탠다드', '프리미엄', '기타'],
+    rate_plans: ['광고형', '베이직', '스탠다드', '프리미엄'],
   },
   {
     ott_name: '웨이브',
     ott_image:
       'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/wavve.png',
-    rate_plans: ['베이직', '스탠다드', '프리미엄', '기타'],
+    rate_plans: ['베이직', '스탠다드', '프리미엄'],
   },
   {
     ott_name: '디즈니+',
     ott_image:
       'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/disney-plus.png',
-    rate_plans: ['스탠다드', '프리미엄', '기타'],
+    rate_plans: ['스탠다드', '프리미엄'],
   },
   {
     ott_name: '쿠팡플레이',
     ott_image:
       'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/coupang-play.png',
-    rate_plans: ['쿠팡와우회원', '기타'],
+    rate_plans: ['쿠팡와우회원'],
   },
   {
     ott_name: '왓챠',
     ott_image:
       'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/ott/watcha.png',
-    rate_plans: ['베이직', '프리미엄', '기타'],
+    rate_plans: ['베이직', '프리미엄'],
   },
 ];
 
