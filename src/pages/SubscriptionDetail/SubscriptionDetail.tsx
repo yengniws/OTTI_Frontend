@@ -8,6 +8,7 @@ import axiosInstance from '../../libs/AxiosInstance';
 import LoadingPage from '../Loading/LoadingPage';
 import NewTopBar from '../../components/TopBar/NewTopBar';
 
+// OTT 정보 인터페이스
 interface Ott {
   id: number;
   name: string;
@@ -18,6 +19,7 @@ interface Ott {
   modifiedDate: string;
 }
 
+// 구독 정보 인터페이스
 interface Subscription {
   id: number;
   name: string;
@@ -31,11 +33,12 @@ interface Subscription {
 }
 
 const SubscriptionDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // URL 파라미터에서 구독 ID 추출
   const navigate = useNavigate();
-  const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [editing, setEditing] = useState(false);
+  const [subscription, setSubscription] = useState<Subscription | null>(null); // 구독 상태 초기화
+  const [editing, setEditing] = useState(false); // 편집 모드
   const [formData, setFormData] = useState({
+    // 폼 데이터 초기화
     name: '',
     payment: 0,
     memo: '',
@@ -57,15 +60,16 @@ const SubscriptionDetail: React.FC = () => {
     const fetchSubscription = async () => {
       try {
         const response = await axiosInstance.get(`/api/subscription/${id}`);
-        setSubscription(response.data);
-        setFormData(response.data);
+        setSubscription(response.data); // 구독 상태 업데이트
+        setFormData(response.data); // 폼 데이터 업데이트
       } catch (error) {
         console.error('데이터 가져오는 중 에러:', error);
       }
     };
-    fetchSubscription();
-  }, [id]);
+    fetchSubscription(); // 구독 정보 불러오기
+  }, [id]); // id가 변경될 때마다 호출
 
+  // 구독 삭제 핸들러
   const handleDelete = () => {
     axiosInstance
       .delete(`/api/subscription/${id}`)
@@ -78,6 +82,7 @@ const SubscriptionDetail: React.FC = () => {
       .catch((error) => console.error('데이터 삭제 중 오류:', error));
   };
 
+  // 구독 정보를 저장하기 위한 페이로드
   const handleSave = () => {
     const payload = {
       name: formData.name,
@@ -88,13 +93,14 @@ const SubscriptionDetail: React.FC = () => {
       ottRatePlan: formData.ott.ratePlan,
     };
 
+    // 구독 정보 업데이트 API 호출
     axiosInstance
       .put(`/api/subscription/${id}`, payload)
       .then((response) => {
-        setSubscription(response.data);
+        setSubscription(response.data); // 구독 상태 업데이트
         toast.success('수정되었습니다!');
-        setEditing(false);
-        setIsLoading(true);
+        setEditing(false); // 편집 모드 종료
+        setIsLoading(true); // 로딩 상태 시작
         // 페이지 새로고침
         setTimeout(() => {
           window.location.reload();
@@ -110,26 +116,28 @@ const SubscriptionDetail: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // 입력 값과 이름 추출
 
     if (name.startsWith('ott.')) {
-      const [_, key] = name.split('.');
+      // OTT 관련 필드일 경우
+      const [_, key] = name.split('.'); // key 추출
       setFormData((prevFormData) => ({
         ...prevFormData,
         ott: {
           ...prevFormData.ott,
-          [key]: value,
+          [key]: value, // OTT 데이터 업데이트
         },
       }));
     } else {
+      // 일반 필드일 경우
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]:
           name === 'payment' || name === 'paymentDate'
             ? value === ''
-              ? 0
-              : parseInt(value)
-            : value,
+              ? 0 // 입력 값이 비어있으면 0으로 설정
+              : parseInt(value) // 숫자로 변환
+            : value, // 기타 필드는 값 그대로 설정
       }));
     }
   };
@@ -140,7 +148,7 @@ const SubscriptionDetail: React.FC = () => {
         <NewTopBar title="구독 정보" />
       </S.TitleWrapper>
       <S.Container>
-        {subscription && (
+        {subscription && ( // 구독 정보가 있을 경우
           <>
             <S.Header>
               <S.Image

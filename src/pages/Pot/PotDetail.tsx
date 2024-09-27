@@ -6,45 +6,48 @@ import axiosInstance from '../../libs/AxiosInstance';
 import LoadingPage from '../Loading/LoadingPage';
 
 const PotDetail: React.FC = () => {
-  const { potId } = useParams();
+  const { potId } = useParams(); // URL 파라미터에서 potId 추출
   const navigate = useNavigate();
-  const [potDetail, setPotDetail] = useState<any>(null);
+  const [potDetail, setPotDetail] = useState<any>(null); // 팟 상세 정보 상태 초기화
 
   const handleBack = () => {
     navigate(-1);
   };
 
   useEffect(() => {
+    // 팟 상세 정보를 불러오는 비동기 함수
     const fetchPotDetail = async () => {
       try {
         const response = await axiosInstance.get(`/api/pot/create/${potId}`);
-        setPotDetail(response.data);
-        console.log(response.data); //콘솔
+        setPotDetail(response.data); // 응답 데이터로 상태 업데이트
       } catch (error) {
         console.error('팟 상세정보 불러오기 에러:', error);
       }
     };
 
+    // potId가 존재할 경우에만 상세 정보 불러오기
     if (potId) {
-      fetchPotDetail();
+      fetchPotDetail(); // 팟 상세 정보 불러오기 함수 호출
     }
-  }, [potId]);
+  }, [potId]); // potId가 변경될 때마다 실행
 
   if (!potDetail) {
-    return <LoadingPage />;
+    return <LoadingPage />; // 팟 상세 정보가 없으면 로딩 페이지 표시
   }
 
   const handleMemberClick = () => {
-    navigate(`/PotMember/${potId}`); // potId를 포함한 멤버 페이지로 이동
+    navigate(`/PotMember/${potId}`); // 멤버 페이지로 이동하는 함수
   };
 
   return (
     <S.PotDetailWrapper>
       <S.TitleWrapper>
         <S.TopBarContainer>
-          <S.BackButton onClick={handleBack}>&lt;</S.BackButton>
+          <S.BackButton onClick={handleBack}>&lt;</S.BackButton>{' '}
+          {/* 뒤로가기 버튼 */}
           <S.Title>POT</S.Title>
-          <IoMdPerson size={23} onClick={handleMemberClick} />
+          <IoMdPerson size={23} onClick={handleMemberClick} />{' '}
+          {/* 멤버 페이지로 이동 */}
         </S.TopBarContainer>
       </S.TitleWrapper>
 
@@ -81,9 +84,9 @@ const PotDetail: React.FC = () => {
           <S.Text>
             {potDetail.depositAccount
               ? potDetail.depositAccount
-              : '계좌 정보 없음'}
+              : '계좌 정보 없음'}{' '}
+            {/* 계좌 정보가 없을 경우 '계좌 정보 없음' 표시 */}
           </S.Text>{' '}
-          {/* null 처리 */}
         </S.Section>
         <S.Divider />
       </S.Container>

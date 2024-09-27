@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NewTopBar from '../../components/TopBar/NewTopBar';
 import ActionButton from '../../components/common/ActionButton';
 
+// OTT 옵션 배열
 const ottOptions = [
   {
     ott_name: '넷플릭스',
@@ -53,21 +54,25 @@ const MakePot: React.FC = () => {
   const [date, setDate] = useState('1');
   const [account, setAccount] = useState('');
 
+  // OTT 변경 시 선택된 OTT의 요금제를 초기화하는 핸들러
   const handleOttChange = (selectedOttName: string) => {
     const selectedOtt =
       ottOptions.find((option) => option.ott_name === selectedOttName) ||
       ottOptions[0];
     setOtt(selectedOtt);
-    setPlan(selectedOtt.rate_plans[0]);
+    setPlan(selectedOtt.rate_plans[0]); // 새로운 OTT의 첫 번째 요금제로 설정
   };
 
+  // 폼 제출 저장 핸들러
   const handleSubmit = async () => {
     if (!name || !account) {
+      // 필수 입력값이 비어있으면 오류 메시지 출력
       toast.error('모든 값을 입력해주세요!');
       return;
     }
 
     try {
+      // POT 생성 API 호출
       await axiosInstance.post('/api/pot/create', {
         name: name,
         ottName: ott.ott_name,
@@ -87,6 +92,7 @@ const MakePot: React.FC = () => {
       toast.error('등록에 실패했어요.');
     }
   };
+  // 1일부터 31일까지의 정기결제일 옵션 배열
   const dateOptions = Array.from({ length: 31 }, (_, i) => i + 1);
 
   return (

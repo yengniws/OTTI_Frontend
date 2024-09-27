@@ -6,18 +6,21 @@ import BottomNavBar from '../../components/BottomBar/BottomNavBar';
 import MyPageTopBar from '../../components/TopBar/MyPageTopBar';
 import LoadingPage from '../../pages/Loading/LoadingPage'; // 로딩 페이지 임포트
 
+// 사용자 프로필 인터페이스
 interface UserProfile {
   profilePhotoUrl: string;
   username: string;
 }
 
+// 기본 프로필 이미지 URL
 const defaultuser_image =
   'https://otti-bucket-2024.s3.ap-northeast-2.amazonaws.com/otti-image/otti.png';
 
 const Mypage: React.FC = () => {
+  // 프로필 상태 초기화
   const [profile, setProfile] = useState<UserProfile>({
-    profilePhotoUrl: defaultuser_image,
-    username: '',
+    profilePhotoUrl: defaultuser_image, // 기본 이미지 설정
+    username: '', // 초기 사용자 이름 비워두기
   });
   const [loading, setLoading] = useState(true); // 로딩 상태 추가
   const navigate = useNavigate();
@@ -25,10 +28,11 @@ const Mypage: React.FC = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
+        // 사용자 프로필 정보를 API로 불러옴
         const response = await axiosInstance.get('/api/users/profile/user');
         const profilePhotoUrl =
-          response.data.profilePhotoUrl || defaultuser_image;
-        setProfile({ ...response.data, profilePhotoUrl });
+          response.data.profilePhotoUrl || defaultuser_image; // 프로필 사진 URL이 없을 경우 기본 이미지로 설정
+        setProfile({ ...response.data, profilePhotoUrl }); // 프로필 상태 업데이트
       } catch (error) {
         console.error('프로필 불러오기 오류:', error);
       }
@@ -39,12 +43,12 @@ const Mypage: React.FC = () => {
       const startTime = Date.now(); // 로딩 시작 시간 기록
       await fetchUserProfile(); // API 호출
       const elapsedTime = Date.now() - startTime; // API 호출에 걸린 시간 계산
-      const delay = Math.max(0, 2000 - elapsedTime); // 2초가 안 지났다면 남은 시간만큼 기다리기
+      const delay = Math.max(0, 1500 - elapsedTime); // 1.5초가 안 지났다면 남은 시간만큼 기다리기
 
-      setTimeout(() => setLoading(false), delay); // 최소 2초 후에 로딩 종료
+      setTimeout(() => setLoading(false), delay); // 최소 1.5초 후에 로딩 종료
     };
 
-    loadProfile();
+    loadProfile(); // 프로필 로드 시작
   }, []);
 
   const navigateTo = (path: string) => {
