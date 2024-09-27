@@ -39,4 +39,5 @@ export const ottOptions = [
   },
 ];
 
+// 정기결제일 선택을 위한 옵션 (1일부터 31일까지)
 export const dateOptions = Array.from({ length: 31 }, (_, i) => `${i + 1}`);
